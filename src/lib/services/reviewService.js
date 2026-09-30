@@ -2,7 +2,7 @@
 
 // src/lib/services/reviewService.js
 import { query } from "@/lib/db";
-import { rowsToDocs, insertDocRow, deleteDocRow } from "@/lib/sqlHelpers";
+import { rowsToDocs, insertDocRow, updateDocRow, deleteDocRow } from "@/lib/sqlHelpers";
 import { requireAdmin } from "@/lib/auth";
 import { updateHotel } from "./hotelService";
 import { updateRestaurant } from "./restaurantService";
@@ -55,7 +55,7 @@ export async function createReview(data) {
 
 export async function approveReview(reviewId, entityType, entityId) {
   await requireAdmin();
-  await query(`UPDATE ${TABLE} SET approved = 1, data = JSON_SET(data, '$.approved', true) WHERE id = ?`, [reviewId]);
+  await updateDocRow(TABLE, reviewId, { approved: true }, { approved: 1 });
   await recalculateEntityRating(entityType, entityId);
 }
 
@@ -70,18 +70,22 @@ export async function deleteReview(reviewId) {
   await deleteDocRow(TABLE, reviewId);
 }
 
-// Recalculates rating/reviewCount for either a hotel or a restaurant
+// Recalculates rating/reviewCount for either a hotel or a restaurant.
+// `rating` lives inside each review's JSON `data` blob (there is no real
+// `rating` column on the `reviews` table — only entityType/entityId/approved
+// are mirrored), so it has to be read back out of `data`, not selected directly.
 export async function recalculateEntityRating(entityType, entityId) {
   await requireAdmin();
   const rows = await query(
-    `SELECT rating FROM ${TABLE} WHERE entityType = ? AND entityId = ? AND approved = 1`,
+    `SELECT data FROM ${TABLE} WHERE entityType = ? AND entityId = ? AND approved = 1`,
     [entityType, entityId]
   );
-  const reviewCount = rows.length;
+  const ratings = rows.map((row) => Number(JSON.parse(row.data).rating) || 0);
+  const reviewCount = ratings.length;
   const updates = reviewCount === 0
     ? { rating: 0, reviewCount: 0 }
     : {
-        rating: Math.round((rows.reduce((sum, r) => sum + (r.rating || 0), 0) / reviewCount) * 10) / 10,
+        rating: Math.round((ratings.reduce((sum, r) => sum + r, 0) / reviewCount) * 10) / 10,
         reviewCount,
       };
 
