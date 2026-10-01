@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
-import { FiSave, FiLoader } from "react-icons/fi";
+import { FiSave, FiLoader, FiAlertTriangle } from "react-icons/fi";
 import ImageUploader from "@/components/admin/ImageUploader";
 import {
   getSiteSettings,
@@ -20,20 +20,40 @@ export default function AdminSettingsPage() {
   const [logo, setLogo] = useState(null);
   const [originalLogo, setOriginalLogo] = useState(null);
 
+  // Uploading a file only stages it in local state — nothing is written to
+  // the database until "Save Settings" is clicked. This tracks that gap so
+  // the admin can never lose an upload by refreshing/navigating away
+  // without realizing it hadn't been saved yet.
+  const hasUnsavedChanges =
+    logo?.publicId !== originalLogo?.publicId ||
+    heroImage?.publicId !== originalHeroImage?.publicId;
+
   useEffect(() => {
     getSiteSettings().then((settings) => {
       setHeroImage(settings.heroImage || null);
       setOriginalHeroImage(settings.heroImage || null);
-      setLogo(settings.logo || null); // ⬅️ ADD
-      setOriginalLogo(settings.logo || null); // ⬅️ ADD
+      setLogo(settings.logo || null);
+      setOriginalLogo(settings.logo || null);
       setIsLoading(false);
     });
   }, []);
 
+  // Warn before closing/refreshing the tab with an unsaved upload —
+  // this is exactly the situation that made a logo "disappear" before.
+  useEffect(() => {
+    if (!hasUnsavedChanges) return;
+    const handler = (e) => {
+      e.preventDefault();
+      e.returnValue = "";
+    };
+    window.addEventListener("beforeunload", handler);
+    return () => window.removeEventListener("beforeunload", handler);
+  }, [hasUnsavedChanges]);
+
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      await updateSiteSettings({ heroImage, logo }); // ⬅️ include logo
+      await updateSiteSettings({ heroImage, logo });
 
       if (
         originalHeroImage?.publicId &&
@@ -42,17 +62,16 @@ export default function AdminSettingsPage() {
         await deleteImage(originalHeroImage.publicId);
       }
       if (originalLogo?.publicId && originalLogo.publicId !== logo?.publicId) {
-        // ⬅️ ADD
         await deleteImage(originalLogo.publicId);
       }
 
       await triggerRevalidation(["/"]);
       setOriginalHeroImage(heroImage);
-      setOriginalLogo(logo); // ⬅️ ADD
+      setOriginalLogo(logo);
       toast.success("Settings saved");
     } catch (error) {
       console.error("Save settings error:", error);
-      toast.error("Failed to save settings");
+      toast.error("Failed to save settings — your upload is NOT saved yet. Please try again before leaving this page.");
     } finally {
       setIsSaving(false);
     }
@@ -68,6 +87,15 @@ export default function AdminSettingsPage() {
 
   return (
     <div className="max-w-2xl space-y-6">
+      {hasUnsavedChanges && (
+        <div className="flex items-center gap-2 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 text-sm px-4 py-3">
+          <FiAlertTriangle className="shrink-0" />
+          You have unsaved changes. Uploading an image does not save it —
+          click <strong className="mx-1">Save Settings</strong> below, or your
+          upload will be lost if you leave this page.
+        </div>
+      )}
+
       <div className="card p-6">
         <h2 className="font-display font-semibold text-lg text-primary mb-1">
           Site Logo
@@ -81,7 +109,7 @@ export default function AdminSettingsPage() {
           onChange={setLogo}
           folder="site-settings"
           label="Logo"
-        /> 
+        />
       </div>
       <div className="card p-6">
         <h2 className="font-display font-semibold text-lg text-primary mb-1">
@@ -91,16 +119,16 @@ export default function AdminSettingsPage() {
           The background image shown behind the homepage search bar.
           Recommended: a wide landscape photo, at least 1920px wide.
         </p>
-       <ImageUploader value={heroImage} onChange={setHeroImage} folder="site-settings" label="Hero Banner Image" minWidth={1920} minHeight={1080} />
+        <ImageUploader value={heroImage} onChange={setHeroImage} folder="site-settings" label="Hero Banner Image" minWidth={1920} minHeight={1080} />
       </div>
 
       <button
         onClick={handleSave}
-        disabled={isSaving}
+        disabled={isSaving || !hasUnsavedChanges}
         className="btn-primary flex items-center gap-2 disabled:opacity-60"
       >
         {isSaving ? <FiLoader className="animate-spin" /> : <FiSave />}
-        {isSaving ? "Saving..." : "Save Settings"}
+        {isSaving ? "Saving..." : hasUnsavedChanges ? "Save Settings" : "Saved"}
       </button>
     </div>
   );
