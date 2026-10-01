@@ -24,6 +24,12 @@ const nextConfig = {
     minimumCacheTTL: 2678400,
   },
 
+    async rewrites() {
+    return [
+      { source: "/uploads/:path*", destination: "/api/serve-upload/:path*" },
+    ];
+  },
+
   experimental: {
     serverActions: {
       bodySizeLimit: "10mb",
