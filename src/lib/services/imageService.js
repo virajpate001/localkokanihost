@@ -10,7 +10,7 @@
 // that isn't tracked by Git — including every uploaded image — gets wiped the
 // next time you push code. Writing outside the repo entirely means a new
 // deployment can never touch it.
-import fs from "fs/promises";
+import fs from "fs/promises"; 
 import path from "path"; 
 import { randomUUID } from "crypto";
 import { getAdminSession, getOwnerSession } from "@/lib/auth";
