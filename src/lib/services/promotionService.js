@@ -8,6 +8,8 @@ import { updateHotel } from "./hotelService";
 import { updateRestaurant } from "./restaurantService";
 
 import { DURATIONS, addDays } from "@/lib/promotionConstants";
+
+const TABLE = "promotionRequests";
 const PRICING_KEY = "promotionPricing:config";
 const CRON_STATUS_KEY = "systemStatus:promotionCron";
 

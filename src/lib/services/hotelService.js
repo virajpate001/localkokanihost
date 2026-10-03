@@ -3,7 +3,7 @@
 // src/lib/services/hotelService.js
 import { query } from "@/lib/db";
 import { rowToDoc, rowsToDocs, insertDocRow, updateDocRow, deleteDocRow, nowSql } from "@/lib/sqlHelpers";
-import { requireAdmin, getOwnerSession } from "@/lib/auth";
+import { requireAdmin, requireAdminOrOwnerSelf } from "@/lib/auth";
 
 const TABLE = "hotels";
 
@@ -110,8 +110,7 @@ export async function getSponsoredHotelsByDestination(destinationId, limitCount 
 }
 
 export async function getHotelsByOwner(ownerId) {
-  const session = await getOwnerSession();
-  if (!session || session.uid !== ownerId) throw new Error("UNAUTHORIZED");
+  await requireAdminOrOwnerSelf(ownerId);
   const rows = await query(`SELECT * FROM ${TABLE} WHERE ownerId = ? ORDER BY createdAt DESC`, [ownerId]);
   return rowsToDocs(rows);
 }
