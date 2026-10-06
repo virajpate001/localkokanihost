@@ -19,13 +19,13 @@ function TouristPlaceCard({ place }) {
             sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 25vw"
             className="object-cover"
           />
-          <span className={`absolute top-3 left-3 flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-lg backdrop-blur-sm ${getCategoryColor(place.category)}`}>
+          <span className={`absolute top-3 left-3 flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-lg backdrop-blur-sm bg-black ${getCategoryColor(place.category)}`}>
             <Icon className="text-xs" /> {place.category}
           </span>
         </div>
       ) : (
         <div className="p-5 pb-0">
-          <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-lg ${getCategoryColor(place.category)}`}>
+          <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-lg bg-black ${getCategoryColor(place.category)}`}>
             <Icon className="text-xs" /> {place.category}
           </span>
         </div>
@@ -58,7 +58,7 @@ export default function TouristPlacesSection({ places = [], destinationName }) {
     <section className="py-16 bg-white dark:bg-gray-950">
       <div className="container-custom">
         <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
-          <h2 className="section-title">Tourist Places in {destinationName}</h2>
+          <h2 className="section-title">Tourist places to visit in and around {destinationName}</h2>
 
           {categories.length > 2 && (
             <div className="flex flex-wrap gap-2">

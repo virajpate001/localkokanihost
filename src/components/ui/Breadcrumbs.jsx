@@ -28,7 +28,7 @@ export default function Breadcrumbs({ items }) {
                 <span className="text-white  dark:text-white font-medium">{item.name}</span>
               ) : (
                 <>
-                  <Link href={item.url} className="text-white hover:text-primary dark:text-white">
+                  <Link href={item.url} className="text-white dark:text-white">
                     {item.name}
                   </Link>
                   <FiChevronRight className="text-gray-300" />
