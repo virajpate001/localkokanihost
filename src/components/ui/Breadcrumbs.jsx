@@ -17,7 +17,7 @@ export default function Breadcrumbs({ items }) {
       <nav aria-label="Breadcrumb" className="container-custom py-1">
         <ol className="flex items-center flex-wrap gap-1.5 text-sm dark:text-gray-500">
           <li className="flex items-center gap-1.5">
-            <Link href="/" className="text-white hover:text-primary dark:text-white flex items-center gap-1">
+            <Link href="/" className="text-white  dark:text-white flex items-center gap-1">
               <FiHome /> Home
             </Link>
             <FiChevronRight className="text-gray-300" />

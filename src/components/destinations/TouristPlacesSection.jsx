@@ -3,7 +3,42 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
+import CardCarousel from "@/components/ui/CardCarousel";
 import { getCategoryIcon, getCategoryColor } from "@/lib/touristPlaceCategories";
+
+function TouristPlaceCard({ place }) {
+  const Icon = getCategoryIcon(place.category);
+  return (
+    <div className="card overflow-hidden h-full">
+      {place.image?.url ? (
+        <div className="relative aspect-[16/10]">
+          <Image
+            src={place.image.url}
+            alt={place.name}
+            fill
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 25vw"
+            className="object-cover"
+          />
+          <span className={`absolute top-3 left-3 flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-lg backdrop-blur-sm ${getCategoryColor(place.category)}`}>
+            <Icon className="text-xs" /> {place.category}
+          </span>
+        </div>
+      ) : (
+        <div className="p-5 pb-0">
+          <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-lg ${getCategoryColor(place.category)}`}>
+            <Icon className="text-xs" /> {place.category}
+          </span>
+        </div>
+      )}
+      <div className="p-5">
+        <h3 className="font-display font-semibold text-primary dark:text-white">{place.name}</h3>
+        {place.description && (
+          <p className="text-gray-500 text-sm mt-1.5 leading-relaxed">{place.description}</p>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function TouristPlacesSection({ places = [], destinationName }) {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -13,8 +48,8 @@ export default function TouristPlacesSection({ places = [], destinationName }) {
 
   const categories = useMemo(() => {
     const unique = [...new Set(validPlaces.map((p) => p.category))];
-    return ["All", ...unique]; 
-  }, [validPlaces]);  
+    return ["All", ...unique];
+  }, [validPlaces]);
 
   const filteredPlaces =
     activeCategory === "All" ? validPlaces : validPlaces.filter((p) => p.category === activeCategory);
@@ -42,43 +77,17 @@ export default function TouristPlacesSection({ places = [], destinationName }) {
               ))}
             </div>
           )}
-        </div> 
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {filteredPlaces.map((place, index) => {
-            const Icon = getCategoryIcon(place.category);
-            return (
-              <div key={index} className="card overflow-hidden">
-                {place.image?.url ? (
-                  <div className="relative aspect-[16/10]">
-                    <Image
-                      src={place.image.url}
-                      alt={place.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover"
-                    />
-                    <span className={`absolute top-3 left-3 flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-lg backdrop-blur-sm ${getCategoryColor(place.category)}`}>
-                      <Icon className="text-xs" /> {place.category}
-                    </span>
-                  </div>
-                ) : (
-                  <div className="p-5 pb-0">
-                    <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-lg ${getCategoryColor(place.category)}`}>
-                      <Icon className="text-xs" /> {place.category}
-                    </span>
-                  </div>
-                )}
-                <div className="p-5">
-                  <h3 className="font-display font-semibold text-primary dark:text-white">{place.name}</h3>
-                  {place.description && (
-                    <p className="text-gray-500 text-sm mt-1.5 leading-relaxed">{place.description}</p>
-                  )}
-                </div>
-              </div>
-            );
-          })}
         </div>
+
+        {/* key={activeCategory} forces a clean remount on filter change, so the
+            carousel always resets to the first slide instead of possibly
+            landing out-of-bounds when the filtered item count shrinks. */}
+        <CardCarousel
+          key={activeCategory}
+          items={filteredPlaces}
+          navPrefix="tourist-places"
+          renderItem={(place) => <TouristPlaceCard place={place} />}
+        />
       </div>
     </section>
   );
