@@ -285,7 +285,7 @@ export default function PrivacyPolicyPage() {
             <h2>7. Business Verification and Documents</h2>
             <p>
               LocalKokani may review business information and supporting
-              documents to determine whether a listing qualifies for a Verified
+              documents to determine whether a listing qualifies for a Premium
               badge.
             </p>
             <p>
@@ -294,13 +294,13 @@ export default function PrivacyPolicyPage() {
               information, business location, property information, or
               applicable registration and licence details.
             </p>
-            <p>
+            <p> 
               Verification documents are intended for review and should not be
               displayed publicly unless publication is necessary, lawful, and
               appropriately authorized.
             </p>
             <p>
-              We do not represent our internal verification badge as government
+              We do not represent our internal Premium badge as government
               certification or a guarantee of business quality.
             </p>
             <p>
@@ -315,7 +315,7 @@ export default function PrivacyPolicyPage() {
               to protect personal information from unauthorized access,
               alteration, disclosure, or destruction.
             </p>
-            <p>
+            <p> 
               Depending on our technical setup, safeguards may include access
               controls, authentication, secure connections, restricted document
               access, and backups.
@@ -465,9 +465,7 @@ export default function PrivacyPolicyPage() {
               <a href="mailto:localkokani001@gmail.com">
                 localkokani001@gmail.com
               </a>
-              <br />
-              <strong>Phone / WhatsApp:</strong>{" "}
-              <a href="tel:+919209543850">+91 9209543850</a>
+             
             </p>
             <p>
               Please include sufficient information to help us identify your
@@ -479,7 +477,7 @@ export default function PrivacyPolicyPage() {
             <p>
               <strong>LocalKokani</strong>
               <br />
-              <em>Discover Konkan. Stay Local.</em>
+              <em>Stay with Locals</em>
             </p>
           </div>
         </div>
