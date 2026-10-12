@@ -646,7 +646,7 @@ export default function PartnerRegistrationForm() {
             </button>
           )}
         </div>
-      </div>
+      </div> 
 
       {/* Agreement Modal */}
       {showAgreementModal && (

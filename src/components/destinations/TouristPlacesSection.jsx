@@ -25,7 +25,7 @@ function TouristPlaceCard({ place }) {
         </div>
       ) : (
         <div className="p-5 pb-0">
-          <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-lg bg-black ${getCategoryColor(place.category)}`}>
+          <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-lg  ${getCategoryColor(place.category)} bg-black`}>
             <Icon className="text-xs" /> {place.category}
           </span>
         </div>
