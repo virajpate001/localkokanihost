@@ -146,26 +146,26 @@ export default function Footer({ logoUrl }) {
 
 
         <div>
-          <h4 className="font-display font-semibold text-lg mb-4">Explore</h4>
+          <h4 className="font-display font-semibold text-lg mb-4">For Partners</h4>
           <ul className="space-y-2 text-white/70 text-sm">
             <li>
-              <Link href="/search" className="hover:text-accent">
-                Search
+              <Link href="/partner-with-us" className="hover:text-accent">
+                Partner with us
               </Link>
             </li>
             <li>
-              <Link href="/destinations" className="hover:text-accent">
-                Destinations
+              <Link href="/owner/login" className="hover:text-accent">
+                Partner Login
               </Link>
             </li>
             <li>
-              <Link href="/hotels" className="hover:text-accent">
-                Hotels
+              <Link href="/plans" className="hover:text-accent">
+                Partner Plans
               </Link>
             </li>
             <li>
-              <Link href="/restaurants" className="hover:text-accent">
-                Restaurants
+              <Link href="/partner-agreement" className="hover:text-accent">
+                Partner Agreement
               </Link>
             </li>
 
@@ -173,26 +173,41 @@ export default function Footer({ logoUrl }) {
         </div>
 
         <div>
-          <h4 className="font-display font-semibold text-lg mb-4">Company</h4>
+          <h4 className="font-display font-semibold text-lg mb-4">Legal</h4>
           <ul className="space-y-2 text-white/70 text-sm">
             <li>
-              <Link href="/about" className="hover:text-accent">
-                About Us
+              <Link href="/terms-and-conditions" className="hover:text-accent">
+                Terms & Conditions
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-accent">
-                Contact Us
+              <Link href="/terms-for-travelers" className="hover:text-accent">
+                Terms for Travelers
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="hover:text-accent">
-                Blog
+              <Link href="/terms-for-partners" className="hover:text-accent">
+                Terms for Partners
               </Link>
             </li>
             <li>
-              <Link href="/sitemap.xml" className="hover:text-accent">
-                Sitemap
+              <Link href="/privacy-policy" className="hover:text-accent">
+                Privacy Policy
+              </Link>
+            </li>
+             <li>
+              <Link href="/cancellation-policy" className="hover:text-accent">
+                Cancellation Policy
+              </Link>
+            </li>
+             <li>
+              <Link href="/disclaimer" className="hover:text-accent">
+                Disclaimer
+              </Link>
+            </li>
+             <li>
+              <Link href="/cookie-policy" className="hover:text-accent">
+                Cookie Policy
               </Link>
             </li>
           </ul>
