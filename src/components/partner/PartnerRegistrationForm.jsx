@@ -530,7 +530,7 @@ export default function PartnerRegistrationForm() {
                 <p className="font-display font-bold text-lg text-primary">Premium Plan</p>
                 <p className="text-2xl font-bold text-primary mt-1">Contact us</p>
                 <ul className="text-gray-500 text-sm mt-3 space-y-1">
-                  <li>• Verified badge</li>
+                  <li>• Premium badge</li>
                   <li>• Custom badge</li>
                   <li>• Direct WhatsApp enquiries to your number</li>
                   <li>• Google Maps location on your listing</li>
@@ -580,13 +580,14 @@ export default function PartnerRegistrationForm() {
               and maintain the standards described in this agreement. Commission or subscription
               terms apply based on your selected plan.
             </div>
-            <button
-              type="button"
-              onClick={() => setShowAgreementModal(true)}
+            <a
+              href="/partner-agreement"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-secondary font-medium text-sm hover:underline"
             >
               <FiExternalLink /> Read Full Agreement
-            </button>
+            </a>
           </div>
         )}
 

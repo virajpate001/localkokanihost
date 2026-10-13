@@ -44,7 +44,7 @@ export default function AboutPage() {
         <Breadcrumbs items={[{ name: "About Us", url: "/about" }]} />
       </div>
 
-      <section className="bg-hero-gradient py-16">
+      <section className="bg-primary py-8">
         <div className="container-custom text-center">
           <div className="w-14 h-14 mx-auto rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4">
             <FiMapPin className="text-accent text-2xl" />

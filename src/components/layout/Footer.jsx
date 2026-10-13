@@ -142,7 +142,7 @@ export default function Footer({ logoUrl }) {
         </div>
       </div>
 
-      <div className="container-custom py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+      <div className="container-custom py-16 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-10">
 
 
         <div>
@@ -195,17 +195,17 @@ export default function Footer({ logoUrl }) {
                 Privacy Policy
               </Link>
             </li>
-             <li>
+            <li>
               <Link href="/cancellation-policy" className="hover:text-accent">
                 Cancellation Policy
               </Link>
             </li>
-             <li>
+            <li>
               <Link href="/disclaimer" className="hover:text-accent">
                 Disclaimer
               </Link>
             </li>
-             <li>
+            <li>
               <Link href="/cookie-policy" className="hover:text-accent">
                 Cookie Policy
               </Link>
