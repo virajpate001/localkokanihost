@@ -14,7 +14,7 @@ import {
 import { FaWhatsapp } from 'react-icons/fa';
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { SITE_NAME } from "@/lib/siteConfig"; 
+import { SITE_NAME } from "@/lib/siteConfig";
 
 export default function Footer({ logoUrl }) {
   const year = new Date().getFullYear();
@@ -24,9 +24,9 @@ export default function Footer({ logoUrl }) {
 
   return (
     <footer className="bg-primary text-white ">
-      <div className="container-custom py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+      <div className="container-custom pt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
         <div>
-        <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center gap-2 mb-4">
             <div className="relative w-10 h-10 shrink-0">
               {logoUrl ? (
                 <Image src={logoUrl} alt={SITE_NAME} fill className="object-contain" />
@@ -66,6 +66,11 @@ export default function Footer({ logoUrl }) {
           <h4 className="font-display font-semibold text-lg mb-4">Explore</h4>
           <ul className="space-y-2 text-white/70 text-sm">
             <li>
+              <Link href="/search" className="hover:text-accent">
+                Search
+              </Link>
+            </li>
+            <li>
               <Link href="/destinations" className="hover:text-accent">
                 Destinations
               </Link>
@@ -76,10 +81,11 @@ export default function Footer({ logoUrl }) {
               </Link>
             </li>
             <li>
-              <Link href="/search" className="hover:text-accent">
-                Search
+              <Link href="/restaurants" className="hover:text-accent">
+                Restaurants
               </Link>
             </li>
+
           </ul>
         </div>
 
@@ -93,17 +99,17 @@ export default function Footer({ logoUrl }) {
             </li>
             <li>
               <Link href="/contact" className="hover:text-accent">
-                Contact
+                Contact Us
               </Link>
             </li>
             <li>
-              <Link href="/privacy-policy" className="hover:text-accent">
-                Privacy Policy
+              <Link href="/blog" className="hover:text-accent">
+                Blog
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="hover:text-accent">
-                Terms of Service
+              <Link href="/sitemap.xml" className="hover:text-accent">
+                Sitemap
               </Link>
             </li>
           </ul>
@@ -115,7 +121,7 @@ export default function Footer({ logoUrl }) {
           </h4>
           <ul className="space-y-3 text-white/70 text-sm">
             <li className="flex items-center gap-2">
-              <FiMail /> hello@Local Kokani.com
+              <FiMail /> localkokani001@gmail.com
             </li>
             <li className="flex items-center gap-2">
               <FiPhone /> +{whatsappNumber}
@@ -134,6 +140,118 @@ export default function Footer({ logoUrl }) {
             )}
           </ul>
         </div>
+      </div>
+
+      <div className="container-custom py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+
+
+        <div>
+          <h4 className="font-display font-semibold text-lg mb-4">Explore</h4>
+          <ul className="space-y-2 text-white/70 text-sm">
+            <li>
+              <Link href="/search" className="hover:text-accent">
+                Search
+              </Link>
+            </li>
+            <li>
+              <Link href="/destinations" className="hover:text-accent">
+                Destinations
+              </Link>
+            </li>
+            <li>
+              <Link href="/hotels" className="hover:text-accent">
+                Hotels
+              </Link>
+            </li>
+            <li>
+              <Link href="/restaurants" className="hover:text-accent">
+                Restaurants
+              </Link>
+            </li>
+
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-display font-semibold text-lg mb-4">Company</h4>
+          <ul className="space-y-2 text-white/70 text-sm">
+            <li>
+              <Link href="/about" className="hover:text-accent">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-accent">
+                Contact Us
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="hover:text-accent">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/sitemap.xml" className="hover:text-accent">
+                Sitemap
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-display font-semibold text-lg mb-4">Other</h4>
+          <ul className="space-y-2 text-white/70 text-sm">
+            <li>
+              <Link href="/search" className="hover:text-accent">
+                Search
+              </Link>
+            </li>
+            <li>
+              <Link href="/destinations" className="hover:text-accent">
+                Destinations
+              </Link>
+            </li>
+            <li>
+              <Link href="/hotels" className="hover:text-accent">
+                Hotels
+              </Link>
+            </li>
+            <li>
+              <Link href="/restaurants" className="hover:text-accent">
+                Restaurants
+              </Link>
+            </li>
+
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-display font-semibold text-lg mb-4">Other</h4>
+          <ul className="space-y-2 text-white/70 text-sm">
+            <li>
+              <Link href="/about" className="hover:text-accent">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-accent">
+                Contact Us
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="hover:text-accent">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/sitemap.xml" className="hover:text-accent">
+                Sitemap
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+
       </div>
 
       <div className="border-t border-white/10 py-5">
