@@ -8,7 +8,8 @@
 const guide = {
   slug: "family-friendly-hotels-diveagar",
   metaTitle: "Family-Friendly Hotels in Diveagar: Rooms, Meals & Beach Access",
-  metaDescription: "Find good hotels in Diveagar for families: family rooms, children's meals, pools and short walks to the beach. Plan your stay and get the right questions to ask.",
+  metaDescription:
+    "Find good hotels in Diveagar for families: family rooms, children's meals, pools and short walks to the beach. Plan your stay and get the right questions to ask.",
   trail: [
     {
       name: "Diveagar Travel Guide",
@@ -129,8 +130,10 @@ const guide = {
           },
         ],
       },
-      message: "Hi, I found {name} on {site}. We are travelling with children. Please share availability, rates, and how children are counted for the room. Dates: ___ . Guests: ___ .",
-      empty: "No stays match this filter yet. Choose another, or message us on WhatsApp and we will help you find one.",
+      message:
+        "Hi, I found {name} on {site}. We are travelling with children. Please share availability, rates, and how children are counted for the room. Dates: ___ . Guests: ___ .",
+      empty:
+        "No stays match this filter yet. Choose another, or message us on WhatsApp and we will help you find one.",
       cta: "Check availability on WhatsApp",
     },
     {
@@ -262,7 +265,7 @@ Ready to book? Read [how to book Diveagar hotels](guide:how-to-book-diveagar-hot
             },
             {
               q: "Are there Diveagar hotels with a children's pool?",
-              a: "Some stays report one. Use the \"Children's pool\" filter above and see [hotels with a swimming pool](guide:diveagar-hotels-with-swimming-pool). Always supervise children near water.",
+              a: 'Some stays report one. Use the "Children\'s pool" filter above and see [hotels with a swimming pool](guide:diveagar-hotels-with-swimming-pool). Always supervise children near water.',
             },
             {
               q: "Do hotels in Diveagar charge for children?",
@@ -367,7 +370,8 @@ Ready to book? Read [how to book Diveagar hotels](guide:how-to-book-diveagar-hot
           ],
         },
       ],
-      footer: "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
+      footer:
+        "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
     },
   ],
 };

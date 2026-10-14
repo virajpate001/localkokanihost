@@ -16,6 +16,8 @@ import FamilyPlanner from "./FamilyPlanner";
 import ClaimChecker from "./ClaimChecker";
 import HubSteps from "./HubSteps";
 import { AnswerBox, PlanBand, ClusterGrid, ProseBand, CtaBand } from "./GuideBands";
+import QuizBlock from "./QuizBlock";
+
 
 export default async function GuidePage({ guide }) {
   const live = await getLiveSlugs();
@@ -59,6 +61,8 @@ export default async function GuidePage({ guide }) {
         return <ProseBand key={i} block={block} live={live} />;
       case "cta":
         return <CtaBand key={i} block={block} live={live} />;
+        case "quiz":
+  return <QuizBlock key={i} block={block} live={live} />;
       default:
         return null;
     }
