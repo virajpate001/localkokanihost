@@ -10,7 +10,8 @@ import { SITE_NAME } from "@/lib/siteConfig";
 const guide = {
   slug: "diveagar-turtle-resort-stays",
   metaTitle: "Turtle Resort in Diveagar? What to Know Before You Book",
-  metaDescription: "Is there a turtle resort in Diveagar? Learn what turtle-related stays really offer, how to check a hotel's claim, and how to watch turtles responsibly.",
+  metaDescription:
+    "Is there a turtle resort in Diveagar? Learn what turtle-related stays really offer, how to check a hotel's claim, and how to watch turtles responsibly.",
   trail: [
     {
       name: "Diveagar Travel Guide",
@@ -130,7 +131,8 @@ Before you choose a stay because of turtles, ask the hotel the questions below, 
         tail: "Please share availability and rates. Dates: ___ . Guests: ___ .",
       },
       cta: "Ask on WhatsApp",
-      empty: "No stays match this filter yet. Choose another, or message us on WhatsApp and we will help you find one.",
+      empty:
+        "No stays match this filter yet. Choose another, or message us on WhatsApp and we will help you find one.",
     },
     {
       type: "checker",
@@ -156,7 +158,8 @@ Before you choose a stay because of turtles, ask the hotel the questions below, 
         "Keeps turtles in tanks or enclosures for guests to view",
       ],
       message: {
-        intro: "Hi, I am considering {hotel} from {site} and I am interested in turtle-related activity. Could you please tell me:",
+        intro:
+          "Hi, I am considering {hotel} from {site} and I am interested in turtle-related activity. Could you please tell me:",
         questions: [
           "Which beach or site do turtles nest at, or where are hatchlings released?",
           "In which months does this happen, and does it vary by year?",
@@ -229,6 +232,7 @@ If a hotel offers a turtle experience that breaks these rules, treat that as a r
 - For something special, compare [luxury hotels and resorts](guide:luxury-hotels-resorts-diveagar). Travelling with children? See [family-friendly hotels](guide:family-friendly-hotels-diveagar).
 - Pick your dates with the [best time to visit Diveagar](guide:best-time-to-visit-diveagar) and the [best month for the beach](guide:best-month-diveagar-beach).
 - Find other things to do in [what Diveagar is famous for](guide:what-is-diveagar-famous-for) and [things to do at the beach](guide:diveagar-beach-things-to-do).
+- Still deciding if Diveagar is right for you? Read [is Diveagar worth visiting](guide:is-diveagar-worth-visiting).
 - Compare nearby coastal destinations in [best Konkan beaches compared](guide:best-konkan-beaches-compared).
 
 Ready to book? Read [how to book Diveagar hotels](guide:how-to-book-diveagar-hotels).`,
@@ -355,7 +359,8 @@ Ready to book? Read [how to book Diveagar hotels](guide:how-to-book-diveagar-hot
           ],
         },
       ],
-      footer: "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
+      footer:
+        "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
     },
   ],
 };

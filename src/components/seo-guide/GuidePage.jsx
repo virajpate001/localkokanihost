@@ -17,6 +17,7 @@ import ClaimChecker from "./ClaimChecker";
 import HubSteps from "./HubSteps";
 import { AnswerBox, PlanBand, ClusterGrid, ProseBand, CtaBand } from "./GuideBands";
 import QuizBlock from "./QuizBlock";
+import HighlightsBlock from "./HighlightsBlock";
 
 
 export default async function GuidePage({ guide }) {
@@ -61,8 +62,10 @@ export default async function GuidePage({ guide }) {
         return <ProseBand key={i} block={block} live={live} />;
       case "cta":
         return <CtaBand key={i} block={block} live={live} />;
-        case "quiz":
-  return <QuizBlock key={i} block={block} live={live} />;
+      case "quiz":
+        return <QuizBlock key={i} block={block} live={live} />;
+      case "highlights":
+        return <HighlightsBlock key={i} block={block} live={live} whatsapp={whatsapp} />;
       default:
         return null;
     }
