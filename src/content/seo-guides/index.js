@@ -9,8 +9,9 @@ import luxury from "./luxury-hotels-resorts-diveagar";
 import pool from "./diveagar-hotels-with-swimming-pool";
 import family from "./family-friendly-hotels-diveagar";
 import turtle from "./diveagar-turtle-resort-stays";
+import worthVisiting from "./is-diveagar-worth-visiting";
 
-const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle];
+const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 
 export const getGuide = (slug) => BY_SLUG.get(slug) || null;
