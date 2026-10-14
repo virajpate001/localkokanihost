@@ -599,7 +599,7 @@ export default function PartnerRegistrationForm() {
               { key: "acceptOwnerAuthorized", label: "I confirm that I am the property owner or an authorized representative of the property." },
               { key: "acceptInfoAccurate", label: "I confirm that all information submitted in this registration is accurate and up to date." },
               { key: "acceptPartnerAgreement", label: "I have read and agree to the Hotel Partner Agreement." },
-              { key: "acceptTerms", label: "I agree to the Terms for Hotel Owners." },
+              { key: "acceptTerms", label: "I agree to the Terms for  Owners." },
               { key: "acceptPrivacyPolicy", label: "I have read the Privacy Policy." },
               { key: "acceptCommission", label: "I agree to the applicable commission or subscription fee for my selected plan." },
             ].map((item) => (

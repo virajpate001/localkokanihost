@@ -2,7 +2,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
-  getPublishedLandingPageBySlug, getAllPublishedLandingPages, resolveEntities,
+  getPublishedLandingPageBySlug,
+  getAllPublishedLandingPages,
+  resolveEntities,
 } from "@/lib/services/landingPageService";
 import { getHotelById } from "@/lib/services/hotelService";
 import { getRestaurantById } from "@/lib/services/restaurantService";
@@ -20,16 +22,27 @@ import { generateFaqSchema } from "@/utils/helpers";
 import Testimonials from "@/components/home/Testimonials";
 import { resolveAttractionsSection } from "@/lib/services/landingPageService";
 import { buildMetadata } from "@/utils/seo";
+import { getGuide, getAllGuideSlugs } from "@/content/seo-guides";
+import GuidePage from "@/components/seo-guide/GuidePage";
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const pages = await getAllPublishedLandingPages();
-  return pages.map((p) => ({ slug: p.slug }));
+  const slugs = new Set([...getAllGuideSlugs(), ...pages.map((p) => p.slug)]);
+  return [...slugs].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
+  const guide = getGuide(slug);
+  if (guide) {
+    return buildMetadata({
+      title: guide.metaTitle,
+      description: guide.metaDescription,
+      path: `/${guide.slug}`,
+    });
+  }
   const page = await getPublishedLandingPageBySlug(slug);
   if (!page) return { title: "Page Not Found" };
 
@@ -38,21 +51,38 @@ export async function generateMetadata({ params }) {
     description: page.seo?.metaDescription || page.subtitle,
     path: `/${page.slug}`,
     image: page.heroImage?.url,
-    keywords: page.seo?.keywords ? page.seo.keywords.split(",").map((k) => k.trim()) : [],
+    keywords: page.seo?.keywords
+      ? page.seo.keywords.split(",").map((k) => k.trim())
+      : [],
   });
 }
 
 export default async function LandingPage({ params }) {
   const { slug } = await params;
+  const guide = getGuide(slug);
+  if (guide) return <GuidePage guide={guide} />;
+  
   const page = await getPublishedLandingPageBySlug(slug);
 
   if (!page) notFound();
 
-   const [destinations, hotels, restaurants, getawayDestinations, resolvedAttractions] = await Promise.all([
-    resolveEntities(page.destinationsSection?.destinationIds, getDestinationById),
+  const [
+    destinations,
+    hotels,
+    restaurants,
+    getawayDestinations,
+    resolvedAttractions,
+  ] = await Promise.all([
+    resolveEntities(
+      page.destinationsSection?.destinationIds,
+      getDestinationById,
+    ),
     resolveEntities(page.hotelsSection?.hotelIds, getHotelById),
     resolveEntities(page.restaurantsSection?.restaurantIds, getRestaurantById),
-    resolveEntities(page.weekendGetawaysSection?.destinationIds, getDestinationById),
+    resolveEntities(
+      page.weekendGetawaysSection?.destinationIds,
+      getDestinationById,
+    ),
     resolveAttractionsSection(page.attractionsSection, getDestinationById), // ⬅️ ADD
   ]);
 
@@ -77,20 +107,34 @@ export default async function LandingPage({ params }) {
         <section className="py-16 ">
           <div className="container-custom">
             <div className="mb-10">
-              <h2 className="section-title">{page.destinationsSection.heading}</h2>
+              <h2 className="section-title">
+                {page.destinationsSection.heading}
+              </h2>
               {page.destinationsSection.description && (
-                <p className="text-gray-500 mt-3 max-w-2xl">{page.destinationsSection.description}</p>
+                <p className="text-gray-500 mt-3 max-w-2xl">
+                  {page.destinationsSection.description}
+                </p>
               )}
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
               {destinations.map((dest) => (
-                <Link key={dest.id} href={`/destinations/${dest.slug}`} className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-card hover:shadow-card-hover transition-all">
+                <Link
+                  key={dest.id}
+                  href={`/destinations/${dest.slug}`}
+                  className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-card hover:shadow-card-hover transition-all"
+                >
                   {dest.image?.url && (
-                    <img src={dest.image.url} alt={dest.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <img
+                      src={dest.image.url}
+                      alt={dest.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h3 className="font-display font-semibold text-lg">{dest.name}</h3>
+                    <h3 className="font-display font-semibold text-lg">
+                      {dest.name}
+                    </h3>
                   </div>
                 </Link>
               ))}
@@ -106,11 +150,15 @@ export default async function LandingPage({ params }) {
             <div className="mb-10">
               <h2 className="section-title">{page.hotelsSection.heading}</h2>
               {page.hotelsSection.description && (
-                <p className="text-gray-500 mt-3 max-w-2xl">{page.hotelsSection.description}</p>
+                <p className="text-gray-500 mt-3 max-w-2xl">
+                  {page.hotelsSection.description}
+                </p>
               )}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {hotels.map((hotel) => <HotelCard key={hotel.id} hotel={hotel} />)}
+              {hotels.map((hotel) => (
+                <HotelCard key={hotel.id} hotel={hotel} />
+              ))}
             </div>
           </div>
         </section>
@@ -121,13 +169,19 @@ export default async function LandingPage({ params }) {
         <section className="py-14">
           <div className="container-custom">
             <div className="mb-10">
-              <h2 className="section-title">{page.restaurantsSection.heading}</h2>
+              <h2 className="section-title">
+                {page.restaurantsSection.heading}
+              </h2>
               {page.restaurantsSection.description && (
-                <p className="text-gray-500 mt-3 max-w-2xl">{page.restaurantsSection.description}</p>
+                <p className="text-gray-500 mt-3 max-w-2xl">
+                  {page.restaurantsSection.description}
+                </p>
               )}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {restaurants.map((r) => <RestaurantCard key={r.id} restaurant={r} />)}
+              {restaurants.map((r) => (
+                <RestaurantCard key={r.id} restaurant={r} />
+              ))}
             </div>
           </div>
         </section>
@@ -138,43 +192,59 @@ export default async function LandingPage({ params }) {
         heading={page.whyBookSection?.heading}
         description={page.whyBookSection?.description}
         points={page.whyBookSection?.points}
-      /> 
+      />
 
       {/* Explore Region (long-form markdown) */}
       {page.exploreSection?.content && (
         <section className="py-14 ">
           <div className="container-custom max-w-3xl">
-            <h2 className="section-title mb-6">{page.exploreSection.heading}</h2>
+            <h2 className="section-title mb-6">
+              {page.exploreSection.heading}
+            </h2>
             <MarkdownContent content={page.exploreSection.content} />
           </div>
         </section>
       )}
 
       {/* Popular Attractions */}
-       <AttractionsSection
+      <AttractionsSection
         heading={resolvedAttractions.heading}
         attractions={resolvedAttractions.attractions}
-      /> 
+      />
 
       {/* Weekend Getaways */}
       {getawayDestinations.length > 0 && (
         <section className="py-14 bg-blue-50 dark:bg-gray-900">
           <div className="container-custom">
             <div className="mb-10">
-              <h2 className="section-title">{page.weekendGetawaysSection.heading}</h2>
+              <h2 className="section-title">
+                {page.weekendGetawaysSection.heading}
+              </h2>
               {page.weekendGetawaysSection.description && (
-                <p className="text-gray-500 mt-3 max-w-2xl">{page.weekendGetawaysSection.description}</p>
+                <p className="text-gray-500 mt-3 max-w-2xl">
+                  {page.weekendGetawaysSection.description}
+                </p>
               )}
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
               {getawayDestinations.map((dest) => (
-                <Link key={dest.id} href={`/destinations/${dest.slug}`} className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-card hover:shadow-card-hover transition-all">
+                <Link
+                  key={dest.id}
+                  href={`/destinations/${dest.slug}`}
+                  className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-card hover:shadow-card-hover transition-all"
+                >
                   {dest.image?.url && (
-                    <img src={dest.image.url} alt={dest.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <img
+                      src={dest.image.url}
+                      alt={dest.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h3 className="font-display font-semibold text-lg">{dest.name}</h3>
+                    <h3 className="font-display font-semibold text-lg">
+                      {dest.name}
+                    </h3>
                   </div>
                 </Link>
               ))}
@@ -186,7 +256,6 @@ export default async function LandingPage({ params }) {
       {/* Customer Reviews (reuses homepage Testimonials for now — shows real testimonial content) */}
       {page.reviewsSection?.heading && (
         <section className="">
-         
           <Testimonials />
         </section>
       )}
@@ -195,11 +264,18 @@ export default async function LandingPage({ params }) {
       {page.ownerCtaSection?.heading && (
         <section className="py-16 bg-hero-gradient">
           <div className="container-custom text-center">
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-white">{page.ownerCtaSection.heading}</h2>
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-white">
+              {page.ownerCtaSection.heading}
+            </h2>
             {page.ownerCtaSection.description && (
-              <p className="text-white/80 mt-3 max-w-lg mx-auto">{page.ownerCtaSection.description}</p>
+              <p className="text-white/80 mt-3 max-w-lg mx-auto">
+                {page.ownerCtaSection.description}
+              </p>
             )}
-            <Link href={page.ownerCtaSection.ctaLink || "/partner-with-us"} className="btn-accent inline-flex items-center gap-2 mt-6">
+            <Link
+              href={page.ownerCtaSection.ctaLink || "/partner-with-us"}
+              className="btn-accent inline-flex items-center gap-2 mt-6"
+            >
               {page.ownerCtaSection.ctaText || "Become a Partner"}
             </Link>
           </div>
@@ -220,7 +296,11 @@ export default async function LandingPage({ params }) {
       {page.seoContentSection?.content && (
         <section className="py-14 bg-blue-50 dark:bg-gray-900">
           <div className="container-custom max-w-3xl">
-            {page.seoContentSection.heading && <h2 className="section-title mb-6">{page.seoContentSection.heading}</h2>}
+            {page.seoContentSection.heading && (
+              <h2 className="section-title mb-6">
+                {page.seoContentSection.heading}
+              </h2>
+            )}
             <MarkdownContent content={page.seoContentSection.content} />
           </div>
         </section>
