@@ -6,12 +6,19 @@ import GuideMarkdown from "./GuideMarkdown";
 import { h2Cls, h3Cls, accentBtn } from "./guideStyles";
 
 export function AnswerBox({ block, live }) {
+   const now = block.now ? renderNow(block.now) : null;
+   
   return (
     <section className="pt-9">
       <div className="container-custom">
         <div className="card max-w-3xl border-l-8 border-accent !rounded-l-none p-6 md:p-7">
           <h2 className={`${h3Cls} mb-3`}>{block.heading}</h2>
           <GuideMarkdown md={block.md} live={live} />
+          {now && (
+            <div className="mt-3.5 rounded-xl bg-gray-50 dark:bg-gray-800/60 px-3.5 py-3 text-gray-800 dark:text-gray-200">
+              {now}
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -111,5 +118,28 @@ export function CtaBand({ block, live }) {
         )}
       </div>
     </section>
+  );
+}
+
+function renderNow(cfg) {
+  const month = new Date().getMonth() + 1;
+  const monthName = cfg.months[month - 1];
+  let seasonKey = null;
+  for (const [key, def] of Object.entries(cfg.seasons)) {
+    if (def.months.includes(month)) {
+      seasonKey = key;
+      break;
+    }
+  }
+  if (!seasonKey) return null;
+  const season = cfg.seasons[seasonKey];
+  const edge = season.edge?.[month] ? `${season.edge[month]} ` : "";
+
+  return (
+    <>
+      <strong>Right now ({monthName}): </strong>
+      {season.name} ({season.range}). {edge}
+      {season.watch}
+    </>
   );
 }

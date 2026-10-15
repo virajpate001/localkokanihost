@@ -18,6 +18,7 @@ import HubSteps from "./HubSteps";
 import { AnswerBox, PlanBand, ClusterGrid, ProseBand, CtaBand } from "./GuideBands";
 import QuizBlock from "./QuizBlock";
 import HighlightsBlock from "./HighlightsBlock";
+import SeasonMatcher from "./SeasonMatcher";
 
 
 export default async function GuidePage({ guide }) {
@@ -66,6 +67,8 @@ export default async function GuidePage({ guide }) {
         return <QuizBlock key={i} block={block} live={live} />;
       case "highlights":
         return <HighlightsBlock key={i} block={block} live={live} whatsapp={whatsapp} />;
+      case "seasonMatcher":
+        return <SeasonMatcher key={i} block={block} live={live} />;
       default:
         return null;
     }
