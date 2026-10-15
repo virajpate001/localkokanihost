@@ -1,25 +1,10 @@
 // src/content/seo-guides/best-month-diveagar-beach.js
-const months = [
-  { name: "January",   rating: "best",    beach: "Generally one of the most comfortable months for beach time, with a calmer sea.", weather: "Cooler and drier.", crowds: "Weekends and holidays are busier. Book early.", tip: "Pack a light layer for evenings." },
-  { name: "February",  rating: "best",    beach: "Generally comfortable for the beach, with a calm sea.", weather: "Warming up gradually.", crowds: "Weekends are busier than weekdays.", tip: "Book early for long weekends." },
-  { name: "March",     rating: "good",    beach: "Still good for the beach, though midday is getting warm.", weather: "The heat is building.", crowds: "Can be busy around holidays.", tip: "Plan beach time for morning and late afternoon." },
-  { name: "April",     rating: "fair",    beach: "Hot and humid. The beach is best in the early morning and evening.", weather: "Hot and humid.", crowds: "School holidays may bring families.", tip: "A stay with a pool helps." },
-  { name: "May",       rating: "fair",    beach: "Hot and humid, and the weather can turn unsettled late in the month.", weather: "Hot and humid, with the monsoon approaching.", crowds: "School holidays may bring families.", tip: "A stay with a pool helps. Ask about the weather before you go." },
-  { name: "June",      rating: "limited", beach: "The monsoon arrives, bringing rain and a rougher sea. Beach activities may be limited.", weather: "Rain, starting early or late depending on the year.", crowds: "Usually fewer visitors.", tip: "Ask your hotel what is open and safe." },
-  { name: "July",      rating: "limited", beach: "Peak monsoon. Heavy rain and a rough sea, and swimming is generally not advisable.", weather: "Heavy rain.", crowds: "Usually fewer visitors.", tip: "Choose a stay you would enjoy without beach time." },
-  { name: "August",    rating: "limited", beach: "Peak monsoon. Heavy rain and a rough sea, and swimming is generally not advisable.", weather: "Heavy rain.", crowds: "Usually fewer visitors.", tip: "Choose a stay you would enjoy without beach time." },
-  { name: "September", rating: "limited", beach: "The rain may ease later in the month, but the sea can still be rough.", weather: "Rain easing.", crowds: "Usually fewer visitors.", tip: "Check the current sea conditions with your hotel." },
-  { name: "October",   rating: "fair",    beach: "The monsoon is retreating. Late rain is possible and the sea may still be settling.", weather: "Mixed, with possible late rain.", crowds: "Building towards the busy season.", tip: "Ask your hotel about recent conditions." },
-  { name: "November",  rating: "best",    beach: "Generally comfortable weather and a calmer sea.", weather: "Cooler and drier.", crowds: "Busier around holidays. Book early.", tip: "A good month to plan a beach trip." },
-  { name: "December",  rating: "best",    beach: "Generally comfortable for the beach. Often the most popular time, especially around year-end holidays.", weather: "Cooler and drier.", crowds: "Often the busiest. Book well ahead.", tip: "Pack a light layer for evenings." },
-];
-
-const ratingLabels = {
-  best: "Best for the beach",
-  good: "Good",
-  fair: "Mixed",
-  limited: "Limited",
-};
+//
+// Content for the /best-month-diveagar-beach guide page. Rendered by <GuidePage> (see
+// src/components/seo-guide/GuidePage.jsx). Block types are documented in
+// src/content/seo-guides/README.md. Brand name comes from SITE_NAME so it
+// follows siteConfig. Links written as (guide:some-slug) only become real links
+// once that page exists; until then they render as plain text.
 
 const guide = {
   slug: "best-month-diveagar-beach",
@@ -79,33 +64,111 @@ This is a general pattern, and conditions change from year to year. Always check
       heading: "Diveagar Beach, month by month",
       sub: "Select a month. The labels describe the general pattern for beach time, not a forecast.",
       ariaLabel: "Choose a month",
-      layout: "calendar",
       hintEmpty: "Choose a month above to see what to expect.",
-      legend: [
-        { band: "best",    label: ratingLabels.best },
-        { band: "good",    label: ratingLabels.good },
-        { band: "fair",    label: ratingLabels.fair },
-        { band: "limited", label: ratingLabels.limited },
+      ratingLabels: {
+        best: "Best for the beach",
+        good: "Good",
+        fair: "Mixed",
+        limited: "Limited",
+      },
+      months: [
+        {
+          name: "January",
+          rating: "best",
+          beach: "Generally one of the most comfortable months for beach time, with a calmer sea.",
+          weather: "Cooler and drier.",
+          crowds: "Weekends and holidays are busier. Book early.",
+          tip: "Pack a light layer for evenings.",
+        },
+        {
+          name: "February",
+          rating: "best",
+          beach: "Generally comfortable for the beach, with a calm sea.",
+          weather: "Warming up gradually.",
+          crowds: "Weekends are busier than weekdays.",
+          tip: "Book early for long weekends.",
+        },
+        {
+          name: "March",
+          rating: "good",
+          beach: "Still good for the beach, though midday is getting warm.",
+          weather: "The heat is building.",
+          crowds: "Can be busy around holidays.",
+          tip: "Plan beach time for morning and late afternoon.",
+        },
+        {
+          name: "April",
+          rating: "fair",
+          beach: "Hot and humid. The beach is best in the early morning and evening.",
+          weather: "Hot and humid.",
+          crowds: "School holidays may bring families.",
+          tip: "A stay with a pool helps.",
+        },
+        {
+          name: "May",
+          rating: "fair",
+          beach: "Hot and humid, and the weather can turn unsettled late in the month.",
+          weather: "Hot and humid, with the monsoon approaching.",
+          crowds: "School holidays may bring families.",
+          tip: "A stay with a pool helps. Ask about the weather before you go.",
+        },
+        {
+          name: "June",
+          rating: "limited",
+          beach: "The monsoon arrives, bringing rain and a rougher sea. Beach activities may be limited.",
+          weather: "Rain, starting early or late depending on the year.",
+          crowds: "Usually fewer visitors.",
+          tip: "Ask your hotel what is open and safe.",
+        },
+        {
+          name: "July",
+          rating: "limited",
+          beach: "Peak monsoon. Heavy rain and a rough sea, and swimming is generally not advisable.",
+          weather: "Heavy rain.",
+          crowds: "Usually fewer visitors.",
+          tip: "Choose a stay you would enjoy without beach time.",
+        },
+        {
+          name: "August",
+          rating: "limited",
+          beach: "Peak monsoon. Heavy rain and a rough sea, and swimming is generally not advisable.",
+          weather: "Heavy rain.",
+          crowds: "Usually fewer visitors.",
+          tip: "Choose a stay you would enjoy without beach time.",
+        },
+        {
+          name: "September",
+          rating: "limited",
+          beach: "The rain may ease later in the month, but the sea can still be rough.",
+          weather: "Rain easing.",
+          crowds: "Usually fewer visitors.",
+          tip: "Check the current sea conditions with your hotel.",
+        },
+        {
+          name: "October",
+          rating: "fair",
+          beach: "The monsoon is retreating. Late rain is possible and the sea may still be settling.",
+          weather: "Mixed, with possible late rain.",
+          crowds: "Building towards the busy season.",
+          tip: "Ask your hotel about recent conditions.",
+        },
+        {
+          name: "November",
+          rating: "best",
+          beach: "Generally comfortable weather and a calmer sea.",
+          weather: "Cooler and drier.",
+          crowds: "Busier around holidays. Book early.",
+          tip: "A good month to plan a beach trip.",
+        },
+        {
+          name: "December",
+          rating: "best",
+          beach: "Generally comfortable for the beach. Often the most popular time, especially around year-end holidays.",
+          weather: "Cooler and drier.",
+          crowds: "Often the busiest. Book well ahead.",
+          tip: "Pack a light layer for evenings.",
+        },
       ],
-      options: months.map((m) => ({
-        key: m.name.toLowerCase(),
-        label: m.name.slice(0, 3),
-        sublabel: ratingLabels[m.rating],
-        band: m.rating,
-        title: m.name,
-        badge: ratingLabels[m.rating],
-        rows: [
-          { label: "Beach",   text: m.beach },
-          { label: "Weather", text: m.weather },
-          { label: "Crowds",  text: m.crowds },
-          { label: "Tip",     text: m.tip },
-        ],
-        next: [
-          { slug: "best-hotels-in-diveagar",     text: "choose a hotel" },
-          { slug: "how-to-book-diveagar-hotels", text: "learn how to book" },
-          { slug: "diveagar-2-day-itinerary",    text: "plan your days" },
-        ],
-      })),
     },
 
     {
@@ -113,8 +176,8 @@ This is a general pattern, and conditions change from year to year. Always check
       heading: "Making the most of your month",
       toc: [
         { id: "safety", label: "Beach safety" },
-        { id: "stay",   label: "Choose a stay by month" },
-        { id: "plan",   label: "Plan your trip" },
+        { id: "stay", label: "Choose a stay by month" },
+        { id: "plan", label: "Plan your trip" },
       ],
       sections: [
         {
