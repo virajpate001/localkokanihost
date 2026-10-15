@@ -19,7 +19,9 @@ import { AnswerBox, PlanBand, ClusterGrid, ProseBand, CtaBand } from "./GuideBan
 import QuizBlock from "./QuizBlock";
 import HighlightsBlock from "./HighlightsBlock";
 import SeasonMatcher from "./SeasonMatcher";
-
+import MonthCalendar from "./MonthCalendar";
+import RoutesBlock from "./RoutesBlock";
+import JourneyPlanner from "./JourneyPlanner";
 
 export default async function GuidePage({ guide }) {
   const live = await getLiveSlugs();
@@ -69,6 +71,12 @@ export default async function GuidePage({ guide }) {
         return <HighlightsBlock key={i} block={block} live={live} whatsapp={whatsapp} />;
       case "seasonMatcher":
         return <SeasonMatcher key={i} block={block} live={live} />;
+      case "monthCalendar":
+        return <MonthCalendar key={i} block={block} live={live} />;
+      case "routes":
+        return <RoutesBlock key={i} block={block} live={live} />;
+      case "journeyPlanner":
+        return <JourneyPlanner key={i} block={block} whatsapp={whatsapp} />;
       default:
         return null;
     }

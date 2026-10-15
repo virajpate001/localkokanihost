@@ -10,8 +10,7 @@ const guide = {
   ],
   hero: {
     h1: "Best time to visit Diveagar",
-    lead:
-      "The right season depends on what you want: calm sea and comfortable weather, green scenery, or quiet and lower prices. Choose your priority and we will match you with a season.",
+    lead: "The right season depends on what you want: calm sea and comfortable weather, green scenery, or quiet and lower prices. Choose your priority and we will match you with a season.",
     buttons: [
       { label: "Match me to a season", variant: "primary", href: "#match" },
       { label: "Compare the seasons", variant: "ghost", href: "#seasons" },
@@ -25,14 +24,28 @@ const guide = {
 
 Conditions change from year to year, so confirm the current situation with your hotel before you travel.`,
       now: {
-        months: ["January", "February", "March", "April", "May", "June",
-                 "July", "August", "September", "October", "November", "December"],
+        months: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ],
         seasons: {
           monsoon: {
             name: "Monsoon",
             range: "approx. June to September",
             months: [6, 7, 8, 9],
-            edge: { 6: "The monsoon is just starting, so rain can arrive early or late." },
+            edge: {
+              6: "The monsoon is just starting, so rain can arrive early or late.",
+            },
             watch:
               "Heavy rain and a rough sea. Beach activities and some facilities may be limited, so ask your hotel what is open.",
           },
@@ -48,7 +61,9 @@ Conditions change from year to year, so confirm the current situation with your 
             name: "Summer",
             range: "approx. March to May",
             months: [3, 4, 5],
-            edge: { 3: "The heat is building, so mornings and evenings are the most comfortable." },
+            edge: {
+              3: "The heat is building, so mornings and evenings are the most comfortable.",
+            },
             watch:
               "Hot and humid. Plan beach time for early morning and evening, and consider a stay with a pool.",
           },
@@ -85,18 +100,42 @@ Conditions change from year to year, so confirm the current situation with your 
         },
       },
       priorities: [
-        { key: "weather", label: "Comfortable weather", season: "cooler",
-          why: "The cooler months are usually the most comfortable for most people." },
-        { key: "beach", label: "Swimming and beach time", season: "cooler",
-          why: "The sea is generally calmer in the cooler months. Always ask your hotel what is safe on your dates." },
-        { key: "family", label: "Travelling with children", season: "cooler",
-          why: "Comfortable weather and calmer conditions make the cooler months the easiest season for families." },
-        { key: "green", label: "Green scenery", season: "monsoon",
-          why: "The monsoon turns the Konkan green. It suits people who prefer scenery to swimming." },
-        { key: "quiet", label: "Fewer crowds", season: "monsoon",
-          why: "There are usually fewer visitors in the monsoon. Summer weekdays can also be quieter." },
-        { key: "budget", label: "Lower prices", season: "monsoon",
-          why: "Rates may be lower outside the busy cooler months. Ask the property, since pricing varies." },
+        {
+          key: "weather",
+          label: "Comfortable weather",
+          season: "cooler",
+          why: "The cooler months are usually the most comfortable for most people.",
+        },
+        {
+          key: "beach",
+          label: "Swimming and beach time",
+          season: "cooler",
+          why: "The sea is generally calmer in the cooler months. Always ask your hotel what is safe on your dates.",
+        },
+        {
+          key: "family",
+          label: "Travelling with children",
+          season: "cooler",
+          why: "Comfortable weather and calmer conditions make the cooler months the easiest season for families.",
+        },
+        {
+          key: "green",
+          label: "Green scenery",
+          season: "monsoon",
+          why: "The monsoon turns the Konkan green. It suits people who prefer scenery to swimming.",
+        },
+        {
+          key: "quiet",
+          label: "Fewer crowds",
+          season: "monsoon",
+          why: "There are usually fewer visitors in the monsoon. Summer weekdays can also be quieter.",
+        },
+        {
+          key: "budget",
+          label: "Lower prices",
+          season: "monsoon",
+          why: "Rates may be lower outside the busy cooler months. Ask the property, since pricing varies.",
+        },
       ],
     },
 
@@ -163,7 +202,7 @@ Want to compare individual months? See the [best month for Diveagar Beach](guide
             },
             {
               q: "Is it a good time to visit Diveagar now?",
-              a: "Check the \"right now\" note at the top of this page, then confirm current conditions with your hotel before you travel.",
+              a: 'Check the "right now" note at the top of this page, then confirm current conditions with your hotel before you travel.',
             },
             {
               q: "Can I visit Diveagar during the monsoon?",
@@ -190,7 +229,10 @@ Want to compare individual months? See the [best month for Diveagar Beach](guide
       type: "cta",
       heading: "Chosen your dates?",
       text: "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
-      button: { label: "Browse hotels in Diveagar", guide: "best-hotels-in-diveagar" },
+      button: {
+        label: "Browse hotels in Diveagar",
+        guide: "best-hotels-in-diveagar",
+      },
     },
   ],
 };

@@ -12,8 +12,11 @@ import turtle from "./diveagar-turtle-resort-stays";
 import worthVisiting from "./is-diveagar-worth-visiting";
 import whatFamous from "./what-is-diveagar-famous-for";
 import bestTime from "./best-time-to-visit-diveagar";
+import bestMonth from "./best-month-diveagar-beach";
+import howToReach from "./how-to-reach-diveagar";
 
-const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime];
+
+const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime, bestMonth , howToReach];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 
 export const getGuide = (slug) => BY_SLUG.get(slug) || null;
