@@ -22,6 +22,9 @@ import SeasonMatcher from "./SeasonMatcher";
 import MonthCalendar from "./MonthCalendar";
 import RoutesBlock from "./RoutesBlock";
 import JourneyPlanner from "./JourneyPlanner";
+import StepsGrid from "./StepsGrid";
+import BookingBuilder from "./BookingBuilder";
+import PayChecklist from "./PayChecklist";
 
 export default async function GuidePage({ guide }) {
   const live = await getLiveSlugs();
@@ -77,6 +80,12 @@ export default async function GuidePage({ guide }) {
         return <RoutesBlock key={i} block={block} live={live} />;
       case "journeyPlanner":
         return <JourneyPlanner key={i} block={block} whatsapp={whatsapp} />;
+      case "stepsGrid":
+        return <StepsGrid key={i} block={block} live={live} />;
+      case "bookingBuilder":
+        return <BookingBuilder key={i} block={block} whatsapp={whatsapp} />;
+      case "checklist":
+        return <PayChecklist key={i} block={block} />;
       default:
         return null;
     }
