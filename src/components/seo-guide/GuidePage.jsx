@@ -15,16 +15,18 @@ import StaysSection from "./StaysSection";
 import FamilyPlanner from "./FamilyPlanner";
 import ClaimChecker from "./ClaimChecker";
 import HubSteps from "./HubSteps";
-import { AnswerBox, PlanBand, ClusterGrid, ProseBand, CtaBand } from "./GuideBands";
 import QuizBlock from "./QuizBlock";
 import HighlightsBlock from "./HighlightsBlock";
-import SeasonMatcher from "./SeasonMatcher";
 import MonthCalendar from "./MonthCalendar";
 import RoutesBlock from "./RoutesBlock";
 import JourneyPlanner from "./JourneyPlanner";
 import StepsGrid from "./StepsGrid";
 import BookingBuilder from "./BookingBuilder";
 import PayChecklist from "./PayChecklist";
+import MealPlan from "./MealPlan";
+import { AnswerBox, PlanBand, ClusterGrid, ProseBand, CtaBand } from "./GuideBands";
+import { PageFilterProvider } from "./PageFilterContext";
+
 
 export default async function GuidePage({ guide }) {
   const live = await getLiveSlugs();
@@ -35,6 +37,11 @@ export default async function GuidePage({ guide }) {
     .flatMap((b) => b.groups.flatMap((g) => g.items))
     .map((i) => ({ question: i.q, answer: mdToPlain(i.a) }));
   const faqSchema = generateFaqSchema(faqItems);
+
+  // Shared page filter is only needed for guides that use blocks which must
+  // coordinate with each other (e.g. MealPlan driving StaysSection). Wrapping
+  // every guide would be harmless but adds an unnecessary client boundary.
+  const needsFilterProvider = guide.blocks.some((b) => b.type === "mealPlan");
 
   const renderBlock = (block, i) => {
     switch (block.type) {
@@ -68,12 +75,14 @@ export default async function GuidePage({ guide }) {
         return <ProseBand key={i} block={block} live={live} />;
       case "cta":
         return <CtaBand key={i} block={block} live={live} />;
+
+      // --- New block types added across the recent conversions ---
       case "quiz":
         return <QuizBlock key={i} block={block} live={live} />;
       case "highlights":
         return <HighlightsBlock key={i} block={block} live={live} whatsapp={whatsapp} />;
-      case "seasonMatcher":
-        return <SeasonMatcher key={i} block={block} live={live} />;
+      case "picker":
+        return <Picker key={i} block={block} live={live} />;
       case "monthCalendar":
         return <MonthCalendar key={i} block={block} live={live} />;
       case "routes":
@@ -86,16 +95,21 @@ export default async function GuidePage({ guide }) {
         return <BookingBuilder key={i} block={block} whatsapp={whatsapp} />;
       case "checklist":
         return <PayChecklist key={i} block={block} />;
+      case "mealPlan":
+        return <MealPlan key={i} block={block} />;
+
       default:
         return null;
     }
   };
 
+  const blocks = guide.blocks.map(renderBlock);
+
   return (
     <>
       {faqSchema && <JsonLd data={faqSchema} />}
       <GuideHero guide={guide} live={live} />
-      {guide.blocks.map(renderBlock)}
+      {needsFilterProvider ? <PageFilterProvider>{blocks}</PageFilterProvider> : blocks}
     </>
   );
 }

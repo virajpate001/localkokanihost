@@ -1,7 +1,7 @@
 // src/components/seo-guide/StayExplorer.jsx
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
@@ -15,7 +15,16 @@ import {
   waLink,
   finderResult,
 } from "@/lib/guideLogic";
-import { chipCls, waBtn, tagCls, inputCls, labelCls, panelCls, h3Cls } from "./guideStyles";
+import {
+  chipCls,
+  waBtn,
+  tagCls,
+  inputCls,
+  labelCls,
+  panelCls,
+  h3Cls,
+} from "./guideStyles";
+import { usePageFilter } from "./PageFilterContext";
 
 // The first render (filter = "all") contains every card, so the full list is in
 // the server-rendered HTML for search engines; filtering only runs after hydration.
@@ -27,6 +36,18 @@ export default function StayExplorer({ block, stays, site, whatsapp, children })
     privacy: block.finder?.privacyOptions[0].value,
   });
 
+  // Shared page filter: when another block (e.g. MealPlan) sets it, switch the
+  // active chip. When the visitor clicks a chip themselves, we clear it so the
+  // external block does not keep snapping us back.
+  const shared = usePageFilter();
+  useEffect(() => {
+    if (!shared) return;
+    const wanted = shared.filter;
+    if (wanted && block.filters.some((f) => f.key === wanted)) {
+      setActiveKey(wanted);
+    }
+  }, [shared, shared?.filter, block.filters]);
+
   const active = block.filters.find((f) => f.key === activeKey) || block.filters[0];
   const visible = sortStays(
     stays.filter((s) => matchRule(s, active.match)),
@@ -34,6 +55,12 @@ export default function StayExplorer({ block, stays, site, whatsapp, children })
   );
   const compare = block.compare;
   const compared = compare ? stays.filter((s) => chosen.includes(s.id)) : [];
+
+  function pickFilter(key) {
+    setActiveKey(key);
+    // The visitor took over — tell the shared context to stop driving us.
+    if (shared?.setFilter) shared.setFilter(null);
+  }
 
   function updateFinder(patch) {
     const next = { ...finder, ...patch };
@@ -92,7 +119,12 @@ export default function StayExplorer({ block, stays, site, whatsapp, children })
       <ul aria-label={block.filterAriaLabel} className="mb-2.5 flex flex-wrap gap-2.5">
         {block.filters.map((f) => (
           <li key={f.key}>
-            <button type="button" aria-pressed={f.key === activeKey} onClick={() => setActiveKey(f.key)} className={chipCls(f.key === activeKey)}>
+            <button
+              type="button"
+              aria-pressed={f.key === activeKey}
+              onClick={() => pickFilter(f.key)}
+              className={chipCls(f.key === activeKey)}
+            >
               {f.label}
             </button>
           </li>
@@ -114,7 +146,15 @@ export default function StayExplorer({ block, stays, site, whatsapp, children })
       {visible.length === 0 ? (
         <div className="rounded-2xl border-2 border-dashed border-gray-300 dark:border-gray-700 p-6 text-center text-gray-500 dark:text-gray-400">
           <p className="mb-4">{block.empty}</p>
-          <a href={waLink(whatsapp, `Hi, I am looking for a stay in Diveagar. Can you help me find one on ${site}?`)} target="_blank" rel="noopener noreferrer" className={waBtn}>
+          <a
+            href={waLink(
+              whatsapp,
+              `Hi, I am looking for a stay in Diveagar. Can you help me find one on ${site}?`
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={waBtn}
+          >
             <FaWhatsapp aria-hidden="true" /> Message us on WhatsApp
           </a>
         </div>
@@ -152,7 +192,10 @@ export default function StayExplorer({ block, stays, site, whatsapp, children })
                     <tr>
                       <th className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800 p-3 text-left" />
                       {compared.map((s) => (
-                        <th key={s.id} className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800 p-3 text-left font-display text-primary dark:text-white">
+                        <th
+                          key={s.id}
+                          className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800 p-3 text-left font-display text-primary dark:text-white"
+                        >
                           {s.name}
                         </th>
                       ))}
@@ -161,11 +204,17 @@ export default function StayExplorer({ block, stays, site, whatsapp, children })
                   <tbody>
                     {compare.rows.map((row) => (
                       <tr key={row.label}>
-                        <th scope="row" className="border-b border-gray-200 dark:border-gray-800 p-3 text-left font-semibold text-primary dark:text-white">
+                        <th
+                          scope="row"
+                          className="border-b border-gray-200 dark:border-gray-800 p-3 text-left font-semibold text-primary dark:text-white"
+                        >
                           {row.label}
                         </th>
                         {compared.map((s) => (
-                          <td key={s.id} className="border-b border-gray-200 dark:border-gray-800 p-3 text-gray-800 dark:text-gray-200">
+                          <td
+                            key={s.id}
+                            className="border-b border-gray-200 dark:border-gray-800 p-3 text-gray-800 dark:text-gray-200"
+                          >
                             {compareCell(row, s, compare, block)}
                           </td>
                         ))}
@@ -174,7 +223,11 @@ export default function StayExplorer({ block, stays, site, whatsapp, children })
                   </tbody>
                 </table>
               </div>
-              <button type="button" onClick={() => setChosen([])} className="mt-3 text-sm font-semibold text-secondary hover:underline">
+              <button
+                type="button"
+                onClick={() => setChosen([])}
+                className="mt-3 text-sm font-semibold text-secondary hover:underline"
+              >
                 {compare.clearLabel}
               </button>
             </>
@@ -190,7 +243,8 @@ export default function StayExplorer({ block, stays, site, whatsapp, children })
 function compareCell(row, stay, compare, block) {
   if (row.kind === "type") return row.labels[stay.facts.type] || compare.ask;
   if (row.kind === "line") return lineLabel(stay, compare.line || block.card.line) || compare.ask;
-  if (row.kind === "price") return stay.price ? `From \u20B9${stay.price.toLocaleString("en-IN")}` : "Ask on WhatsApp";
+  if (row.kind === "price")
+    return stay.price ? `From \u20B9${stay.price.toLocaleString("en-IN")}` : "Ask on WhatsApp";
   if (row.kind === "bool") {
     return stay.facts[row.fact] === true ? (
       <strong className="text-emerald-700 dark:text-emerald-400">{compare.yes}</strong>
@@ -222,7 +276,10 @@ function StayCard({ stay, block, site, whatsapp, priority, comparing, checked, d
             priority={priority}
           />
         ) : (
-          <span aria-hidden="true" className="absolute bottom-3 left-4 font-display text-4xl font-bold text-white/90">
+          <span
+            aria-hidden="true"
+            className="absolute bottom-3 left-4 font-display text-4xl font-bold text-white/90"
+          >
             {stay.name.charAt(0)}
           </span>
         )}
@@ -252,7 +309,9 @@ function StayCard({ stay, block, site, whatsapp, priority, comparing, checked, d
           </p>
         )}
         {card.unverifiedLabel && (
-          <p className="text-sm font-semibold text-amber-700 dark:text-amber-400">{card.unverifiedLabel}</p>
+          <p className="text-sm font-semibold text-amber-700 dark:text-amber-400">
+            {card.unverifiedLabel}
+          </p>
         )}
         <p className="font-bold text-primary dark:text-white">{formatPrice(stay.price)}</p>
 
@@ -271,10 +330,18 @@ function StayCard({ stay, block, site, whatsapp, priority, comparing, checked, d
         )}
 
         <div className="mt-auto flex flex-col gap-2 pt-1">
-          <a href={waLink(number, message)} target="_blank" rel="noopener noreferrer" className={waBtn}>
+          <a
+            href={waLink(number, message)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={waBtn}
+          >
             <FaWhatsapp aria-hidden="true" /> {cta}
           </a>
-          <Link href={`/hotels/${stay.slug}`} className="text-center text-sm font-medium text-secondary hover:underline">
+          <Link
+            href={`/hotels/${stay.slug}`}
+            className="text-center text-sm font-medium text-secondary hover:underline"
+          >
             View details
           </Link>
         </div>

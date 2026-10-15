@@ -15,9 +15,10 @@ import bestTime from "./best-time-to-visit-diveagar";
 import bestMonth from "./best-month-diveagar-beach";
 import howToReach from "./how-to-reach-diveagar";
 import howToBook from "./how-to-book-diveagar-hotels";
+import whereToEat from "./diveagar-food-hotels-restaurants";
 
 
-const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime, bestMonth , howToReach, howToBook];
+const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime, bestMonth , howToReach, howToBook, whereToEat];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 
 export const getGuide = (slug) => BY_SLUG.get(slug) || null;
