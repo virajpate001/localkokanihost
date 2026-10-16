@@ -30,6 +30,10 @@ import DayOutline from "./DayOutline";
 import ItineraryBuilder from "./ItineraryBuilder";
 import TimeBudgetCalculator from "./TimeBudgetCalculator";
 import NearbyChecker from "./NearbyChecker";
+import PackageComparer from "./PackageComparer";
+import BeachDayPlanner from "./BeachDayPlanner";
+import PersistentChecklist from "./PersistentChecklist";
+import PackingList from "./PackingList";
 
 
 export default async function GuidePage({ guide }) {
@@ -109,6 +113,15 @@ export default async function GuidePage({ guide }) {
         return <TimeBudgetCalculator key={i} block={block} live={live} />;
       case "nearbyChecker":
         return <NearbyChecker key={i} block={block} live={live} />;
+      case "packageComparer":
+        return <PackageComparer key={i} block={block} />;
+      case "beachDayPlanner":
+        return <BeachDayPlanner key={i} block={block} live={live} />;
+      case "persistentChecklist":
+        return <PersistentChecklist key={i} block={block} live={live} />;
+      case "packingList":
+        return <PackingList key={i} block={block} />;
+
 
       default:
         return null;

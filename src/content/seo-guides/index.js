@@ -19,9 +19,12 @@ import whereToEat from "./diveagar-food-hotels-restaurants";
 import twoDayItinerary from "./diveagar-2-day-itinerary";
 import puneTrip from "./diveagar-2-day-trip-from-pune";
 import threeDayItinerary from "./diveagar-3-day-itinerary";
+import tourPackages from "./diveagar-tour-packages";
+import beachThings from "./diveagar-beach-things-to-do";
+import firstTimeVisitors from "./diveagar-first-time-visitors";
 
 
-const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime, bestMonth , howToReach, howToBook, whereToEat, twoDayItinerary, puneTrip , threeDayItinerary];
+const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime, bestMonth , howToReach, howToBook, whereToEat, twoDayItinerary, puneTrip , threeDayItinerary , tourPackages , beachThings , firstTimeVisitors];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 
 export const getGuide = (slug) => BY_SLUG.get(slug) || null;

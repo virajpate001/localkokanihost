@@ -6,49 +6,74 @@ import { SITE_NAME } from "@/lib/siteConfig";
 import MessagePanel from "./MessagePanel";
 import { inputCls, labelCls, panelCls, h2Cls } from "./guideStyles";
 
-// General purpose enquiry builder:
-//   - text fields (hotel / dates / guests — configurable labels + placeholders)
-//   - two optional selects (room, meals) driven by the block config
-//   - optional arrivals select that injects extra questions into the message
-//   - checkbox extras that are appended to the message as a sentence
-//   - preview + Send on WhatsApp + Copy, via the shared MessagePanel
+// Enquiry builder. Supports two shapes:
 //
-// Used by how-to-book-diveagar-hotels and diveagar-food-hotels-restaurants.
+// 1. Hotel enquiry (how-to-book-diveagar-hotels, diveagar-food-hotels-restaurants)
+//    → uses the default message: hotel/dates/guests + optional room/meals/arrivals + extras
+//
+// 2. Custom-shaped enquiry (diveagar-tour-packages)
+//    → uses `fields` + `extras` + `messageTemplate` for full control
+//
+// If `fields` is present, it takes priority over hotelLabel/datesLabel/guestsLabel.
 export default function BookingBuilder({ block, whatsapp }) {
+  // --- Custom-shaped mode: dynamic fields declared in `block.fields` ---
+  const customFields = block.fields || null;
+  const [customValues, setCustomValues] = useState(() =>
+    customFields ? Object.fromEntries(customFields.map((f) => [f.key, ""])) : {}
+  );
+
+  // --- Hotel enquiry mode: fixed fields ---
   const [hotel, setHotel] = useState("");
   const [dates, setDates] = useState("");
   const [guests, setGuests] = useState("");
   const [room, setRoom] = useState("");
   const [meals, setMeals] = useState("");
   const [arrival, setArrival] = useState(block.arrivals?.[0]?.value || "");
-  const [extras, setExtras] = useState(() => block.extras.map(() => false));
+
+  // --- Extras (both modes) ---
+  const [extras, setExtras] = useState(() =>
+    (block.extras || []).map((e) => !!e.checked)
+  );
 
   const message = useMemo(() => {
+    const extrasPicked = (block.extras || [])
+      .filter((_, i) => extras[i])
+      .map((e) => e.value);
+
+    // Custom template mode
+    if (block.messageTemplate) {
+      const values = {
+        hotel: hotel || "___",
+        dates: dates || "___",
+        guests: guests || "___",
+        nights: customValues.nights || "___",
+        extras: extrasPicked.join(", "),
+        site: SITE_NAME,
+        ...customValues,
+      };
+      return block.messageTemplate.replace(/\{(\w+)\}/g, (_, k) => values[k] ?? "");
+    }
+
+    // Default hotel enquiry message
     const lines = [
       `Hi, I would like to enquire about ${hotel || "your hotel"} on ${SITE_NAME}.`,
       `Dates: ${dates || "___"}. Guests: ${guests || "___"}.`,
     ];
-
     if (block.roomOptions?.length && room) lines.push(`We would like ${room}.`);
     if (block.mealsOptions?.length && meals) lines.push(`Meals: ${meals}.`);
-
-    const picked = block.extras.filter((_, i) => extras[i]).map((e) => e.value);
-    if (picked.length) lines.push(`We would also like ${picked.join(", ")}.`);
-
+    if (extrasPicked.length) lines.push(`We would also like ${extrasPicked.join(", ")}.`);
     lines.push("Could you please confirm:");
     lines.push("1. Availability on these dates.");
     lines.push("2. The total price and what it includes.");
     lines.push("3. Your cancellation policy.");
     lines.push("4. How and when to pay.");
-
     const arrivalDef = block.arrivals?.find((a) => a.value === arrival);
     if (arrivalDef?.extraQuestions?.length) {
       arrivalDef.extraQuestions.forEach((q) => lines.push(`- ${q}`));
     }
-
     lines.push("Thank you.");
     return lines.join("\n");
-  }, [hotel, dates, guests, room, meals, arrival, extras, block]);
+  }, [hotel, dates, guests, room, meals, arrival, extras, customValues, block]);
 
   return (
     <section
@@ -63,92 +88,83 @@ export default function BookingBuilder({ block, whatsapp }) {
 
         <div className={`${panelCls} !bg-gray-50 dark:!bg-gray-950`}>
           <div className="mb-4 grid gap-3 [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))]">
-            <label className={labelCls}>
-              {block.hotelLabel}
-              <input
-                type="text"
-                autoComplete="off"
-                className={`${inputCls} font-normal`}
-                placeholder={block.hotelPlaceholder}
-                value={hotel}
-                onChange={(e) => setHotel(e.target.value)}
-              />
-            </label>
-
-            <label className={labelCls}>
-              {block.datesLabel}
-              <input
-                type="text"
-                autoComplete="off"
-                className={`${inputCls} font-normal`}
-                placeholder={block.datesPlaceholder}
-                value={dates}
-                onChange={(e) => setDates(e.target.value)}
-              />
-            </label>
-
-            <label className={labelCls}>
-              {block.guestsLabel}
-              <input
-                type="text"
-                autoComplete="off"
-                className={`${inputCls} font-normal`}
-                placeholder={block.guestsPlaceholder}
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-              />
-            </label>
-
-            {block.roomOptions?.length > 0 && (
-              <label className={labelCls}>
-                {block.roomLabel}
-                <select
-                  className={`${inputCls} font-normal`}
-                  value={room}
-                  onChange={(e) => setRoom(e.target.value)}
-                >
-                  {block.roomOptions.map((o) => (
-                    <option key={o.value} value={o.value}>
-                      {o.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            )}
-
-            {block.mealsOptions?.length > 0 && (
-              <label className={labelCls}>
-                {block.mealsLabel}
-                <select
-                  className={`${inputCls} font-normal`}
-                  value={meals}
-                  onChange={(e) => setMeals(e.target.value)}
-                >
-                  {block.mealsOptions.map((o) => (
-                    <option key={o.value} value={o.value}>
-                      {o.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            )}
-
-            {block.arrivals?.length > 0 && (
-              <label className={labelCls}>
-                {block.arrivalLabel}
-                <select
-                  className={`${inputCls} font-normal`}
-                  value={arrival}
-                  onChange={(e) => setArrival(e.target.value)}
-                >
-                  {block.arrivals.map((a) => (
-                    <option key={a.value} value={a.value}>
-                      {a.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            )}
+            {customFields
+              ? customFields.map((f) => (
+                  <label key={f.key} className={labelCls}>
+                    {f.label}
+                    <input
+                      type="text"
+                      autoComplete="off"
+                      className={`${inputCls} font-normal`}
+                      placeholder={f.placeholder}
+                      value={customValues[f.key] || ""}
+                      onChange={(e) =>
+                        setCustomValues((v) => ({ ...v, [f.key]: e.target.value }))
+                      }
+                    />
+                  </label>
+                ))
+              : (
+                <>
+                  <label className={labelCls}>
+                    {block.hotelLabel}
+                    <input
+                      type="text" autoComplete="off"
+                      className={`${inputCls} font-normal`}
+                      placeholder={block.hotelPlaceholder}
+                      value={hotel} onChange={(e) => setHotel(e.target.value)}
+                    />
+                  </label>
+                  <label className={labelCls}>
+                    {block.datesLabel}
+                    <input
+                      type="text" autoComplete="off"
+                      className={`${inputCls} font-normal`}
+                      placeholder={block.datesPlaceholder}
+                      value={dates} onChange={(e) => setDates(e.target.value)}
+                    />
+                  </label>
+                  <label className={labelCls}>
+                    {block.guestsLabel}
+                    <input
+                      type="text" autoComplete="off"
+                      className={`${inputCls} font-normal`}
+                      placeholder={block.guestsPlaceholder}
+                      value={guests} onChange={(e) => setGuests(e.target.value)}
+                    />
+                  </label>
+                  {block.roomOptions?.length > 0 && (
+                    <label className={labelCls}>
+                      {block.roomLabel}
+                      <select className={`${inputCls} font-normal`} value={room} onChange={(e) => setRoom(e.target.value)}>
+                        {block.roomOptions.map((o) => (
+                          <option key={o.value} value={o.value}>{o.label}</option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+                  {block.mealsOptions?.length > 0 && (
+                    <label className={labelCls}>
+                      {block.mealsLabel}
+                      <select className={`${inputCls} font-normal`} value={meals} onChange={(e) => setMeals(e.target.value)}>
+                        {block.mealsOptions.map((o) => (
+                          <option key={o.value} value={o.value}>{o.label}</option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+                  {block.arrivals?.length > 0 && (
+                    <label className={labelCls}>
+                      {block.arrivalLabel}
+                      <select className={`${inputCls} font-normal`} value={arrival} onChange={(e) => setArrival(e.target.value)}>
+                        {block.arrivals.map((a) => (
+                          <option key={a.value} value={a.value}>{a.label}</option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+                </>
+              )}
           </div>
 
           {block.extras?.length > 0 && (
