@@ -26,6 +26,10 @@ import PayChecklist from "./PayChecklist";
 import MealPlan from "./MealPlan";
 import { AnswerBox, PlanBand, ClusterGrid, ProseBand, CtaBand } from "./GuideBands";
 import { PageFilterProvider } from "./PageFilterContext";
+import DayOutline from "./DayOutline";
+import ItineraryBuilder from "./ItineraryBuilder";
+import TimeBudgetCalculator from "./TimeBudgetCalculator";
+import NearbyChecker from "./NearbyChecker";
 
 
 export default async function GuidePage({ guide }) {
@@ -97,6 +101,14 @@ export default async function GuidePage({ guide }) {
         return <PayChecklist key={i} block={block} />;
       case "mealPlan":
         return <MealPlan key={i} block={block} />;
+      case "dayOutline":
+        return <DayOutline key={i} block={block} live={live} />;
+      case "itineraryBuilder":
+        return <ItineraryBuilder key={i} block={block} live={live} />;
+      case "timeBudgetCalculator":
+        return <TimeBudgetCalculator key={i} block={block} live={live} />;
+      case "nearbyChecker":
+        return <NearbyChecker key={i} block={block} live={live} />;
 
       default:
         return null;
