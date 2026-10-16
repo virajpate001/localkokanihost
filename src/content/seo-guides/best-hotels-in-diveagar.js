@@ -59,7 +59,7 @@ const guide = {
           note: "Stays close to the sand. Ask each one for the walking time.",
           match: {
             fact: "tags",
-            has: "beach",
+            has: "beach", 
           },
           guide: "hotels-near-diveagar-beach",
           more: "Read the near-the-beach guide",
