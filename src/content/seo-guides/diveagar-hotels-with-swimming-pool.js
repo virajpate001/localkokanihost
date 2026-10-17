@@ -267,7 +267,84 @@ A pool does not replace the beach, so check the season too. See the [best time t
           ],
         },
       ],
-    }
+    },
+    {
+      type: "plan",
+      id: "plan",
+      heading: "More ways to plan your stay",
+      sub: "Other hotel guides and trip planning pages.",
+      columns: [
+        {
+          heading: "Other stays",
+          links: [
+            {
+              label: "All hotels in Diveagar",
+              guide: "best-hotels-in-diveagar",
+            },
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "When and how",
+          links: [
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "Best month for the beach",
+              guide: "best-month-diveagar-beach",
+            },
+            {
+              label: "How to book",
+              guide: "how-to-book-diveagar-hotels",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+          ],
+        },
+        {
+          heading: "On the trip",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Compare",
+          links: [
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer: "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
+    },
   ],
 };
 

@@ -286,7 +286,93 @@ Ready to book? Read [how to book Diveagar hotels](guide:how-to-book-diveagar-hot
           ],
         },
       ],
-    }
+    },
+    {
+      type: "plan",
+      id: "plan",
+      heading: "More ways to plan your stay",
+      sub: "Other hotel guides and trip planning pages.",
+      columns: [
+        {
+          heading: "Other stays",
+          links: [
+            {
+              label: "All hotels in Diveagar",
+              guide: "best-hotels-in-diveagar",
+            },
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "When and how",
+          links: [
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "Best month for the beach",
+              guide: "best-month-diveagar-beach",
+            },
+            {
+              label: "How to book",
+              guide: "how-to-book-diveagar-hotels",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+          ],
+        },
+        {
+          heading: "On the trip",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Compare",
+          links: [
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer:
+        "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
+    },
   ],
 };
 
