@@ -10,8 +10,7 @@ const guide = {
   ],
   hero: {
     h1: "2-day trip to Diveagar from Pune",
-    lead:
-      "Is two days enough once you add the journey from Pune? It depends on how long your drive takes and when you leave. Enter your journey time and we will show how much time you really get in Diveagar.",
+    lead: "Is two days enough once you add the journey from Pune? It depends on how long your drive takes and when you leave. Enter your journey time and we will show how much time you really get in Diveagar.",
     buttons: [
       { label: "Check my trip", variant: "primary", href: "#calc" },
       { label: "Tips for a short trip", variant: "ghost", href: "#tips" },
@@ -30,8 +29,7 @@ The calculator below uses your own journey time, taken from a map app for your r
       type: "timeBudgetCalculator",
       id: "calc",
       heading: "How much time will you really have?",
-      sub:
-        "First look up the one-way journey time from your home to your hotel in a map app, using the time you plan to leave. Then enter it here.",
+      sub: "First look up the one-way journey time from your home to your hotel in a map app, using the time you plan to leave. Then enter it here.",
       journeyLabel: "One-way journey time (hours)",
       journeyPlaceholder: "e.g. from a map app",
       bufferLabel: "Extra time for breaks and traffic",
@@ -52,14 +50,15 @@ The calculator below uses your own journey time, taken from a map app for your r
         depart1: "6",
         depart2: "16",
       },
-      hintEmpty: "Enter your one-way journey time to see how your 2 days add up.",
+      hintEmpty:
+        "Enter your one-way journey time to see how your 2 days add up.",
       settings: {
-        wakeDay2: 8,      // hour you start your day at the hotel on Day 2
-        bedDay1: 21,      // hour you wind down on Day 1
-        dark: 18.5,       // arriving after this is "after dark"
-        lateHome: 22,     // reaching home after this is a late return
-        comfortable: 12,  // usable hours for a comfortable trip
-        workable: 8,      // usable hours for a tight but doable trip
+        wakeDay2: 8, // hour you start your day at the hotel on Day 2
+        bedDay1: 21, // hour you wind down on Day 1
+        dark: 18.5, // arriving after this is "after dark"
+        lateHome: 22, // reaching home after this is a late return
+        comfortable: 12, // usable hours for a comfortable trip
+        workable: 8, // usable hours for a tight but doable trip
 
         titleOk: "Comfortable. Two days looks workable.",
         titleMid: "Workable, but tight. Plan only one or two things.",
@@ -73,20 +72,31 @@ The calculator below uses your own journey time, taken from a map app for your r
           "You would have very little time on Day 1, so treat it mostly as a travel day.",
 
         nextOk: [
-          { slug: "diveagar-2-day-itinerary", text: "build your 2-day itinerary" },
-          { slug: "hotels-near-diveagar-beach", text: "choose a stay near the beach" },
+          {
+            slug: "diveagar-2-day-itinerary",
+            text: "build your 2-day itinerary",
+          },
+          {
+            slug: "hotels-near-diveagar-beach",
+            text: "choose a stay near the beach",
+          },
         ],
         nextMid: [
-          { slug: "diveagar-2-day-itinerary", text: "build your 2-day itinerary" },
-          { slug: "hotels-near-diveagar-beach", text: "choose a stay near the beach" },
+          {
+            slug: "diveagar-2-day-itinerary",
+            text: "build your 2-day itinerary",
+          },
+          {
+            slug: "hotels-near-diveagar-beach",
+            text: "choose a stay near the beach",
+          },
         ],
         nextLow: [
           { slug: "diveagar-3-day-itinerary", text: "see the 3-day itinerary" },
           { slug: "diveagar-2-day-itinerary", text: "shape a short plan" },
         ],
       },
-      fine:
-        "This is a rule of thumb, not a promise. Traffic, weather and road conditions change from day to day.",
+      fine: "This is a rule of thumb, not a promise. Traffic, weather and road conditions change from day to day.",
     },
 
     {
@@ -172,7 +182,120 @@ The calculator below uses your own journey time, taken from a map app for your r
       type: "cta",
       heading: "Ready to choose a stay?",
       text: "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
-      button: { label: "Browse hotels in Diveagar", guide: "best-hotels-in-diveagar" },
+      button: {
+        label: "Browse hotels in Diveagar",
+        guide: "best-hotels-in-diveagar",
+      },
+    },
+
+     {
+      type: "plan",
+      id: "plan",
+      heading: "Plan your Diveagar trip",
+      sub: "Everything you need around your hotel booking.",
+      columns: [
+        {
+          heading: "More places to stay",
+          links: [
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "Before you go",
+          links: [
+            {
+              label: "Is Diveagar worth visiting?",
+              guide: "is-diveagar-worth-visiting",
+            },
+            {
+              label: "What Diveagar is famous for",
+              guide: "what-is-diveagar-famous-for",
+            },
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Itineraries",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "3-day itinerary",
+              guide: "diveagar-3-day-itinerary",
+            },
+            {
+              label: "Tour packages",
+              guide: "diveagar-tour-packages",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+          ],
+        },
+        {
+          heading: "Compare destinations",
+          links: [
+            {
+              label: "Diveagar vs Shrivardhan",
+              guide: "diveagar-vs-shrivardhan",
+            },
+            {
+              label: "Diveagar vs Alibaug",
+              guide: "diveagar-vs-alibaug",
+            },
+            {
+              label: "Diveagar vs Dapoli",
+              guide: "diveagar-vs-dapoli",
+            },
+            {
+              label: "Diveagar vs Harihareshwar",
+              guide: "diveagar-vs-harihareshwar",
+            },
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer: "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
     },
   ],
 };

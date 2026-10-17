@@ -10,8 +10,7 @@ const guide = {
   ],
   hero: {
     h1: "Diveagar vs Shrivardhan: which should you choose?",
-    lead:
-      "Two Konkan coastal towns in Raigad district that many travellers weigh against each other. The right choice depends on what you want from the trip, so use the comparison sheet to decide for yourself.",
+    lead: "Two Konkan coastal towns in Raigad district that many travellers weigh against each other. The right choice depends on what you want from the trip, so use the comparison sheet to decide for yourself.",
     buttons: [
       { label: "Compare for my trip", variant: "primary", href: "#sheet" },
       { label: "Visit both?", variant: "ghost", href: "#both" },
@@ -32,7 +31,7 @@ Below, rate each of those for your own trip and get a result based on what matte
       selfName: "Diveagar",
       otherName: "Shrivardhan",
       factsHeading: "Side by side",
-      facts: [],   // empty = table is hidden. Add verified facts to show it.
+      facts: [], // empty = table is hidden. Add verified facts to show it.
       hasJourney: true,
       journeyHeading: "Journey time from your home",
       journeySub:
@@ -42,7 +41,7 @@ Below, rate each of those for your own trip and get a result based on what matte
       journeyPlaceholder: "e.g. from a map app",
       sheetHeading: "Your comparison sheet",
       sheetSub:
-        "For each row, set how much it matters to you and which place looks better for it. Look at recent photos, read the guides, and ask hotels in both places. Choose \"Not sure\" until you know.",
+        'For each row, set how much it matters to you and which place looks better for it. Look at recent photos, read the guides, and ask hotels in both places. Choose "Not sure" until you know.',
       hintEmpty:
         "Choose which place looks better for the rows that matter to you, and your result will appear here.",
       criteria: [
@@ -180,9 +179,121 @@ Comparing more places? See [Diveagar vs Alibaug](guide:diveagar-vs-alibaug), [Di
     {
       type: "cta",
       heading: "Leaning towards Diveagar?",
-      text:
-        "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
-      button: { label: "Browse hotels in Diveagar", guide: "best-hotels-in-diveagar" },
+      text: "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
+      button: {
+        label: "Browse hotels in Diveagar",
+        guide: "best-hotels-in-diveagar",
+      },
+    },
+
+     {
+      type: "plan",
+      id: "plan",
+      heading: "Plan your Diveagar trip",
+      sub: "Everything you need around your hotel booking.",
+      columns: [
+        {
+          heading: "More places to stay",
+          links: [
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "Before you go",
+          links: [
+            {
+              label: "Is Diveagar worth visiting?",
+              guide: "is-diveagar-worth-visiting",
+            },
+            {
+              label: "What Diveagar is famous for",
+              guide: "what-is-diveagar-famous-for",
+            },
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Itineraries",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "3-day itinerary",
+              guide: "diveagar-3-day-itinerary",
+            },
+            {
+              label: "Tour packages",
+              guide: "diveagar-tour-packages",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+          ],
+        },
+        {
+          heading: "Compare destinations",
+          links: [
+            {
+              label: "Diveagar vs Shrivardhan",
+              guide: "diveagar-vs-shrivardhan",
+            },
+            {
+              label: "Diveagar vs Alibaug",
+              guide: "diveagar-vs-alibaug",
+            },
+            {
+              label: "Diveagar vs Dapoli",
+              guide: "diveagar-vs-dapoli",
+            },
+            {
+              label: "Diveagar vs Harihareshwar",
+              guide: "diveagar-vs-harihareshwar",
+            },
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer: "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
     },
   ],
 };

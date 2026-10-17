@@ -10,8 +10,7 @@ const guide = {
   ],
   hero: {
     h1: "2-day Diveagar itinerary",
-    lead:
-      "A relaxed two-day plan for a first visit, plus a planner that reshapes it around your arrival time, pace and interests. Travel times vary, so the plan is organised by morning, afternoon and evening rather than by the clock.",
+    lead: "A relaxed two-day plan for a first visit, plus a planner that reshapes it around your arrival time, pace and interests. Travel times vary, so the plan is organised by morning, afternoon and evening rather than by the clock.",
     buttons: [
       { label: "Build my itinerary", variant: "primary", href: "#builder" },
       { label: "See the standard plan", variant: "ghost", href: "#outline" },
@@ -107,7 +106,8 @@ Confirm temple hours, sea conditions and distances locally before you go. If you
       activities: {
         beach: {
           label: "Beach time",
-          detail: "A walk or sit by the sea. Ask your hotel what is safe on your dates.",
+          detail:
+            "A walk or sit by the sea. Ask your hotel what is safe on your dates.",
           slug: "diveagar-beach-things-to-do",
           link: "things to do at Diveagar Beach",
           prefer: ["d1e", "d2m", "d2e", "d1a"],
@@ -131,7 +131,8 @@ Confirm temple hours, sea conditions and distances locally before you go. If you
         },
         food: {
           label: "A relaxed local meal",
-          detail: "Ask your hotel what local dishes it serves, and whether they need notice.",
+          detail:
+            "Ask your hotel what local dishes it serves, and whether they need notice.",
           slug: "diveagar-food-hotels-restaurants",
           link: "where to eat",
           prefer: ["d1e", "d2a", "d2e"],
@@ -139,7 +140,8 @@ Confirm temple hours, sea conditions and distances locally before you go. If you
         },
         nearby: {
           label: "A nearby coastal town",
-          detail: "Confirm the distance and travel time first. This works best with an early start.",
+          detail:
+            "Confirm the distance and travel time first. This works best with an early start.",
           slug: "diveagar-3-day-itinerary",
           link: "the 3-day itinerary",
           prefer: ["d2m", "d2a"],
@@ -239,7 +241,119 @@ Confirm temple hours, sea conditions and distances locally before you go. If you
       type: "cta",
       heading: "Ready to choose a stay?",
       text: "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
-      button: { label: "Browse hotels in Diveagar", guide: "best-hotels-in-diveagar" },
+      button: {
+        label: "Browse hotels in Diveagar",
+        guide: "best-hotels-in-diveagar",
+      },
+    },
+     {
+      type: "plan",
+      id: "plan",
+      heading: "Plan your Diveagar trip",
+      sub: "Everything you need around your hotel booking.",
+      columns: [
+        {
+          heading: "More places to stay",
+          links: [
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "Before you go",
+          links: [
+            {
+              label: "Is Diveagar worth visiting?",
+              guide: "is-diveagar-worth-visiting",
+            },
+            {
+              label: "What Diveagar is famous for",
+              guide: "what-is-diveagar-famous-for",
+            },
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Itineraries",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "3-day itinerary",
+              guide: "diveagar-3-day-itinerary",
+            },
+            {
+              label: "Tour packages",
+              guide: "diveagar-tour-packages",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+          ],
+        },
+        {
+          heading: "Compare destinations",
+          links: [
+            {
+              label: "Diveagar vs Shrivardhan",
+              guide: "diveagar-vs-shrivardhan",
+            },
+            {
+              label: "Diveagar vs Alibaug",
+              guide: "diveagar-vs-alibaug",
+            },
+            {
+              label: "Diveagar vs Dapoli",
+              guide: "diveagar-vs-dapoli",
+            },
+            {
+              label: "Diveagar vs Harihareshwar",
+              guide: "diveagar-vs-harihareshwar",
+            },
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer: "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
     },
   ],
 };

@@ -5,13 +5,14 @@ import { buildMetadata } from "@/utils/seo";
 export const metadata = buildMetadata({
   title: "Partner Agreement | Local Kokani",
   description:
-    "The Partner Agreement governing the relationship between Local Kokani and businesses that list on the platform, including plans, commissions, and obligations.",
+    "The Partner Agreement governing the relationship between Local Kokani and businesses listing on the platform, including Basic Listing and Premium Plan terms, commissions, and obligations.",
   path: "/partner-agreement",
   keywords: [
     "partner agreement",
     "business partner terms",
     "listing agreement",
     "commission terms",
+    "premium plan agreement",
     "local kokani partner",
   ],
 });
@@ -31,14 +32,18 @@ export default function PartnerAgreementPage() {
             LocalKokani Partner Agreement
           </h1>
           <p className="text-gray-400 text-sm mb-10">
-            Effective Date: 12 October 2026
+            Effective Date: 17 October 2026
           </p>
 
           <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-primary prose-a:text-secondary">
             <h2>1. Parties to This Agreement</h2>
-            <p>This Partner Agreement (&quot;Agreement&quot;) is entered into between:</p>
             <p>
-              <strong>LocalKokani</strong>, the platform operating at{" "}
+              This Partner Agreement (&quot;Agreement&quot;) is entered into
+              between:
+            </p>
+            <p>
+              <strong>LocalKokani</strong>, an online business discovery and
+              enquiry facilitation platform operating at{" "}
               <a
                 href="https://www.localkokani.com"
                 target="_blank"
@@ -52,277 +57,250 @@ export default function PartnerAgreementPage() {
             <p>and</p>
             <p>
               <strong>The Partner</strong>, being the individual, proprietor,
-              company, partnership, organization or authorized representative
-              registering a business listing on LocalKokani
-              (&quot;Partner,&quot; &quot;you&quot; or &quot;your&quot;).
+              company, partnership or other authorized business representative
+              registering a business on LocalKokani (&quot;Partner,&quot;
+              &quot;you&quot; or &quot;your&quot;).
             </p>
             <p>
-              The Partner&apos;s registered business details, selected plan,
-              applicable fees and any agreed commission terms will be recorded
-              in the registration form, plan confirmation or a separate written
-              agreement.
+              The Partner&apos;s business details, selected plan, subscription
+              fee, and applicable commission terms will be recorded during
+              registration or in a separate written confirmation.
             </p>
             <p>
-              By submitting a partner registration, accepting this Agreement and
-              using the partner services, you agree to its applicable terms.
+              By accepting this Agreement and using LocalKokani&apos;s partner
+              services, you agree to the provisions applicable to your business
+              and selected plan.
             </p>
 
             <h2>2. Purpose of the Agreement</h2>
             <p>
-              LocalKokani helps travelers discover accommodation, restaurants
-              and local food experiences across the Konkan region of
-              Maharashtra, India.
+              LocalKokani helps travelers discover accommodation, restaurants,
+              Khanavals, dhabas and other local businesses across the Konkan
+              region of Maharashtra, India.
             </p>
             <p>
-              The Platform may display business information, photographs,
-              amenities, menus, prices, contact details and other relevant
-              information to help customers discover and contact listed
-              businesses.
+              This Agreement establishes the conditions for listing and
+              promoting a business on LocalKokani, handling customer enquiries,
+              collecting and transferring advances where applicable, paying
+              agreed commissions and managing partner subscriptions.
             </p>
-            <p>
-              This Agreement establishes the conditions under which a Partner
-              may list and promote a business on LocalKokani.
-            </p>
-            <p>It applies to businesses including, but not limited to:</p>
+            <p>It applies to eligible businesses, including:</p>
             <ul>
               <li>Hotels, resorts and homestays.</li>
               <li>
-                Villas, cottages, lodges, guest houses and farm stays.
+                Villas, cottages, guest houses, lodges and farm stays.
               </li>
               <li>Restaurants, Khanavals, dhabas and eateries.</li>
               <li>
-                Local food providers and other eligible tourism-related
-                businesses accepted by LocalKokani.
+                Other eligible local businesses and tourism-related service
+                providers.
               </li>
             </ul>
 
             <h2>3. Nature of the Relationship</h2>
             <p>
-              Unless a separate written agreement expressly provides otherwise:
+              Unless a separate written agreement expressly states otherwise:
             </p>
             <ol>
               <li>
-                LocalKokani acts as a listing, discovery and enquiry
-                facilitation platform.
+                LocalKokani provides business listings and facilitates customer
+                enquiries.
               </li>
               <li>
-                The Partner independently operates and manages its business.
+                The Partner independently owns or operates the listed business.
               </li>
               <li>
-                The Partner is responsible for providing accommodation, food or
-                other advertised services.
+                The Partner is responsible for providing the advertised
+                accommodation, food or other services.
               </li>
               <li>
-                The Partner is not an employee, agent, franchisee or legal
-                representative of LocalKokani.
-              </li>
-              <li>
-                Listing a business does not create a partnership, joint venture,
-                employment or agency relationship in the legal sense between the
-                parties.
+                This Agreement does not create an employment, franchise, joint
+                venture or general agency relationship between the parties.
               </li>
               <li>
                 LocalKokani does not guarantee a minimum number of enquiries,
-                bookings, reservations, customers or sales.
+                bookings, customers or sales.
               </li>
             </ol>
             <p>
-              The Partner must not represent itself as an employee, official
+              The Partner must not represent itself as an employee, legal
               representative or authorized agent of LocalKokani unless expressly
               authorized in writing.
             </p>
 
-            <h2>4. Registration and Business Information</h2>
-            <p>
-              The Partner agrees to provide complete, accurate and current
-              information, including where applicable:
-            </p>
+            <h2>4. Registration and Eligibility</h2>
+            <p>The Partner confirms that it:</p>
             <ul>
-              <li>Owner or authorized representative&apos;s name.</li>
-              <li>Business name and address.</li>
-              <li>Telephone number, WhatsApp number and email address.</li>
+              <li>Is legally capable of entering into this Agreement.</li>
+              <li>Owns the business or has authority to represent it.</li>
               <li>
-                Accommodation details, room types, amenities and capacity.
+                Provides accurate and complete registration information.
               </li>
               <li>
-                Restaurant information, cuisine, menu, prices and operating
-                hours.
+                Holds the licences, registrations and permissions required for
+                its business.
               </li>
               <li>
-                Photographs of the property, premises, facilities, food or
-                services.
+                Has the necessary rights to submit business photographs,
+                descriptions, logos and other content.
               </li>
               <li>
-                Applicable licences, registrations and supporting documents.
+                Will comply with applicable laws and the policies published on
+                LocalKokani.
               </li>
-              <li>Selected partner plan and accepted commercial terms.</li>
             </ul>
             <p>
-              The Partner confirms that it owns the business or has authority to
-              represent it and submit its information.
+              The Partner must notify LocalKokani promptly of material changes to
+              its ownership, contact details, business address, prices, services,
+              licences or operating status.
             </p>
             <p>
-              The Partner must promptly inform LocalKokani of material changes
-              to ownership, contact details, prices, availability, menu,
-              amenities, licences or business operations.
-            </p>
-            <p>
-              LocalKokani may request additional information, corrections or
-              documents where reasonably necessary.
+              LocalKokani may request supporting documents or corrections where
+              reasonably necessary.
             </p>
 
             <h2>5. Partner Plans</h2>
-            <p>
-              LocalKokani may offer free and paid listing plans. Available plans,
-              prices, duration and features will be disclosed on the website or
-              in a written plan confirmation.
-            </p>
+            <p>LocalKokani offers two partner plans.</p>
 
-            <h3>5.1 Free Listing Plan</h3>
-            <p>
-              Under the Free Listing Plan, a Partner may receive a business
-              listing without an annual listing fee, subject to the conditions
-              communicated during registration.
-            </p>
-            <p>
-              Depending on the agreed workflow, enquiries may be received by
-              LocalKokani and coordinated with the Partner.
-            </p>
-            <p>
-              Where the Partner accepts a commission arrangement, the applicable
-              commission is governed by Section 6 and the written commission
-              schedule or confirmation.
-            </p>
-            <p>
-              A free listing does not guarantee bookings, customers, sales or
-              enquiries.
-            </p>
-
-            <h3>5.2 Direct Connect Plan</h3>
-            <p>The Direct Connect Plan may include:</p>
+            <h3>5.1 Basic Listing (Free)</h3>
+            <p>The Basic Listing plan includes:</p>
             <ul>
-              <li>Direct customer contact through telephone or WhatsApp.</li>
-              <li>Enhanced listing information and photographs.</li>
+              <li>A standard business listing page.</li>
+              <li>Basic visibility on LocalKokani.</li>
               <li>
-                Additional listing or promotional features described in the
-                plan.
+                Customer enquiries routed through LocalKokani&apos;s WhatsApp.
               </li>
-              <li>Direct management of enquiries by the Partner.</li>
-            </ul>
-            <p>
-              The annual fee, validity period and included features will be
-              disclosed before purchase.
-            </p>
-            <p>
-              Unless the Partner expressly agrees otherwise in writing,
-              transactions handled directly by the Partner under this plan will
-              not attract a LocalKokani commission merely because the customer
-              has viewed the listing.
-            </p>
-
-            <h3>5.3 Verified Premium Plan</h3>
-            <p>The Verified Premium Plan may include:</p>
-            <ul>
+              <li>Booking coordination for applicable enquiries.</li>
               <li>
-                A verified badge after the applicable verification checks.
-              </li>
-              <li>Enhanced listing presentation.</li>
-              <li>
-                Featured placement or increased visibility, subject to the plan
-                terms.
-              </li>
-              <li>Direct customer contact options.</li>
-              <li>
-                Other features stated in the applicable plan description.
+                Commission on qualifying confirmed bookings according to the
+                commission terms accepted by the Partner.
               </li>
             </ul>
             <p>
-              The annual price, validity period and included features will be
-              disclosed before purchase.
+              For applicable accommodation bookings, LocalKokani may collect an
+              advance from the traveler, confirm the booking with the Partner,
+              transfer the advance after deducting the agreed commission and
+              share the Partner&apos;s contact number with the traveler.
             </p>
             <p>
-              A paid plan does not guarantee search ranking, customer traffic,
-              enquiries, bookings or revenue.
+              The applicable commission rate, calculation method, qualifying
+              bookings and payment conditions must be disclosed and accepted by
+              the Partner in writing before they apply.
+            </p>
+            <p>A free listing does not guarantee enquiries, bookings or revenue.</p>
+
+            <h3>5.2 Premium Plan (Paid)</h3>
+            <p>The Premium Plan may include:</p>
+            <ul>
+              <li>A Premium badge.</li>
+              <li>
+                Custom badges, such as &quot;Top Rated,&quot; where awarded under
+                applicable criteria.
+              </li>
+              <li>
+                Direct WhatsApp enquiries to the Partner&apos;s registered
+                number.
+              </li>
+              <li>Google Maps location on the business listing.</li>
+              <li>Priority support.</li>
+            </ul>
+            <p>
+              The annual subscription price, validity period and included
+              features will be disclosed before purchase.
+            </p>
+            <p>
+              The Premium Plan does not guarantee a particular search ranking,
+              number of enquiries, bookings or sales.
             </p>
 
-            <h3>5.4 Plan Activation and Renewal</h3>
+            <h3>5.3 Meaning of the Premium Badge</h3>
             <p>
-              A paid plan becomes active according to the activation terms
-              communicated at purchase.
+              The Premium badge indicates that the business has an active paid
+              subscription with LocalKokani.
             </p>
             <p>
-              The Partner is responsible for reviewing the plan details, fees,
-              duration and renewal conditions before payment.
+              It is not a government certification, tourism licence, guarantee of
+              service quality or food safety certification. It does not imply
+              government endorsement or FSSAI approval.
             </p>
             <p>
-              Automatic renewal, if offered, must be clearly disclosed and
-              authorized. Any change in renewal price or conditions will be
-              communicated as required by applicable law.
+              Custom badges are subject to their stated criteria and must not be
+              misrepresented as official certifications or guarantees.
+            </p>
+            <p>
+              The Premium badge may be deactivated when the subscription expires,
+              is cancelled or is suspended under this Agreement.
             </p>
 
-            <h2>6. Commission and Referral Arrangements</h2>
+            <h2>6. Premium Subscription Fee and Cancellation</h2>
             <p>
-              A commission is payable only when the Partner has expressly
-              accepted the applicable commission terms in writing.
+              The Partner must pay the applicable Premium Plan fee through the
+              payment method or process specified by LocalKokani.
             </p>
             <p>
-              The commission schedule or written confirmation must identify:
+              Before purchasing, the Partner should review the price, validity
+              period, included features and renewal conditions.
             </p>
+            <p>
+              <strong>
+                The Premium Plan subscription fee is non-refundable after
+                activation
+              </strong>
+              , including when the Partner voluntarily discontinues the plan
+              before expiry, except where a refund is required by applicable law
+              or expressly agreed in writing by LocalKokani.
+            </p>
+            <p>
+              To request cancellation, the Partner should contact{" "}
+              <a href="mailto:localkokani001@gmail.com">
+                localkokani001@gmail.com
+              </a>{" "}
+              and provide the registered business name and subscription details.
+            </p>
+            <p>
+              Cancellation may stop a future renewal or end the plan according to
+              the applicable terms. It does not automatically entitle the Partner
+              to a refund for an activated subscription.
+            </p>
+            <p>
+              When the subscription expires or is cancelled, the Premium badge and
+              associated features may be deactivated. The business may remain
+              listed under the Basic Listing plan if it satisfies the applicable
+              listing requirements.
+            </p>
+            <p>
+              Any automatic renewal arrangement must be clearly disclosed and
+              authorized.
+            </p>
+
+            <h2>7. Commission on Basic Listing Bookings</h2>
+            <p>
+              Commission applies only to qualifying bookings under the Basic
+              Listing plan for which the Partner has accepted the applicable
+              commission terms in writing.
+            </p>
+            <p>The commission schedule or written confirmation must specify:</p>
             <ol>
-              <li>The applicable rate or fixed amount.</li>
-              <li>The transactions or referrals that qualify.</li>
-              <li>
-                The method for attributing a transaction to LocalKokani.
-              </li>
+              <li>The commission rate or fixed amount.</li>
+              <li>Which bookings or referrals qualify.</li>
+              <li>How a transaction is attributed to LocalKokani.</li>
               <li>The amount on which commission is calculated.</li>
-              <li>The deadline and method for payment.</li>
+              <li>The payment or settlement process.</li>
               <li>
-                How cancellations, no-shows, refunds and disputed transactions
-                are treated.
+                The treatment of cancellations, no-shows, refunds and disputed
+                transactions.
               </li>
             </ol>
-
-            <h3>6.1 Accommodation Referrals</h3>
             <p>
-              For accommodation businesses, a qualifying booking may include a
-              booking referred or coordinated by LocalKokani, as defined in the
-              agreed commission schedule.
+              For accommodation bookings, the commission basis must be specified,
+              such as the total booking price, the amount actually received or
+              another agreed calculation method.
             </p>
             <p>
-              The commission terms should state whether commission is based on
-              the completed stay, the amount actually received by the Partner,
-              or another expressly agreed basis.
-            </p>
-
-            <h3>6.2 Restaurant and Food-Business Referrals</h3>
-            <p>
-              For restaurants, Khanavals, dhabas and other food businesses, the
-              parties must expressly agree on what constitutes a qualifying
-              referral.
-            </p>
-            <p>
-              The agreement may use an enquiry record, referral code, booking
-              confirmation or another mutually agreed attribution method.
-            </p>
-            <p>
-              A commission must not be assumed to apply to every customer who
-              visits a restaurant or views its listing unless that arrangement
-              has been clearly agreed.
-            </p>
-
-            <h3>6.3 Commission Payments and Records</h3>
-            <p>
-              The Partner agrees to provide accurate information reasonably
-              necessary to reconcile qualifying transactions under the agreed
-              commission arrangement.
-            </p>
-            <p>
-              Commission invoices or payment requests will identify the relevant
-              period, transactions and amount due where appropriate.
-            </p>
-            <p>
-              If a commission is disputed, the parties will review the relevant
-              records and attempt to resolve the matter in good faith.
+              For restaurants and food businesses, the parties must separately
+              define qualifying referrals and how they are identified. A
+              commission does not automatically apply to every customer who views
+              a listing or visits a business.
             </p>
             <p>
               No new or increased commission rate will apply retrospectively
@@ -330,188 +308,248 @@ export default function PartnerAgreementPage() {
               required by law.
             </p>
 
-            <h2>7. Payments and Refunds</h2>
+            <h2>8. Basic Listing Booking and Advance-Payment Process</h2>
             <p>
-              Unless LocalKokani expressly confirms a different arrangement for
-              a particular transaction, customers pay the Partner directly for
-              accommodation, restaurant reservations, food orders and other
-              business services.
+              For applicable accommodation bookings coordinated through
+              LocalKokani, the general process is:
+            </p>
+            <ol>
+              <li>
+                A traveler submits an enquiry through LocalKokani&apos;s
+                WhatsApp.
+              </li>
+              <li>
+                LocalKokani contacts the Partner to check availability, pricing
+                and booking conditions.
+              </li>
+              <li>The booking is confirmed according to the agreed process.</li>
+              <li>LocalKokani may collect an advance from the traveler.</li>
+              <li>
+                LocalKokani transfers the collected advance to the Partner after
+                deducting the agreed commission.
+              </li>
+              <li>
+                LocalKokani shares the Partner&apos;s contact number with the
+                traveler for further communication.
+              </li>
+            </ol>
+            <p>
+              The Partner must provide accurate availability, prices, amenities
+              and booking conditions before confirmation.
             </p>
             <p>
-              The Partner is responsible for issuing appropriate receipts,
-              invoices or confirmations and complying with applicable tax and
-              consumer requirements.
+              The Partner agrees to accept the agreed commission deduction and
+              provide reasonable information necessary to reconcile the booking.
             </p>
             <p>
-              Where a payment is collected by LocalKokani under an expressly
-              agreed arrangement, the applicable payment, settlement,
-              cancellation and refund terms will be communicated separately.
-            </p>
-            <p>
-              Partner plan fees and commission payments are separate obligations
-              and must be handled according to their respective agreed terms.
+              Any restaurant reservation or other transaction involving an advance
+              will be governed by the payment and commission terms communicated
+              for that transaction.
             </p>
 
-            <h2>8. Partner Responsibilities</h2>
+            <h2>9. Cancellation and Refund Responsibilities</h2>
+            <p>
+              The Partner must disclose its cancellation rules in the business
+              listing&apos;s About section and communicate applicable conditions
+              before a booking or reservation is confirmed.
+            </p>
+            <p>
+              The conditions should explain any free cancellation deadline,
+              advance payment requirement, cancellation charge, no-show rule and
+              refund timeline.
+            </p>
+
+            <h3>9.1 Basic Listing Accommodation Bookings</h3>
+            <p>
+              Where LocalKokani collects an advance and transfers it to the
+              Partner after deducting the agreed commission, the Partner is
+              responsible for handling any traveler refund due after the transfer,
+              according to the applicable booking terms and law.
+            </p>
+            <p>
+              If a confirmed booking is cancelled, LocalKokani will return its
+              deducted commission to the Partner as applicable under the agreed
+              commission arrangement.
+            </p>
+            <p>
+              The commission reversal does not automatically determine whether the
+              traveler is entitled to a full or partial refund. The Partner must
+              assess and process any refund due under the disclosed cancellation
+              conditions and applicable law.
+            </p>
+            <p>
+              If the advance has not yet been transferred, the cancellation and
+              any refund due will be handled according to the applicable booking
+              terms and payment arrangement.
+            </p>
+
+            <h3>9.2 Premium Plan Bookings</h3>
+            <p>
+              For bookings arranged directly between the Partner and a traveler,
+              the Partner is responsible for confirming the booking, receiving
+              payments, communicating cancellation terms and processing any refund
+              due.
+            </p>
+            <p>
+              LocalKokani does not ordinarily collect payments or manage
+              cancellations and refunds for these direct bookings, except where a
+              separate arrangement or applicable law provides otherwise.
+            </p>
+
+            <h3>9.3 Restaurant Reservations and Food Orders</h3>
+            <p>
+              The Partner is responsible for handling restaurant reservations,
+              food orders, cancellations, complaints and refunds for services it
+              provides, subject to the disclosed terms and applicable law.
+            </p>
+            <p>
+              If food is incorrect, incomplete, unsatisfactory or not delivered as
+              agreed, the Partner must assess the complaint and provide any remedy
+              required by the applicable terms and law.
+            </p>
+            <p>
+              LocalKokani may assist with communication where appropriate but does
+              not guarantee a particular dispute outcome.
+            </p>
+
+            <h2>10. Partner Responsibilities</h2>
             <p>The Partner agrees to:</p>
             <ul>
               <li>
-                Provide the services described in the listing honestly and
-                professionally.
-              </li>
-              <li>
-                Keep business information, photographs, prices and service
+                Keep business information, prices, availability and contact
                 details accurate.
               </li>
+              <li>Provide the services described in its listing.</li>
               <li>Respond to enquiries within a reasonable time.</li>
               <li>
-                Confirm availability and booking conditions before accepting a
-                customer.
+                Confirm booking conditions and additional charges before
+                accepting a booking.
               </li>
               <li>
-                Disclose taxes, deposits, additional charges and relevant
-                restrictions before confirmation.
-              </li>
-              <li>Maintain suitable service, hygiene and safety standards.</li>
-              <li>
-                Obtain and maintain all licences, registrations and permissions
-                required by law.
+                Maintain appropriate service, hygiene and safety standards.
               </li>
               <li>
                 Handle customer complaints, cancellations and refunds fairly.
               </li>
               <li>
-                Protect customer contact information and use it only for lawful
-                purposes.
+                Maintain all legally required licences and registrations.
+              </li>
+              <li>Protect customer contact information.</li>
+              <li>
+                Avoid misleading advertisements, fraudulent activity and fake
+                reviews.
               </li>
               <li>
-                Avoid fake reviews, misleading advertising, fraudulent activity
-                and unauthorized use of third-party content.
-              </li>
-              <li>
-                Notify LocalKokani of material changes that affect the listing
-                or its compliance.
+                Notify LocalKokani of material changes affecting the listing or
+                business.
               </li>
             </ul>
             <p>
               The Partner remains responsible for its staff, contractors,
-              premises, operations, customer service and business obligations.
+              premises, service delivery and business operations.
             </p>
 
-            <h2>9. Additional Obligations for Accommodation Partners</h2>
+            <h2>11. Additional Requirements for Accommodation Partners</h2>
             <p>Accommodation Partners must ensure that:</p>
-            <ol>
+            <ul>
               <li>
                 The property is lawfully operated and available for the
-                advertised purpose.
+                advertised use.
               </li>
               <li>
                 Room descriptions, capacity, amenities and photographs are
                 accurate.
               </li>
               <li>
-                Rates, deposits, taxes and additional charges are clearly
-                disclosed.
+                Rates, taxes, deposits and additional charges are disclosed.
               </li>
               <li>Availability is updated as reasonably practicable.</li>
               <li>
-                Check-in, check-out, guest identification and property rules are
-                communicated clearly.
+                Check-in, check-out and guest requirements are communicated
+                clearly.
               </li>
               <li>
-                Applicable safety, hygiene, fire and other regulatory
-                requirements are met.
+                Applicable safety, hygiene and regulatory requirements are met.
               </li>
               <li>
-                Confirmed bookings and cancellations are handled according to
-                the disclosed terms and applicable law.
+                Confirmed bookings, cancellations and refunds are handled fairly.
               </li>
-            </ol>
+            </ul>
             <p>
-              A Partner must not advertise accommodation that it has no
-              authority to offer.
+              The Partner must not advertise a property it does not own, manage or
+              have authority to offer.
             </p>
 
-            <h2>10. Additional Obligations for Food Businesses</h2>
+            <h2>12. Additional Requirements for Food Businesses</h2>
             <p>
               Restaurant, Khanaval, dhaba and other food-business Partners must
               ensure that:
             </p>
-            <ol>
+            <ul>
               <li>
                 Menu items, prices, operating hours and advertised services are
                 accurate.
               </li>
               <li>
-                Applicable food safety and hygiene requirements are followed.
+                Applicable food safety, hygiene and handling requirements are
+                followed.
               </li>
               <li>
                 Required FSSAI registration or licensing and other permissions
                 are maintained.
               </li>
               <li>
-                Allergen information and other legally required disclosures are
-                provided where applicable.
+                Legally required allergen and food disclosures are provided where
+                applicable.
               </li>
               <li>
-                Delivery charges, minimum orders and additional fees are
-                disclosed before the customer commits.
+                Delivery charges, minimum orders and additional fees are disclosed
+                before the customer commits.
               </li>
               <li>
-                Reservations, takeaway orders, delivery arrangements and
-                complaints are handled fairly.
+                Reservations, food orders and complaints are handled fairly.
               </li>
               <li>
                 Required invoices, receipts and tax records are maintained.
               </li>
-            </ol>
+            </ul>
             <p>
-              The Partner remains responsible for food preparation, storage,
-              handling, quality, safety and fulfilment of orders.
+              The Partner remains responsible for food preparation, quality,
+              safety and fulfilment.
             </p>
 
-            <h2>11. Verification and Verified Badge</h2>
+            <h2>13. Licences and Regulatory Compliance</h2>
             <p>
-              LocalKokani may review business details, identity documents,
-              location information, licences or other supporting records under
-              its Verification Policy.
+              The Partner is responsible for obtaining and maintaining all
+              licences, registrations and permissions required for its business
+              and location.
             </p>
             <p>
-              The Partner agrees to provide genuine documents and cooperate with
-              reasonable verification requests.
+              Depending on the business, these may include business registrations,
+              local permissions, accommodation-related requirements, FSSAI
+              registration or licensing, tax registrations and applicable safety
+              requirements.
             </p>
             <p>
-              A verified badge indicates only that the Partner has passed the
-              checks described in the Verification Policy at the relevant time.
+              LocalKokani&apos;s listing or Premium badge does not replace any
+              legal licence, registration or certification.
             </p>
             <p>
-              The badge is not government approval, a government-issued
-              certification or a guarantee of service quality. For food
-              businesses, it does not represent FSSAI approval or certify food
-              safety compliance.
-            </p>
-            <p>
-              LocalKokani may withhold, suspend or remove the badge if
-              verification requirements are not met, information becomes
-              materially inaccurate or a credible compliance concern arises.
-            </p>
-            <p>
-              The Partner must not alter the badge or claim that it represents a
-              certification or endorsement that LocalKokani has not granted.
+              The Partner must provide genuine supporting documents when
+              reasonably requested.
             </p>
 
-            <h2>12. Content and Promotional Rights</h2>
+            <h2>14. Business Content and Promotional Permission</h2>
             <p>
               The Partner retains ownership of content it owns and submits to
               LocalKokani.
             </p>
             <p>
               The Partner grants LocalKokani a non-exclusive, royalty-free
-              permission to use, reproduce, resize, format, display and
-              distribute submitted business descriptions, photographs, menus,
-              logos and other authorized materials for the purposes of hosting,
-              maintaining, improving and promoting the listing and LocalKokani
-              platform.
+              permission to use, reproduce, format, display and distribute
+              submitted photographs, descriptions, menus, logos and other
+              authorized materials for hosting, maintaining and promoting the
+              listing and LocalKokani platform.
             </p>
             <p>
               This permission covers the website, associated social media pages
@@ -520,103 +558,61 @@ export default function PartnerAgreementPage() {
               and any agreed restrictions.
             </p>
             <p>
-              The Partner confirms that it has the necessary rights and
-              permissions to submit the content.
+              The Partner confirms that it has the rights and permissions
+              necessary to submit the content.
             </p>
             <p>
-              The Partner may request correction or removal of content it is
-              authorized to control. LocalKokani may remove content that
-              infringes rights, breaches these Terms or violates applicable law.
+              LocalKokani may remove content that infringes third-party rights,
+              violates this Agreement or breaches applicable law.
             </p>
 
-            <h2>13. Customer Data and Privacy</h2>
+            <h2>15. Customer Information and Privacy</h2>
             <p>
-              Where LocalKokani shares customer enquiry information with a
-              Partner, the Partner must:
+              Where LocalKokani shares a traveler&apos;s enquiry information with
+              the Partner, the Partner must use it only for legitimate purposes
+              connected with the enquiry, booking or service.
             </p>
+            <p>
+              The Partner must not sell, publish, misuse or share customer
+              information with unauthorized third parties.
+            </p>
+            <p>
+              The Partner must take reasonable steps to protect customer
+              information, restrict access to authorized personnel and comply with
+              applicable privacy and data protection laws.
+            </p>
+            <p>
+              The Partner should review LocalKokani&apos;s{" "}
+              <a href="/privacy-policy">Privacy Policy</a> for further details
+              about the Platform&apos;s handling of personal information.
+            </p>
+
+            <h2>16. Prohibited Activities</h2>
+            <p>The Partner must not:</p>
             <ul>
               <li>
-                Use the information only for the relevant enquiry, booking,
-                reservation or service.
+                Provide false ownership, business or licensing information.
               </li>
+              <li>Advertise services it is not authorized to provide.</li>
               <li>
-                Keep the information secure and restrict access to authorized
-                personnel.
+                Mislead customers about prices, availability, amenities, menus or
+                services.
               </li>
+              <li>Create fake reviews or manipulate ratings.</li>
+              <li>Misuse customer information.</li>
+              <li>Misrepresent the Premium badge or custom badges.</li>
+              <li>Use LocalKokani for fraudulent or unlawful activities.</li>
+              <li>Infringe third-party intellectual property rights.</li>
               <li>
-                Avoid selling, publishing or sharing it with unauthorized third
-                parties.
-              </li>
-              <li>
-                Avoid unrelated marketing unless the necessary permission has
-                been obtained.
-              </li>
-              <li>
-                Retain and delete information in accordance with applicable law
-                and legitimate business requirements.
+                Conceal qualifying bookings to avoid a commission expressly
+                agreed to be payable.
               </li>
             </ul>
-            <p>
-              The Partner must notify LocalKokani promptly if it becomes aware
-              of a material data breach involving customer information obtained
-              through the Platform, where legally appropriate.
-            </p>
-            <p>
-              The Partner must comply with applicable privacy and data protection
-              laws.
-            </p>
 
-            <h2>14. Cancellations, Refunds and Customer Complaints</h2>
+            <h2>17. Suspension and Termination</h2>
             <p>
-              Unless LocalKokani expressly manages a particular transaction, the
-              Partner is responsible for its bookings, reservations, food orders,
-              cancellations, refunds and customer complaints.
-            </p>
-            <p>
-              The Partner must communicate applicable cancellation terms before
-              the customer commits and must comply with those terms and
-              applicable law.
-            </p>
-            <p>
-              If LocalKokani receives a complaint about the Partner, it may
-              request a response, records or supporting evidence and may assist
-              with communication where appropriate.
-            </p>
-            <p>
-              LocalKokani does not guarantee a particular dispute outcome and is
-              not automatically responsible for resolving disputes arising from
-              services provided independently by the Partner.
-            </p>
-
-            <h2>15. Intellectual Property and Platform Use</h2>
-            <p>
-              The LocalKokani name, logo, original website content, design and
-              platform materials are owned by or licensed to LocalKokani unless
-              otherwise stated.
-            </p>
-            <p>
-              The Partner may use LocalKokani branding only with appropriate
-              permission and in accordance with any applicable brand guidelines.
-            </p>
-            <p>
-              The Partner must not copy, modify, sell, distribute or commercially
-              exploit LocalKokani intellectual property without authorization,
-              except where permitted by law.
-            </p>
-            <p>
-              Listing a business does not transfer ownership of
-              LocalKokani&apos;s intellectual property to the Partner.
-            </p>
-
-            <h2>16. Suspension and Termination</h2>
-            <p>
-              Either party may request termination of the partner relationship
-              by providing notice through an appropriate written channel, subject
-              to existing contractual obligations and applicable law.
-            </p>
-            <p>
-              LocalKokani may suspend or remove a listing, restrict partner
-              access, withhold a verified badge or terminate this Agreement where
+              LocalKokani may suspend or remove a listing, deactivate a Premium
+              badge, restrict partner access or terminate this Agreement where
               reasonably necessary because of:
             </p>
             <ul>
@@ -624,131 +620,106 @@ export default function PartnerAgreementPage() {
                 A material breach of this Agreement or an applicable policy.
               </li>
               <li>False or misleading business information.</li>
+              <li>Missing or unverifiable required documents.</li>
               <li>
-                Missing, expired or unverifiable required documents.
+                Credible evidence of fraud, unlawful activity or serious customer
+                harm.
               </li>
-              <li>
-                Credible evidence of fraud, unlawful activity or serious
-                customer harm.
-              </li>
-              <li>
-                Misuse of customer information or LocalKokani&apos;s platform.
-              </li>
-              <li>A legal requirement or material safety concern.</li>
+              <li>Misuse of customer information or the platform.</li>
+              <li>Legal requirements or material safety concerns.</li>
             </ul>
             <p>
-              Where reasonably practicable, LocalKokani will provide notice and
-              an opportunity to correct a remediable issue. Immediate action may
-              be taken where necessary to address serious risks or legal
-              obligations.
+              Where reasonably practicable, LocalKokani will provide notice and an
+              opportunity to correct a remediable issue. Immediate action may be
+              taken where necessary to address serious risks or legal obligations.
             </p>
             <p>
-              Termination does not automatically cancel outstanding fees,
-              properly agreed commissions or other obligations that accrued
-              before termination.
+              The Partner may request removal of its listing or discontinuation of
+              its subscription by contacting LocalKokani.
             </p>
             <p>
-              Refunds for paid plans will be handled according to the applicable
-              plan terms and law.
+              Termination does not automatically cancel outstanding fees, properly
+              agreed commissions or other obligations accrued before termination.
+              Refunds of subscription fees remain subject to the applicable plan
+              terms and law.
             </p>
 
-            <h2>17. Liability and Responsibility</h2>
+            <h2>18. Liability and Indemnity</h2>
             <p>
-              The Partner is responsible for the operation of its business, the
-              accuracy of its listing, the services it provides and its
+              The Partner remains responsible for the operation of its business,
+              the accuracy of its listing, the services it provides and its
               compliance with applicable laws.
             </p>
             <p>
-              To the extent permitted by law, LocalKokani does not guarantee
-              uninterrupted platform availability, specific search placement, a
-              minimum number of leads or commercial results.
-            </p>
-            <p>
-              Neither party is responsible for losses to the extent they arise
-              from the other party&apos;s breach, negligence or unlawful
-              conduct, subject to applicable law.
+              To the extent permitted by applicable law, the Partner may be
+              responsible for reasonable losses, claims and expenses arising
+              directly from its unlawful conduct, material breach of this
+              Agreement, infringement of third-party rights or negligent provision
+              of services.
             </p>
             <p>
               Nothing in this Agreement excludes or limits liability that cannot
-              lawfully be excluded or limited.
+              lawfully be excluded or limited, including responsibility for a
+              party&apos;s own legally actionable conduct.
             </p>
 
-            <h2>18. Indemnity</h2>
+            <h2>19. Changes to This Agreement</h2>
             <p>
-              To the extent permitted by applicable law, the Partner may be
-              responsible for reasonable losses, claims, liabilities and
-              expenses arising directly from the Partner&apos;s unlawful
-              conduct, material breach of this Agreement, infringement of
-              third-party rights or negligent provision of services.
+              LocalKokani may update this Agreement to reflect changes in the
+              platform, partner plans, services or applicable law.
             </p>
             <p>
-              This does not apply to the extent a loss is caused by
-              LocalKokani&apos;s own negligence, wilful misconduct or other
-              conduct for which responsibility cannot lawfully be excluded.
-            </p>
-            <p>
-              Any claim will be assessed according to the facts, applicable law
-              and the parties&apos; respective responsibilities.
-            </p>
-
-            <h2>19. Amendments to This Agreement</h2>
-            <p>
-              LocalKokani may update this Agreement to reflect changes to its
-              platform, services, plan structure or applicable law.
-            </p>
-            <p>
-              Updated terms will be published on the website with a revised
+              The updated version will be published on the website with a revised
               effective date. Where a change materially affects an existing
-              commercial arrangement, LocalKokani will provide appropriate notice
-              and obtain any agreement required by law.
+              commercial arrangement, appropriate notice and any agreement
+              required by law will be provided.
             </p>
             <p>
-              Changes to commission rates, qualifying transactions or other
-              material commercial terms require the Partner&apos;s agreement
-              before they apply, except where permitted or required by law.
+              Changes to commission rates or other material commercial terms
+              require the Partner&apos;s agreement before they apply, except where
+              permitted or required by law.
             </p>
 
             <h2>20. Governing Law and Dispute Resolution</h2>
             <p>This Agreement is governed by the laws of India.</p>
             <p>
-              The parties will first attempt to resolve disputes through
+              The parties should first attempt to resolve disputes through
               good-faith discussion. If a dispute cannot be resolved informally,
-              it may be referred to the competent courts having jurisdiction
-              under applicable law in Maharashtra, India, subject to mandatory
-              legal requirements.
+              it may be referred to a competent court or forum under applicable
+              law in Maharashtra, India, subject to mandatory legal requirements.
             </p>
             <p>
-              Nothing in this clause prevents either party from approaching a
-              competent authority or forum where applicable law provides that
-              right.
+              Nothing in this clause removes a right to approach a competent
+              authority or forum where applicable law provides that right.
             </p>
 
-            <h2>21. Acceptance and Electronic Records</h2>
+            <h2>21. Electronic Acceptance</h2>
             <p>
               The Partner may accept this Agreement through an electronic
               checkbox, electronic signature or another method supported by
               LocalKokani.
             </p>
             <p>
-              The Partner confirms that it has read and understood this
-              Agreement, has authority to accept it and agrees to the terms
-              applicable to its selected plan and business.
+              By accepting, the Partner confirms that it has read and understood
+              this Agreement, has authority to accept it and agrees to the terms
+              applicable to its selected plan and any separately accepted
+              commission schedule.
             </p>
             <p>
               LocalKokani may retain reasonable records of acceptance, including
               the agreement version, date and time, registration details and
-              relevant electronic confirmation, subject to applicable law and
-              privacy requirements.
+              electronic confirmation, subject to applicable law and privacy
+              requirements.
             </p>
             <p>
-              The Partner should retain a copy of the Agreement and any separate
-              plan or commission confirmation for its records.
+              The Partner should retain a copy of this Agreement and any separate
+              plan or commission confirmation.
             </p>
 
             <h2>22. Contact Information</h2>
             <p>
               For partner registration, plan details, commission arrangements,
-              verification, listing changes or questions about this Agreement,
+              listing updates, cancellations or questions about this Agreement,
               contact:
             </p>
             <p>
@@ -781,11 +752,10 @@ export default function PartnerAgreementPage() {
 
             <h2>Partner Acknowledgement</h2>
             <p>
-              By accepting this Agreement, the Partner confirms that the
-              information provided is accurate, that the Partner has authority
-              to list the business, and that the Partner agrees to the
-              applicable terms and any separately accepted plan or commission
-              schedule.
+              By accepting this Agreement, the Partner confirms that the business
+              information provided is accurate, that the Partner is authorized to
+              list the business and that the Partner agrees to the applicable
+              terms and any separately accepted plan or commission schedule.
             </p>
             <p>
               <strong>Partner / Business Name:</strong>{" "}
@@ -796,11 +766,10 @@ export default function PartnerAgreementPage() {
               _________________________
             </p>
             <p>
-              <strong>Selected Plan:</strong>{" "}
-              ____________________________________
+              <strong>Selected Plan:</strong> Basic Listing / Premium Plan
             </p>
             <p>
-              <strong>Accepted Commission Terms, if applicable:</strong>{" "}
+              <strong>Commission Terms Accepted, if applicable:</strong>{" "}
               ___________
             </p>
             <p>
@@ -813,7 +782,7 @@ export default function PartnerAgreementPage() {
             <p>
               <strong>LocalKokani</strong>
               <br />
-              <em>Stay with Locals</em>
+              <em>Discover Konkan. Stay Local.</em>
             </p>
           </div>
         </div>

@@ -10,8 +10,7 @@ const guide = {
   ],
   hero: {
     h1: "3-day Diveagar itinerary",
-    lead:
-      "Three days gives you room to enjoy Diveagar slowly and add a nearby coastal town. Use the standard plan, build your own, and check whether a day trip to a nearby town is worth the drive.",
+    lead: "Three days gives you room to enjoy Diveagar slowly and add a nearby coastal town. Use the standard plan, build your own, and check whether a day trip to a nearby town is worth the drive.",
     buttons: [
       { label: "Build my 3-day plan", variant: "primary", href: "#builder" },
       { label: "Check a nearby town", variant: "ghost", href: "#near" },
@@ -34,22 +33,40 @@ Confirm distances, temple hours and sea conditions locally before you go.`,
         {
           title: "Day 1: Arrive and settle in",
           items: [
-            { label: "Morning or afternoon", md: "Travel and check in. See [how to reach Diveagar](guide:how-to-reach-diveagar)." },
-            { label: "Evening", md: "A beach walk and dinner at your stay. See [where to eat](guide:diveagar-food-hotels-restaurants)." },
+            {
+              label: "Morning or afternoon",
+              md: "Travel and check in. See [how to reach Diveagar](guide:how-to-reach-diveagar).",
+            },
+            {
+              label: "Evening",
+              md: "A beach walk and dinner at your stay. See [where to eat](guide:diveagar-food-hotels-restaurants).",
+            },
           ],
         },
         {
           title: "Day 2: A nearby coastal town",
           items: [
-            { label: "Morning", md: "Head to Shrivardhan or Harihareshwar, after confirming the distance and travel time. Compare [Diveagar vs Shrivardhan](guide:diveagar-vs-shrivardhan) and [Diveagar vs Harihareshwar](guide:diveagar-vs-harihareshwar)." },
-            { label: "Afternoon", md: "Lunch there and some time to explore, then return." },
-            { label: "Evening", md: "Back at the beach in Diveagar for sunset and dinner." },
+            {
+              label: "Morning",
+              md: "Head to Shrivardhan or Harihareshwar, after confirming the distance and travel time. Compare [Diveagar vs Shrivardhan](guide:diveagar-vs-shrivardhan) and [Diveagar vs Harihareshwar](guide:diveagar-vs-harihareshwar).",
+            },
+            {
+              label: "Afternoon",
+              md: "Lunch there and some time to explore, then return.",
+            },
+            {
+              label: "Evening",
+              md: "Back at the beach in Diveagar for sunset and dinner.",
+            },
           ],
         },
         {
           title: "Day 3: Temple and departure",
           items: [
-            { label: "Morning", md: "Visit the Suvarna Ganesh Temple, after confirming its hours. See [what Diveagar is famous for](guide:what-is-diveagar-famous-for)." },
+            {
+              label: "Morning",
+              md: "Visit the Suvarna Ganesh Temple, after confirming its hours. See [what Diveagar is famous for](guide:what-is-diveagar-famous-for).",
+            },
             { label: "Afternoon", md: "Lunch, check out and head home." },
           ],
         },
@@ -65,7 +82,7 @@ Confirm distances, temple hours and sea conditions locally before you go.`,
       inputPlaceholder: "from a map app",
       hintEmpty: "Enter the travel time to see how long you would have there.",
       verdicts: {
-        ok:  "Worth a day trip.",
+        ok: "Worth a day trip.",
         mid: "Possible, but a short visit.",
         low: "Probably not worth it as a day trip. Consider a nearer plan.",
       },
@@ -78,8 +95,20 @@ Confirm distances, temple hours and sea conditions locally before you go.`,
       },
       fine: "Rule of thumb for a day out from about 9 am to 6 pm. Traffic and road conditions change.",
       towns: [
-        { id: "n1", name: "Shrivardhan",   hours: null, slug: "diveagar-vs-shrivardhan",   link: "Diveagar vs Shrivardhan" },
-        { id: "n2", name: "Harihareshwar", hours: null, slug: "diveagar-vs-harihareshwar", link: "Diveagar vs Harihareshwar" },
+        {
+          id: "n1",
+          name: "Shrivardhan",
+          hours: null,
+          slug: "diveagar-vs-shrivardhan",
+          link: "Diveagar vs Shrivardhan",
+        },
+        {
+          id: "n2",
+          name: "Harihareshwar",
+          hours: null,
+          slug: "diveagar-vs-harihareshwar",
+          link: "Diveagar vs Harihareshwar",
+        },
       ],
     },
 
@@ -123,7 +152,8 @@ Confirm distances, temple hours and sea conditions locally before you go.`,
       activities: {
         n1: {
           label: "Day out to Shrivardhan",
-          detail: "Confirm the distance and travel time first, and start early.",
+          detail:
+            "Confirm the distance and travel time first, and start early.",
           slug: "diveagar-vs-shrivardhan",
           link: "Diveagar vs Shrivardhan",
           prefer: ["d2m", "d2a"],
@@ -132,7 +162,8 @@ Confirm distances, temple hours and sea conditions locally before you go.`,
         },
         n2: {
           label: "Day out to Harihareshwar",
-          detail: "Confirm the distance and travel time first, and start early.",
+          detail:
+            "Confirm the distance and travel time first, and start early.",
           slug: "diveagar-vs-harihareshwar",
           link: "Diveagar vs Harihareshwar",
           prefer: ["d2a", "d2m"],
@@ -149,7 +180,8 @@ Confirm distances, temple hours and sea conditions locally before you go.`,
         },
         beach: {
           label: "Beach time",
-          detail: "A walk or sit by the sea. Ask your hotel what is safe on your dates.",
+          detail:
+            "A walk or sit by the sea. Ask your hotel what is safe on your dates.",
           slug: "diveagar-beach-things-to-do",
           link: "things to do at Diveagar Beach",
           prefer: ["d1e", "d2e", "d3m", "d3e"],
@@ -165,7 +197,8 @@ Confirm distances, temple hours and sea conditions locally before you go.`,
         },
         food: {
           label: "A relaxed local meal",
-          detail: "Ask your hotel what local dishes it serves, and whether they need notice.",
+          detail:
+            "Ask your hotel what local dishes it serves, and whether they need notice.",
           slug: "diveagar-food-hotels-restaurants",
           link: "where to eat",
           prefer: ["d2e", "d1e", "d3a"],
@@ -233,18 +266,30 @@ Confirm distances, temple hours and sea conditions locally before you go.`,
               a: "Spend Day 1 arriving and enjoying the beach, Day 2 on a nearby coastal town, and Day 3 on the temple and a calm departure. Use the builder above to fit it to your arrival time and pace.",
               open: true,
             },
-            { q: "Is 3 days enough for Diveagar?",
-              a: "Yes, three days is enough for the main highlights and one nearby town at a relaxed pace." },
-            { q: "Can I visit Shrivardhan and Harihareshwar in 3 days?",
-              a: "It depends on the distances from your hotel. Enter the travel times in the checker above. Compare [Diveagar vs Shrivardhan](guide:diveagar-vs-shrivardhan) and [Diveagar vs Harihareshwar](guide:diveagar-vs-harihareshwar)." },
-            { q: "How do I know if a nearby town is worth the drive?",
-              a: "Look up the one-way travel time, then use the checker above to see how much time you would have there. If it leaves very little time, choose a nearer plan or a different day." },
-            { q: "Where should I stay for a 3-day trip?",
-              a: "A stay you enjoy spending time in. See [best hotels in Diveagar](guide:best-hotels-in-diveagar) and [hotels near Diveagar Beach](guide:hotels-near-diveagar-beach)." },
-            { q: "What is the best time for a 3-day trip?",
-              a: "The cooler months are generally the most comfortable. See the [best time to visit Diveagar](guide:best-time-to-visit-diveagar)." },
-            { q: "How do I book a stay for 3 days?",
-              a: "Message the property on WhatsApp, confirm what is included and the cancellation terms, and pay as agreed. See [how to book Diveagar hotels](guide:how-to-book-diveagar-hotels)." },
+            {
+              q: "Is 3 days enough for Diveagar?",
+              a: "Yes, three days is enough for the main highlights and one nearby town at a relaxed pace.",
+            },
+            {
+              q: "Can I visit Shrivardhan and Harihareshwar in 3 days?",
+              a: "It depends on the distances from your hotel. Enter the travel times in the checker above. Compare [Diveagar vs Shrivardhan](guide:diveagar-vs-shrivardhan) and [Diveagar vs Harihareshwar](guide:diveagar-vs-harihareshwar).",
+            },
+            {
+              q: "How do I know if a nearby town is worth the drive?",
+              a: "Look up the one-way travel time, then use the checker above to see how much time you would have there. If it leaves very little time, choose a nearer plan or a different day.",
+            },
+            {
+              q: "Where should I stay for a 3-day trip?",
+              a: "A stay you enjoy spending time in. See [best hotels in Diveagar](guide:best-hotels-in-diveagar) and [hotels near Diveagar Beach](guide:hotels-near-diveagar-beach).",
+            },
+            {
+              q: "What is the best time for a 3-day trip?",
+              a: "The cooler months are generally the most comfortable. See the [best time to visit Diveagar](guide:best-time-to-visit-diveagar).",
+            },
+            {
+              q: "How do I book a stay for 3 days?",
+              a: "Message the property on WhatsApp, confirm what is included and the cancellation terms, and pay as agreed. See [how to book Diveagar hotels](guide:how-to-book-diveagar-hotels).",
+            },
           ],
         },
       ],
@@ -254,7 +299,120 @@ Confirm distances, temple hours and sea conditions locally before you go.`,
       type: "cta",
       heading: "Ready to choose a stay?",
       text: "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
-      button: { label: "Browse hotels in Diveagar", guide: "best-hotels-in-diveagar" },
+      button: {
+        label: "Browse hotels in Diveagar",
+        guide: "best-hotels-in-diveagar",
+      },
+    },
+
+     {
+      type: "plan",
+      id: "plan",
+      heading: "Plan your Diveagar trip",
+      sub: "Everything you need around your hotel booking.",
+      columns: [
+        {
+          heading: "More places to stay",
+          links: [
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "Before you go",
+          links: [
+            {
+              label: "Is Diveagar worth visiting?",
+              guide: "is-diveagar-worth-visiting",
+            },
+            {
+              label: "What Diveagar is famous for",
+              guide: "what-is-diveagar-famous-for",
+            },
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Itineraries",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "3-day itinerary",
+              guide: "diveagar-3-day-itinerary",
+            },
+            {
+              label: "Tour packages",
+              guide: "diveagar-tour-packages",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+          ],
+        },
+        {
+          heading: "Compare destinations",
+          links: [
+            {
+              label: "Diveagar vs Shrivardhan",
+              guide: "diveagar-vs-shrivardhan",
+            },
+            {
+              label: "Diveagar vs Alibaug",
+              guide: "diveagar-vs-alibaug",
+            },
+            {
+              label: "Diveagar vs Dapoli",
+              guide: "diveagar-vs-dapoli",
+            },
+            {
+              label: "Diveagar vs Harihareshwar",
+              guide: "diveagar-vs-harihareshwar",
+            },
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer: "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
     },
   ],
 };
