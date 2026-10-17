@@ -22,9 +22,13 @@ import threeDayItinerary from "./diveagar-3-day-itinerary";
 import tourPackages from "./diveagar-tour-packages";
 import beachThings from "./diveagar-beach-things-to-do";
 import firstTimeVisitors from "./diveagar-first-time-visitors";
+import vsShrivardhan from "./diveagar-vs-shrivardhan";
+import vsAlibaug from "./diveagar-vs-alibaug";
+import vsDapoli from "./diveagar-vs-dapoli";
+import vsHarihareshwar from "./diveagar-vs-harihareshwar";
 
 
-const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime, bestMonth , howToReach, howToBook, whereToEat, twoDayItinerary, puneTrip , threeDayItinerary , tourPackages , beachThings , firstTimeVisitors];
+const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime, bestMonth , howToReach, howToBook, whereToEat, twoDayItinerary, puneTrip , threeDayItinerary , tourPackages , beachThings , firstTimeVisitors , vsShrivardhan , vsAlibaug , vsDapoli , vsHarihareshwar];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 
 export const getGuide = (slug) => BY_SLUG.get(slug) || null;

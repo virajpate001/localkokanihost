@@ -92,16 +92,12 @@ export default function TermsForPartnersPage() {
                 applicable commission or referral terms agreed with LocalKokani.
               </li>
               <li>
-                <strong>Direct Connect Plan:</strong> A paid annual plan
+                <strong>Premium Plan:</strong> A paid annual plan
                 intended to provide enhanced listing features and direct
                 customer contact options, subject to the plan details displayed
                 at purchase.
               </li>
-              <li>
-                <strong>Verified Premium Plan:</strong> A paid annual plan that
-                may include enhanced visibility, a verified badge and other
-                features described in the applicable plan.
-              </li>
+            
               <li>
                 <strong>Commission:</strong> A fee payable to LocalKokani for
                 eligible bookings, sales or referrals where the commission
@@ -255,28 +251,6 @@ export default function TermsForPartnersPage() {
               advance.
             </p>
 
-            <h3>5.3 Verified Premium Plan</h3>
-            <p>The Verified Premium Plan may include features such as:</p>
-            <ul>
-              <li>
-                A verified badge following the applicable verification process.
-              </li>
-              <li>Enhanced listing presentation.</li>
-              <li>
-                Featured placement or increased visibility, subject to the plan
-                conditions.
-              </li>
-              <li>Direct customer contact options.</li>
-              <li>Other promotional features stated in the plan description.</li>
-            </ul>
-            <p>
-              A paid plan does not guarantee a specific search ranking, number
-              of views, enquiries, reservations, bookings or sales.
-            </p>
-            <p>
-              The meaning and limitations of the verified badge are explained in
-              our Verification Policy.
-            </p>
 
             <h3>5.4 Plan Payments, Renewal and Refunds</h3>
             <p>

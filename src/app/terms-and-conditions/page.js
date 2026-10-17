@@ -329,34 +329,26 @@ export default function TermsAndConditionsPage() {
               and the applicable plan terms.
             </p>
 
-            <h2>10. Verified Badge</h2>
+            <h2>10. Premium Badge</h2>
             <p>
-              LocalKokani may display a Verified badge for businesses that
-              successfully complete our internal verification process.
+             LocalKokani may display a Premium badge for businesses that subscribe to our paid plans.
             </p>
             <p>
-              Verification may include reviewing the owner&apos;s or authorized
-              representative&apos;s identity, contact information, business
-              location, submitted documents, and listing details, according to
-              the relevant verification criteria.
+          The Premium badge is granted upon successful purchase and activation of an eligible paid plan, according to the applicable plan terms.
             </p>
             <p>The badge:</p>
             <ul>
-              <li>Represents LocalKokani&apos;s internal verification process.</li>
+              <li>Represents an active paid subscription with LocalKokani.</li>
               <li>Is not government approval or official tourism certification.</li>
               <li>
-                Does not guarantee service quality, cleanliness, food safety,
-                availability, customer satisfaction, or future performance.
+                Does not guarantee service quality, cleanliness, food safety, availability, customer satisfaction, or future performance.
               </li>
               <li>
-                May be suspended or removed if the information becomes
-                inaccurate, verification requirements are no longer met, or
-                misuse is identified.
+                May be suspended or removed if the subscription expires, is cancelled, payment fails, or misuse is identified.
               </li>
             </ul>
             <p>
-              Our verification process does not replace the legal obligations of
-              the business owner.
+             Does not replace the legal obligations of the business owner.
             </p>
 
             <h2>11. Reviews, Ratings, and User-Submitted Content</h2>

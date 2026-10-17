@@ -293,14 +293,12 @@ export default function TermsForTravelersPage() {
               <a href="/cancellation-policy">Cancellation Policy</a>.
             </p>
 
-            <h2>11. Verified Businesses</h2>
+            <h2>11. Premium Businesses</h2>
             <p>
-              Some listings may display a Verified badge following
-              LocalKokani&apos;s internal verification process.
+             Some listings may display a Premium badge after subscribing to LocalKokani's paid plans.
             </p>
             <p>
-              The badge indicates that specified information has been reviewed
-              under our published verification criteria.
+              The badge indicates that the business has an active paid subscription with LocalKokani.
             </p>
             <p>It does not guarantee:</p>
             <ul>
@@ -312,8 +310,7 @@ export default function TermsForTravelersPage() {
               <li>Government approval or official certification</li>
             </ul>
             <p>
-              You should still confirm important details directly with the
-              business.
+             You should still confirm important details directly with the business.
             </p>
 
             <h2>12. Reviews and Feedback</h2>

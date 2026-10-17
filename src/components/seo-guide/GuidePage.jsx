@@ -34,6 +34,7 @@ import PackageComparer from "./PackageComparer";
 import BeachDayPlanner from "./BeachDayPlanner";
 import PersistentChecklist from "./PersistentChecklist";
 import PackingList from "./PackingList";
+import VsBlock from "./VsBlock";
 
 
 export default async function GuidePage({ guide }) {
@@ -121,6 +122,8 @@ export default async function GuidePage({ guide }) {
         return <PersistentChecklist key={i} block={block} live={live} />;
       case "packingList":
         return <PackingList key={i} block={block} />;
+      case "vs":
+        return <VsBlock key={i} block={block} live={live} />;
 
 
       default:
