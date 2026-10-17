@@ -26,9 +26,11 @@ import vsShrivardhan from "./diveagar-vs-shrivardhan";
 import vsAlibaug from "./diveagar-vs-alibaug";
 import vsDapoli from "./diveagar-vs-dapoli";
 import vsHarihareshwar from "./diveagar-vs-harihareshwar";
+import konkanBeaches from "./best-konkan-beaches-compared";
+import konkanResorts from "./top-beach-resorts-konkan";
+import diveagarFaq from "./diveagar-faq";
 
-
-const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime, bestMonth , howToReach, howToBook, whereToEat, twoDayItinerary, puneTrip , threeDayItinerary , tourPackages , beachThings , firstTimeVisitors , vsShrivardhan , vsAlibaug , vsDapoli , vsHarihareshwar];
+const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime, bestMonth , howToReach, howToBook, whereToEat, twoDayItinerary, puneTrip , threeDayItinerary , tourPackages , beachThings , firstTimeVisitors , vsShrivardhan , vsAlibaug , vsDapoli , vsHarihareshwar , konkanBeaches , konkanResorts, diveagarFaq];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 
 export const getGuide = (slug) => BY_SLUG.get(slug) || null;

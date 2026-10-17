@@ -4,21 +4,15 @@
 import GuideLink from "./GuideLink";
 import GuideMarkdown from "./GuideMarkdown";
 import { h2Cls, h3Cls, accentBtn } from "./guideStyles";
+import { waLink } from "@/lib/guideLogic";
 
 export function AnswerBox({ block, live }) {
-   const now = block.now ? renderNow(block.now) : null;
-   
   return (
     <section className="pt-9">
       <div className="container-custom">
         <div className="card max-w-3xl border-l-8 border-accent !rounded-l-none p-6 md:p-7">
           <h2 className={`${h3Cls} mb-3`}>{block.heading}</h2>
           <GuideMarkdown md={block.md} live={live} />
-          {now && (
-            <div className="mt-3.5 rounded-xl bg-gray-50 dark:bg-gray-800/60 px-3.5 py-3 text-gray-800 dark:text-gray-200">
-              {now}
-            </div>
-          )}
         </div>
       </div>
     </section>
@@ -104,42 +98,49 @@ export function ProseBand({ block, live }) {
   );
 }
 
-export function CtaBand({ block, live }) {
-  const target = block.button.guide;
+export function CtaBand({ block, live, whatsapp }) {
+  const { button } = block;
+
+  // Three button variants:
+  //   1. guide: "slug"        → internal guide link (hidden if the guide isn't live)
+  //   2. wa: true + waMessage → opens WhatsApp with a prefilled message
+  //   3. href: "/path"        → any plain URL
+  let action = null;
+  if (button.guide) {
+    if (live.has(button.guide)) {
+      action = (
+        <GuideLink slug={button.guide} live className={accentBtn}>
+          {button.label}
+        </GuideLink>
+      );
+    }
+    // A guide CTA whose target isn't live is hidden, not shown as dead text.
+  } else if (button.wa && whatsapp) {
+    action = (
+      <a
+        href={waLink(whatsapp, button.waMessage || "")}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={accentBtn}
+      >
+        {button.label}
+      </a>
+    );
+  } else if (button.href) {
+    action = (
+      <a href={button.href} className={accentBtn}>
+        {button.label}
+      </a>
+    );
+  }
+
   return (
     <section className="bg-secondary py-10 md:py-12 text-white">
       <div className="container-custom">
         <h2 className="font-display font-bold text-2xl md:text-3xl text-white mb-2">{block.heading}</h2>
-        <p className="mb-5 max-w-2xl text-white/90">{block.text}</p>
-        {live.has(target) && (
-          <GuideLink slug={target} live className={accentBtn}>
-            {block.button.label}
-          </GuideLink>
-        )}
+        {block.text && <p className="mb-5 max-w-2xl text-white/90">{block.text}</p>}
+        {action}
       </div>
     </section>
-  );
-}
-
-function renderNow(cfg) {
-  const month = new Date().getMonth() + 1;
-  const monthName = cfg.months[month - 1];
-  let seasonKey = null;
-  for (const [key, def] of Object.entries(cfg.seasons)) {
-    if (def.months.includes(month)) {
-      seasonKey = key;
-      break;
-    }
-  }
-  if (!seasonKey) return null;
-  const season = cfg.seasons[seasonKey];
-  const edge = season.edge?.[month] ? `${season.edge[month]} ` : "";
-
-  return (
-    <>
-      <strong>Right now ({monthName}): </strong>
-      {season.name} ({season.range}). {edge}
-      {season.watch}
-    </>
   );
 }

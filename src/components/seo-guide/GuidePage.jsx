@@ -35,14 +35,16 @@ import BeachDayPlanner from "./BeachDayPlanner";
 import PersistentChecklist from "./PersistentChecklist";
 import PackingList from "./PackingList";
 import VsBlock from "./VsBlock";
-
+import BeachesRanker from "./BeachesRanker";
+import ResortFinder from "./ResortFinder";
+import FaqHub from "./FaqHub";
 
 export default async function GuidePage({ guide }) {
   const live = await getLiveSlugs();
   const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
 
   const faqItems = guide.blocks
-    .filter((b) => b.type === "faq")
+    .filter((b) => b.type === "faq" || b.type === "faqHub")
     .flatMap((b) => b.groups.flatMap((g) => g.items))
     .map((i) => ({ question: i.q, answer: mdToPlain(i.a) }));
   const faqSchema = generateFaqSchema(faqItems);
@@ -83,7 +85,7 @@ export default async function GuidePage({ guide }) {
       case "prose":
         return <ProseBand key={i} block={block} live={live} />;
       case "cta":
-        return <CtaBand key={i} block={block} live={live} />;
+       return <CtaBand key={i} block={block} live={live} whatsapp={whatsapp} />;
 
       // --- New block types added across the recent conversions ---
       case "quiz":
@@ -124,7 +126,12 @@ export default async function GuidePage({ guide }) {
         return <PackingList key={i} block={block} />;
       case "vs":
         return <VsBlock key={i} block={block} live={live} />;
-
+      case "beachesRanker":
+        return <BeachesRanker key={i} block={block} live={live} />;
+      case "resortFinder":
+        return <ResortFinder key={i} block={block} live={live} whatsapp={whatsapp} />;
+      case "faqHub":
+        return <FaqHub key={i} block={block} live={live} />;
 
       default:
         return null;
