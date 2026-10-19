@@ -136,8 +136,8 @@ export default async function GuidePage({ guide }) {
         return <FaqHub key={i} block={block} live={live} />;
       case "regionStays":
         return <RegionStays key={i} block={block} live={live} whatsapp={whatsapp} />;
-      case "seasonBar":
-        return <SeasonBar key={i} block={block} />;
+     case "seasonBar":
+  return <SeasonBar key={i} block={block} live={live} />;
 
       default:
         return null;
