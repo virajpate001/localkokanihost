@@ -32,8 +32,8 @@ const values = [
   },
   {
     icon: FiTrendingUp,
-    title: "Growing With Local Partners",
-    description: "We work closely with hotel and restaurant owners across India to help them reach more travelers, fairly and transparently.",
+    title: "Empowering Local Businesses",
+    description: "We partner with homestay owners, hotels, resorts, and local restaurants across Konkan, helping them connect with more travelers, grow their businesses, and showcase the authentic hospitality of the region.",
   },
 ];
 
@@ -63,21 +63,24 @@ export default function AboutPage() {
           <h2 className="font-display font-bold text-2xl text-primary section-title mb-4">Our Story</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed dark:text-gray-300">
             <p>
-              Local Kokani started with a simple frustration: booking a hotel or finding a good local
-              restaurant while traveling in India often meant sifting through outdated listings, fake
-              reviews, or paying inflated prices through faceless platforms.
+              LocalKokani was born from a love for the beautiful Konkan region and a simple belief: discovering a place should be as special as experiencing it.
             </p>
             <p>
-              We set out to build something different — a platform where every listing is real, every
-              price is transparent, and every enquiry gets a real human response. No hidden fees, no
-              automated runarounds. Just a direct line between travelers and the people who run the
-              places they're visiting.
+             From peaceful beaches and scenic coastal villages to historic forts, delicious Konkani food, and warm local hospitality, Konkan has so much to offer. Yet, finding the right place to stay or a good local restaurant can sometimes be difficult for travelers.
             </p>
             <p>
-              Today, Local Kokani helps travelers discover handpicked hotels and restaurants across India's
-              most-loved destinations, while giving property owners — many of them small, independent
-              businesses — a fair, straightforward way to reach more guests.
+              That's why we created <strong>LocalKokani — a platform that brings travelers closer to the heart of Konkan.</strong>
             </p>
+
+            <p>Our goal is to make it easier for travelers to discover homestays, hotels, resorts, rooms, villas, restaurants, and local Khanavals while helping them connect with the people who make this region truly special.</p>
+
+            <p>We also believe that local businesses deserve more opportunities to grow. By bringing their properties and services online, we help local owners reach more travelers and showcase the unique hospitality, culture, and traditions of their communities.</p>
+
+            <p>At LocalKokani, we want travel to be more than just visiting a destination. We want you to experience local life, enjoy authentic Konkani food, explore hidden gems, and create memories that stay with you long after your journey ends.</p>
+
+            <p><strong>Our mission is simple: to help you discover Konkan, stay local, and experience the region like never before.</strong></p>
+
+               <p><strong>LocalKokani — Stay with Locals. Discover the Real Konkan.</strong></p>
           </div>
         </div>
       </section>

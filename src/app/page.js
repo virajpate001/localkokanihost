@@ -40,7 +40,7 @@ export default async function HomePage() {
       <FeaturedRestaurants />
       <WhyChooseUs />
       <Testimonials />
-      <CtaBanner />
+      {/* <CtaBanner /> */}
     </>
   );
 }

@@ -218,7 +218,8 @@ export default function Footer({ logoUrl }) {
           <ul className="space-y-2 text-white/70 text-sm">
             <li>
               <Link href="/search" className="hover:text-accent">
-                Search
+
+                Diveagar Travel Guide
               </Link>
             </li>
             <li>
@@ -240,31 +241,7 @@ export default function Footer({ logoUrl }) {
           </ul>
         </div>
 
-        <div>
-          <h4 className="font-display font-semibold text-lg mb-4">Other</h4>
-          <ul className="space-y-2 text-white/70 text-sm">
-            <li>
-              <Link href="/about" className="hover:text-accent">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-accent">
-                Contact Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="hover:text-accent">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link href="/sitemap.xml" className="hover:text-accent">
-                Sitemap
-              </Link>
-            </li>
-          </ul>
-        </div>
+      
 
 
       </div>
