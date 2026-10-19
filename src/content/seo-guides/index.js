@@ -30,8 +30,46 @@ import konkanBeaches from "./best-konkan-beaches-compared";
 import konkanResorts from "./top-beach-resorts-konkan";
 import diveagarFaq from "./diveagar-faq";
 import bestKonkanHotels from "./best-hotels-in-konkan";
+import konkanBeachHotels from "./konkan-best-hotels-beach";
+import konkanSeaViewHotels from "./konkan-best-hotels-sea-view";
+import konkanLuxuryHotels from "./konkan-best-hotels-luxury";
+import konkanBudgetHotels from "./konkan-best-hotels-budget";
 
-const GUIDES = [travelGuide, bestHotels, nearBeach, luxury, pool, family, turtle, worthVisiting, whatFamous , bestTime, bestMonth , howToReach, howToBook, whereToEat, twoDayItinerary, puneTrip , threeDayItinerary , tourPackages , beachThings , firstTimeVisitors , vsShrivardhan , vsAlibaug , vsDapoli , vsHarihareshwar , konkanBeaches , konkanResorts, diveagarFaq , bestKonkanHotels   ];
+const GUIDES = [
+  travelGuide,
+  bestHotels,
+  nearBeach,
+  luxury,
+  pool,
+  family,
+  turtle,
+  worthVisiting,
+  whatFamous,
+  bestTime,
+  bestMonth,
+  howToReach,
+  howToBook,
+  whereToEat,
+  twoDayItinerary,
+  puneTrip,
+  threeDayItinerary,
+  tourPackages,
+  beachThings,
+  firstTimeVisitors,
+  vsShrivardhan,
+  vsAlibaug,
+  vsDapoli,
+  vsHarihareshwar,
+  konkanBeaches,
+  konkanResorts,
+  diveagarFaq,
+  bestKonkanHotels,
+  konkanBeachHotels,
+  konkanSeaViewHotels,
+  konkanLuxuryHotels,
+  konkanBudgetHotels, 
+  
+];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 
 export const getGuide = (slug) => BY_SLUG.get(slug) || null;
