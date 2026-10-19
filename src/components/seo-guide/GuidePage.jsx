@@ -38,6 +38,8 @@ import VsBlock from "./VsBlock";
 import BeachesRanker from "./BeachesRanker";
 import ResortFinder from "./ResortFinder";
 import FaqHub from "./FaqHub";
+import RegionStays from "./RegionStays";
+import SeasonBar from "./SeasonBar";
 
 export default async function GuidePage({ guide }) {
   const live = await getLiveSlugs();
@@ -85,7 +87,7 @@ export default async function GuidePage({ guide }) {
       case "prose":
         return <ProseBand key={i} block={block} live={live} />;
       case "cta":
-       return <CtaBand key={i} block={block} live={live} whatsapp={whatsapp} />;
+        return <CtaBand key={i} block={block} live={live} whatsapp={whatsapp} />;
 
       // --- New block types added across the recent conversions ---
       case "quiz":
@@ -132,6 +134,10 @@ export default async function GuidePage({ guide }) {
         return <ResortFinder key={i} block={block} live={live} whatsapp={whatsapp} />;
       case "faqHub":
         return <FaqHub key={i} block={block} live={live} />;
+      case "regionStays":
+        return <RegionStays key={i} block={block} live={live} whatsapp={whatsapp} />;
+      case "seasonBar":
+        return <SeasonBar key={i} block={block} />;
 
       default:
         return null;

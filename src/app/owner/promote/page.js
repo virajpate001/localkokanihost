@@ -216,7 +216,7 @@ function PromoteContent() {
       {/* NEW: Extendable Promotions Banner — shown above the form when applicable */}
       {extendableRequests.length > 0 && !extendingFrom && (
         <div className="card p-5 bg-secondary/5 border border-secondary/20">
-          <h3 className="font-display font-semibold text-primary text-sm mb-3 flex items-center gap-2">
+          <h3 className="font-display font-semibold text-primary text-sm mb-3 flex items-center gap-2 dark:text-white">
             <FiRefreshCw className="text-secondary" /> Keep Your Promotion Going
           </h3>
           <div className="space-y-2">
@@ -250,7 +250,7 @@ function PromoteContent() {
       {/* New Request Form */}
       <div className="card p-6 space-y-5">
         <div className="flex items-center justify-between">
-          <h2 className="font-display font-bold text-xl text-primary">
+          <h2 className="font-display font-bold text-xl text-primary dark:text-white">
             {extendingFrom ? "Extend Your Promotion" : "Promote a Listing"}
           </h2>
           {extendingFrom && (
@@ -305,7 +305,7 @@ function PromoteContent() {
               }`}
             >
               <FiStar className="text-primary mb-1" />
-              <p className="font-medium text-primary text-sm">Featured</p>
+              <p className="font-medium text-primary text-sm dark:text-white">Featured</p>
               <p className="text-gray-400 text-xs">Homepage & top listings</p>
             </button>
             <button
@@ -319,7 +319,7 @@ function PromoteContent() {
               }`}
             >
               <FiZap className="text-accent-dark mb-1" />
-              <p className="font-medium text-primary text-sm">Sponsored</p>
+              <p className="font-medium text-primary text-sm dark:text-white">Sponsored</p>
               <p className="text-gray-400 text-xs">
                 Destination page highlight
               </p>
@@ -344,7 +344,7 @@ function PromoteContent() {
                 }`}
               >
                 <p className="text-xs text-gray-500">{d.label}</p>
-                <p className="font-display font-bold text-primary text-sm mt-0.5">
+                <p className="font-display font-bold text-primary text-sm mt-0.5 dark:text-white">
                   {formatCurrency(pricing?.[promotionType]?.[d.key] || 0)}
                 </p>
               </button>
@@ -399,7 +399,7 @@ function PromoteContent() {
       {/* Request History — unchanged */}
       {requests.length > 0 && (
         <div>
-          <h3 className="font-display font-semibold text-lg text-primary mb-4">
+          <h3 className="font-display font-semibold text-lg text-primary mb-4 dark:text-white">
             Your Promotion Requests
           </h3>
           <div className="space-y-3">
@@ -412,7 +412,7 @@ function PromoteContent() {
                   className="card p-4 flex items-center justify-between gap-4 flex-wrap"
                 >
                   <div>
-                    <p className="font-medium text-primary text-sm">
+                    <p className="font-medium text-primary text-sm dark:text-white">
                       {req.entityName} —{" "}
                       <span className="capitalize">{req.promotionType}</span>
                     </p>
@@ -449,7 +449,7 @@ function PromoteContent() {
 export default function OwnerPromotePage() {
   return (
     <OwnerProtectedRoute>
-      <div className="bg-gray-50 min-h-screen py-8">
+      <div className="bg-gray-50 min-h-screen py-8 dark:bg-gray-950">
         <div className="container-custom">
           <OwnerPromoteHeader />
           <PromoteContent />
@@ -463,7 +463,7 @@ function OwnerPromoteHeader() {
   return (
     <div className="flex items-center justify-between mb-6">
       <div>
-        <h1 className="font-display font-bold text-2xl text-primary">
+        <h1 className="font-display font-bold text-2xl text-primary dark:text-white">
           Promote Your Listing
         </h1>
         <p className="text-gray-400 text-sm">

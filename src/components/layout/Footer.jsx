@@ -217,7 +217,7 @@ export default function Footer({ logoUrl }) {
           <h4 className="font-display font-semibold text-lg mb-4">Other</h4>
           <ul className="space-y-2 text-white/70 text-sm">
             <li>
-              <Link href="/search" className="hover:text-accent">
+              <Link href="/diveagar-travel-guide" className="hover:text-accent">
 
                 Diveagar Travel Guide
               </Link>

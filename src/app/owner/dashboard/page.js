@@ -67,10 +67,10 @@ function DashboardContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-white border-b border-gray-100 px-6 py-5 flex items-center justify-between">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+      <div className="bg-primary  px-6 py-5 flex items-center justify-between">
         <div>
-          <h1 className="font-display font-bold text-xl text-primary">
+          <h1 className="font-display font-bold text-xl text-primary dark:text-white">
             Partner Dashboard
           </h1>
           <p className="text-gray-400 text-sm">
@@ -85,7 +85,7 @@ function DashboardContent() {
         </button>
       </div>
 
-      <div className="container-custom py-8">
+      <div className="container-custom py-8 ">
         <div className="flex items-center justify-between mb-6">
           <p className="text-gray-500 text-sm">
             {applications.length} propert
@@ -101,7 +101,7 @@ function DashboardContent() {
 
         {(managedHotels.length > 0 || managedRestaurants.length > 0) && (
           <div className="mb-8">
-            <h2 className="font-display font-semibold text-lg text-primary mb-4">
+            <h2 className="font-display font-semibold text-lg text-primary mb-4 dark:text-white">
               Your Live Listings (
               {managedHotels.length + managedRestaurants.length})
             </h2>
@@ -115,10 +115,10 @@ function DashboardContent() {
                   className="card p-4 flex items-center gap-3 hover:-translate-y-0.5 transition-transform"
                 >
                   <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <FiHome className="text-primary" />
+                    <FiHome className="text-primary dark:text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-primary text-sm">
+                    <p className="font-medium text-primary text-sm dark:text-white">
                       {hotel.name}
                     </p>
                     <p className="text-gray-400 text-xs">View live listing →</p>
@@ -134,10 +134,10 @@ function DashboardContent() {
                   className="card p-4 flex items-center gap-3 hover:-translate-y-0.5 transition-transform"
                 >
                   <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <FiCoffee className="text-primary" />
+                    <FiCoffee className="text-primary dark:text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-primary text-sm">
+                    <p className="font-medium text-primary text-sm dark:text-white">
                       {restaurant.name}
                     </p>
                     <p className="text-gray-400 text-xs">View live listing →</p>
@@ -161,9 +161,9 @@ function DashboardContent() {
                 >
                   <div className="w-11 h-11 rounded-lg bg-gray-100 flex items-center justify-center shrink-0">
                     {listing.type === "hotel" ? (
-                      <FiHome className="text-gray-400" />
+                      <FiHome className="text-gray-400 dark:text-white" />
                     ) : (
-                      <FiCoffee className="text-gray-400" />
+                      <FiCoffee className="text-gray-400 dark:text-white" />
                     )}
                   </div>
                   <div>
@@ -184,10 +184,10 @@ function DashboardContent() {
         <div className="card p-5 mb-6 bg-primary/5 border border-primary/20 flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
-              <FiZap className="text-primary" />
+              <FiZap className="text-primary dark:text-white" />
             </div>
             <div>
-              <p className="font-medium text-primary text-sm">
+              <p className="font-medium text-primary text-sm dark:text-white">
                 Want more visibility?
               </p>
               <p className="text-gray-400 text-xs">
@@ -232,7 +232,7 @@ function DashboardContent() {
                     {app.status}
                   </span>
                 </div>
-                <p className="font-display font-semibold text-primary">
+                <p className="font-display font-semibold text-primary dark:text-white">
                   {app.property?.name}
                 </p>
                 <p className="text-gray-400 text-xs mt-1">
