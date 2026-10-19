@@ -226,6 +226,117 @@ Want to compare individual months? See the [best month for Diveagar Beach](guide
     },
 
     {
+      type: "plan",
+      id: "plan",
+      heading: "Plan your Diveagar trip",
+      sub: "Everything you need around your hotel booking.",
+      columns: [
+        {
+          heading: "More places to stay",
+          links: [
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "Before you go",
+          links: [
+            {
+              label: "Is Diveagar worth visiting?",
+              guide: "is-diveagar-worth-visiting",
+            },
+            {
+              label: "What Diveagar is famous for",
+              guide: "what-is-diveagar-famous-for",
+            },
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Itineraries",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "3-day itinerary",
+              guide: "diveagar-3-day-itinerary",
+            },
+            {
+              label: "Tour packages",
+              guide: "diveagar-tour-packages",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+          ],
+        },
+        {
+          heading: "Compare destinations",
+          links: [
+            {
+              label: "Diveagar vs Shrivardhan",
+              guide: "diveagar-vs-shrivardhan",
+            },
+            {
+              label: "Diveagar vs Alibaug",
+              guide: "diveagar-vs-alibaug",
+            },
+            {
+              label: "Diveagar vs Dapoli",
+              guide: "diveagar-vs-dapoli",
+            },
+            {
+              label: "Diveagar vs Harihareshwar",
+              guide: "diveagar-vs-harihareshwar",
+            },
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer:
+        "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
+    },
+
+    {
       type: "cta",
       heading: "Chosen your dates?",
       text: "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
@@ -233,7 +344,7 @@ Want to compare individual months? See the [best month for Diveagar Beach](guide
         label: "Browse hotels in Diveagar",
         guide: "best-hotels-in-diveagar",
       },
-    }
+    },
   ],
 };
 

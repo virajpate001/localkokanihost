@@ -12,8 +12,7 @@ const guide = {
   ],
   hero: {
     h1: "What is Diveagar famous for?",
-    lead:
-      "Diveagar is known as a quiet beach town on the Konkan coast. Here is what visitors usually come for, and a shortlist builder so you can pick what to fit into your trip.",
+    lead: "Diveagar is known as a quiet beach town on the Konkan coast. Here is what visitors usually come for, and a shortlist builder so you can pick what to fit into your trip.",
     buttons: [
       { label: "See the highlights", variant: "primary", href: "#highlights" },
       { label: "My shortlist", variant: "ghost", href: "#shortlist" },
@@ -32,11 +31,12 @@ It is not known for nightlife or large attractions. If that matters to you, read
       type: "highlights",
       id: "highlights",
       heading: "Diveagar highlights",
-      sub: "Pick a category, and tick \"Add to my list\" on anything you want to fit in. Always confirm opening hours and access locally before you go.",
+      sub: 'Pick a category, and tick "Add to my list" on anything you want to fit in. Always confirm opening hours and access locally before you go.',
       filterAriaLabel: "Filter highlights",
       pickLabel: "Add to my list",
       shortlistHeading: "My Diveagar shortlist",
-      shortlistEmpty: "Nothing added yet. Tick \"Add to my list\" on the highlights above.",
+      shortlistEmpty:
+        'Nothing added yet. Tick "Add to my list" on the highlights above.',
       copyLabel: "Copy my list",
       itineraryLabel: "Fit it into a 2-day itinerary",
       categoryLabels: {
@@ -46,11 +46,23 @@ It is not known for nightlife or large attractions. If that matters to you, read
         nearby: "Nearby",
       },
       filters: [
-        { key: "all", label: "All highlights", note: "Everything on this page." },
+        {
+          key: "all",
+          label: "All highlights",
+          note: "Everything on this page.",
+        },
         { key: "beach", label: "Beach", note: "Time by the sea." },
-        { key: "culture", label: "Temple and culture", note: "Places many visitors include in their trip." },
+        {
+          key: "culture",
+          label: "Temple and culture",
+          note: "Places many visitors include in their trip.",
+        },
         { key: "food", label: "Food", note: "Local meals to look out for." },
-        { key: "nearby", label: "Nearby towns", note: "Coastal towns often combined with Diveagar." },
+        {
+          key: "nearby",
+          label: "Nearby towns",
+          note: "Coastal towns often combined with Diveagar.",
+        },
       ],
       places: [
         {
@@ -169,11 +181,125 @@ It is not known for nightlife or large attractions. If that matters to you, read
     },
 
     {
+      type: "plan",
+      id: "plan",
+      heading: "Plan your Diveagar trip",
+      sub: "Everything you need around your hotel booking.",
+      columns: [
+        {
+          heading: "More places to stay",
+          links: [
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "Before you go",
+          links: [
+            {
+              label: "Is Diveagar worth visiting?",
+              guide: "is-diveagar-worth-visiting",
+            },
+            {
+              label: "What Diveagar is famous for",
+              guide: "what-is-diveagar-famous-for",
+            },
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Itineraries",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "3-day itinerary",
+              guide: "diveagar-3-day-itinerary",
+            },
+            {
+              label: "Tour packages",
+              guide: "diveagar-tour-packages",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+          ],
+        },
+        {
+          heading: "Compare destinations",
+          links: [
+            {
+              label: "Diveagar vs Shrivardhan",
+              guide: "diveagar-vs-shrivardhan",
+            },
+            {
+              label: "Diveagar vs Alibaug",
+              guide: "diveagar-vs-alibaug",
+            },
+            {
+              label: "Diveagar vs Dapoli",
+              guide: "diveagar-vs-dapoli",
+            },
+            {
+              label: "Diveagar vs Harihareshwar",
+              guide: "diveagar-vs-harihareshwar",
+            },
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer:
+        "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
+    },
+
+    {
       type: "cta",
       heading: "Ready to choose a stay?",
       text: "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
-      button: { label: "Browse hotels in Diveagar", guide: "best-hotels-in-diveagar" },
-    }
+      button: {
+        label: "Browse hotels in Diveagar",
+        guide: "best-hotels-in-diveagar",
+      },
+    },
   ],
 };
 

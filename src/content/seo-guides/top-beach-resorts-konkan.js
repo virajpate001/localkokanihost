@@ -8,13 +8,15 @@ const guide = {
     "Looking for the top beach resorts in the Konkan? There is no official ranking, so filter by your must-haves, compare resorts side by side and check the details before you book.",
   trail: [
     { name: "Diveagar Travel Guide", slug: "diveagar-travel-guide" },
-    { name: "Best Konkan Beaches Compared", slug: "best-konkan-beaches-compared" },
+    {
+      name: "Best Konkan Beaches Compared",
+      slug: "best-konkan-beaches-compared",
+    },
     { name: "Top Beach Resorts in the Konkan" },
   ],
   hero: {
     h1: "Top beach resorts in the Konkan: how to compare and choose",
-    lead:
-      "There is no official ranking of Konkan beach resorts, so the best one is the one that has what you need. Filter by your must-haves, compare up to three resorts side by side, and check the details before you pay.",
+    lead: "There is no official ranking of Konkan beach resorts, so the best one is the one that has what you need. Filter by your must-haves, compare up to three resorts side by side, and check the details before you pay.",
     buttons: [
       { label: "Compare resorts", variant: "primary", href: "#resorts" },
       { label: "How to judge a resort", variant: "ghost", href: "#judge" },
@@ -42,13 +44,14 @@ The tool below lets you filter by your must-haves and compare resorts side by si
       type: "resortFinder",
       id: "resorts",
       heading: "Beach resorts",
-      sub: "Tick your must-haves, then tick \"Compare\" on up to three resorts to see them side by side.",
+      sub: 'Tick your must-haves, then tick "Compare" on up to three resorts to see them side by side.',
       regionAriaLabel: "Filter by region",
       allRegionsLabel: "All regions",
       mustsLegend: "Must-haves",
       compareLabel: "Compare",
       compareHeading: "Compare resorts",
-      hintNone: "Tick “Compare” on two or three resorts above to see them side by side.",
+      hintNone:
+        "Tick “Compare” on two or three resorts above to see them side by side.",
       hintOne: "Pick at least one more resort to compare.",
       clearLabel: "Clear comparison",
       empty:
@@ -65,20 +68,80 @@ The tool below lets you filter by your must-haves and compare resorts side by si
       maxCompare: 3,
       messageTemplate: `Hi, I found {name} on {site}. Please share availability, rates, what is included and your cancellation policy. Dates: ___ . Guests: ___ .`,
       featureRows: [
-        { key: "seaView",    label: "Sea view" },
-        { key: "pool",       label: "Swimming pool" },
+        { key: "seaView", label: "Sea view" },
+        { key: "pool", label: "Swimming pool" },
         { key: "restaurant", label: "Restaurant on site" },
-        { key: "spa",        label: "Spa" },
-        { key: "parking",    label: "Parking" },
+        { key: "spa", label: "Spa" },
+        { key: "parking", label: "Parking" },
       ],
       fine: "Facilities are as reported by each property. Looking for something else? See [hotels near Diveagar Beach](guide:hotels-near-diveagar-beach) or [all hotels in Diveagar](guide:best-hotels-in-diveagar).",
       resorts: [
         // Replace with real resorts from Firestore. Sample data preserved so the
         // block renders as a demonstration; delete or replace before publishing.
-        { id: "s1", name: "Sample beach resort",    region: "Diveagar", beach: "On the beach",      price: null, features: { seaView: true,  pool: true, restaurant: true,  spa: null,  parking: true  }, blurb: "Replace with a real listing description.", sample: true },
-        { id: "s2", name: "Sample garden resort",   region: "Diveagar", beach: "About 5 min walk",  price: null, features: { seaView: false, pool: true, restaurant: true,  spa: false, parking: true  }, blurb: "Replace with a real listing description.", sample: true },
-        { id: "s3", name: "Sample sea-view resort", region: "Diveagar", beach: "On the beach",      price: null, features: { seaView: true,  pool: null, restaurant: true,  spa: true,  parking: null  }, blurb: "Replace with a real listing description.", sample: true },
-        { id: "s4", name: "Sample family resort",   region: "Diveagar", beach: "About 10 min walk", price: null, features: { seaView: null,  pool: true, restaurant: true,  spa: false, parking: true  }, blurb: "Replace with a real listing description.", sample: true },
+        {
+          id: "s1",
+          name: "Sample beach resort",
+          region: "Diveagar",
+          beach: "On the beach",
+          price: null,
+          features: {
+            seaView: true,
+            pool: true,
+            restaurant: true,
+            spa: null,
+            parking: true,
+          },
+          blurb: "Replace with a real listing description.",
+          sample: true,
+        },
+        {
+          id: "s2",
+          name: "Sample garden resort",
+          region: "Diveagar",
+          beach: "About 5 min walk",
+          price: null,
+          features: {
+            seaView: false,
+            pool: true,
+            restaurant: true,
+            spa: false,
+            parking: true,
+          },
+          blurb: "Replace with a real listing description.",
+          sample: true,
+        },
+        {
+          id: "s3",
+          name: "Sample sea-view resort",
+          region: "Diveagar",
+          beach: "On the beach",
+          price: null,
+          features: {
+            seaView: true,
+            pool: null,
+            restaurant: true,
+            spa: true,
+            parking: null,
+          },
+          blurb: "Replace with a real listing description.",
+          sample: true,
+        },
+        {
+          id: "s4",
+          name: "Sample family resort",
+          region: "Diveagar",
+          beach: "About 10 min walk",
+          price: null,
+          features: {
+            seaView: null,
+            pool: true,
+            restaurant: true,
+            spa: false,
+            parking: true,
+          },
+          blurb: "Replace with a real listing description.",
+          sample: true,
+        },
       ],
     },
 
@@ -132,33 +195,160 @@ The tool below lets you filter by your must-haves and compare resorts side by si
       groups: [
         {
           items: [
-            { q: "What are the top 10 resorts in India?",
+            {
+              q: "What are the top 10 resorts in India?",
               a: "There is no single authoritative list, and the right resort depends on what you want. This page focuses on beach resorts in the Konkan. Use the filters and the comparison tool to choose by your own priorities.",
-              open: true },
-            { q: "What is the best beach resort in the Konkan?",
-              a: "The best one is the one that matches your must-haves, such as beach access, a pool, food and budget. Compare resorts side by side above." },
-            { q: "How do I choose a beach resort?",
-              a: "Check the distance to the beach, the facilities, the meal plan, recent guest photos, what the price includes and the cancellation terms. See the checklist in this guide." },
-            { q: "Do Konkan beach resorts have swimming pools?",
-              a: "Some do. Use the \"Swimming pool\" must-have above, and confirm the pool is open on your dates. See [hotels with a swimming pool](guide:diveagar-hotels-with-swimming-pool)." },
-            { q: "When should I book a beach resort?",
-              a: "Book early for long weekends, school holidays and the busier months. See the [best time to visit Diveagar](guide:best-time-to-visit-diveagar)." },
-            { q: "Can I book a resort directly?",
-              a: `Yes. Message the property on WhatsApp through ${SITE_NAME}, confirm the price, inclusions and cancellation terms, and pay as agreed. See [how to book Diveagar hotels](guide:how-to-book-diveagar-hotels).` },
-            { q: "Which Konkan beach is best for a resort stay?",
-              a: "That depends on the beach, the season and your priorities. Rank the options in [Konkan beaches compared](guide:best-konkan-beaches-compared)." },
+              open: true,
+            },
+            {
+              q: "What is the best beach resort in the Konkan?",
+              a: "The best one is the one that matches your must-haves, such as beach access, a pool, food and budget. Compare resorts side by side above.",
+            },
+            {
+              q: "How do I choose a beach resort?",
+              a: "Check the distance to the beach, the facilities, the meal plan, recent guest photos, what the price includes and the cancellation terms. See the checklist in this guide.",
+            },
+            {
+              q: "Do Konkan beach resorts have swimming pools?",
+              a: 'Some do. Use the "Swimming pool" must-have above, and confirm the pool is open on your dates. See [hotels with a swimming pool](guide:diveagar-hotels-with-swimming-pool).',
+            },
+            {
+              q: "When should I book a beach resort?",
+              a: "Book early for long weekends, school holidays and the busier months. See the [best time to visit Diveagar](guide:best-time-to-visit-diveagar).",
+            },
+            {
+              q: "Can I book a resort directly?",
+              a: `Yes. Message the property on WhatsApp through ${SITE_NAME}, confirm the price, inclusions and cancellation terms, and pay as agreed. See [how to book Diveagar hotels](guide:how-to-book-diveagar-hotels).`,
+            },
+            {
+              q: "Which Konkan beach is best for a resort stay?",
+              a: "That depends on the beach, the season and your priorities. Rank the options in [Konkan beaches compared](guide:best-konkan-beaches-compared).",
+            },
           ],
         },
       ],
     },
 
     {
+      type: "plan",
+      id: "plan",
+      heading: "Plan your Diveagar trip",
+      sub: "Everything you need around your hotel booking.",
+      columns: [
+        {
+          heading: "More places to stay",
+          links: [
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "Before you go",
+          links: [
+            {
+              label: "Is Diveagar worth visiting?",
+              guide: "is-diveagar-worth-visiting",
+            },
+            {
+              label: "What Diveagar is famous for",
+              guide: "what-is-diveagar-famous-for",
+            },
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Itineraries",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "3-day itinerary",
+              guide: "diveagar-3-day-itinerary",
+            },
+            {
+              label: "Tour packages",
+              guide: "diveagar-tour-packages",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+          ],
+        },
+        {
+          heading: "Compare destinations",
+          links: [
+            {
+              label: "Diveagar vs Shrivardhan",
+              guide: "diveagar-vs-shrivardhan",
+            },
+            {
+              label: "Diveagar vs Alibaug",
+              guide: "diveagar-vs-alibaug",
+            },
+            {
+              label: "Diveagar vs Dapoli",
+              guide: "diveagar-vs-dapoli",
+            },
+            {
+              label: "Diveagar vs Harihareshwar",
+              guide: "diveagar-vs-harihareshwar",
+            },
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer:
+        "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
+    },
+
+    {
       type: "cta",
       heading: "Ready to compare stays?",
-      text:
-        "Browse hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
-      button: { label: "Browse hotels in Diveagar", guide: "best-hotels-in-diveagar" },
-    }
+      text: "Browse hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
+      button: {
+        label: "Browse hotels in Diveagar",
+        guide: "best-hotels-in-diveagar",
+      },
+    },
   ],
 };
 

@@ -10,8 +10,7 @@ const guide = {
   ],
   hero: {
     h1: "Diveagar tour packages: what to compare before you buy",
-    lead:
-      "Packages vary a lot by operator, season and group size, and the cheapest one is rarely the best value. Compare up to three quotes side by side, then ask for the missing details.",
+    lead: "Packages vary a lot by operator, season and group size, and the cheapest one is rarely the best value. Compare up to three quotes side by side, then ask for the missing details.",
     buttons: [
       { label: "Compare packages", variant: "primary", href: "#compare" },
       { label: "Ask for a quote", variant: "ghost", href: "#quote" },
@@ -30,8 +29,7 @@ A package can save effort if you do not have your own transport or have limited 
       type: "packageComparer",
       id: "compare",
       heading: "Compare up to three packages",
-      sub:
-        "Enter each quote and tick what it includes. We will work out the price per person per night and show what is missing.",
+      sub: "Enter each quote and tick what it includes. We will work out the price per person per night and show what is missing.",
       count: 3,
       nameLabel: "Name (optional)",
       namePlaceholder: "e.g. Operator A",
@@ -53,28 +51,36 @@ A package can save effort if you do not have your own transport or have limited 
         "Taxes",
       ],
       hintFewer: "Fill in at least two packages to compare them.",
-      note:
-        "The lowest price per person per night is only a fair comparison if the inclusions match. A package with fewer inclusions may cost more once you add the missing items. Ask each operator to confirm what is and is not included, in writing.",
+      note: "The lowest price per person per night is only a fair comparison if the inclusions match. A package with fewer inclusions may cost more once you add the missing items. Ask each operator to confirm what is and is not included, in writing.",
     },
 
     {
       type: "bookingBuilder",
       id: "quote",
       heading: "Ask for an itemised quote",
-      sub:
-        "Tell the operator or property what you need, and ask them to list everything that is included.",
+      sub: "Tell the operator or property what you need, and ask them to list everything that is included.",
       fields: [
-        { key: "from",   label: "Starting from",    placeholder: "e.g. Pune" },
-        { key: "dates",  label: "Dates",            placeholder: "e.g. 14 to 16 Nov" },
+        { key: "from", label: "Starting from", placeholder: "e.g. Pune" },
+        { key: "dates", label: "Dates", placeholder: "e.g. 14 to 16 Nov" },
         { key: "nights", label: "Number of nights", placeholder: "e.g. 2" },
-        { key: "guests", label: "Guests",           placeholder: "e.g. 2 adults, 1 child" },
+        {
+          key: "guests",
+          label: "Guests",
+          placeholder: "e.g. 2 adults, 1 child",
+        },
       ],
       extrasLegend: "What do you want included?",
       extras: [
         { value: "stay", label: "Stay", checked: true },
         { value: "meals", label: "Meals", checked: true },
-        { value: "transport from your city", label: "Transport from your city" },
-        { value: "local sightseeing transport", label: "Local sightseeing transport" },
+        {
+          value: "transport from your city",
+          label: "Transport from your city",
+        },
+        {
+          value: "local sightseeing transport",
+          label: "Local sightseeing transport",
+        },
         { value: "pickup and drop", label: "Pickup and drop" },
         { value: "a guide", label: "Guide" },
         { value: "entry fees", label: "Entry fees" },
@@ -177,12 +183,125 @@ Whatever you choose, keep a written record of the quote, what is included and an
     },
 
     {
+      type: "plan",
+      id: "plan",
+      heading: "Plan your Diveagar trip",
+      sub: "Everything you need around your hotel booking.",
+      columns: [
+        {
+          heading: "More places to stay",
+          links: [
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "Before you go",
+          links: [
+            {
+              label: "Is Diveagar worth visiting?",
+              guide: "is-diveagar-worth-visiting",
+            },
+            {
+              label: "What Diveagar is famous for",
+              guide: "what-is-diveagar-famous-for",
+            },
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Itineraries",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "3-day itinerary",
+              guide: "diveagar-3-day-itinerary",
+            },
+            {
+              label: "Tour packages",
+              guide: "diveagar-tour-packages",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+          ],
+        },
+        {
+          heading: "Compare destinations",
+          links: [
+            {
+              label: "Diveagar vs Shrivardhan",
+              guide: "diveagar-vs-shrivardhan",
+            },
+            {
+              label: "Diveagar vs Alibaug",
+              guide: "diveagar-vs-alibaug",
+            },
+            {
+              label: "Diveagar vs Dapoli",
+              guide: "diveagar-vs-dapoli",
+            },
+            {
+              label: "Diveagar vs Harihareshwar",
+              guide: "diveagar-vs-harihareshwar",
+            },
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer:
+        "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
+    },
+
+    {
       type: "cta",
       heading: "Prefer to book a stay directly?",
-      text:
-        "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
-      button: { label: "Browse hotels in Diveagar", guide: "best-hotels-in-diveagar" },
-    }
+      text: "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
+      button: {
+        label: "Browse hotels in Diveagar",
+        guide: "best-hotels-in-diveagar",
+      },
+    },
   ],
 };
 

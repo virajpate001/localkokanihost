@@ -12,8 +12,7 @@ const guide = {
   ],
   hero: {
     h1: "Is Diveagar worth visiting?",
-    lead:
-      "It depends on what you want from the trip. Diveagar rewards people who want a quiet beach break and disappoints people who expect nightlife or big attractions. Answer five questions to see whether it fits you.",
+    lead: "It depends on what you want from the trip. Diveagar rewards people who want a quiet beach break and disappoints people who expect nightlife or big attractions. Answer five questions to see whether it fits you.",
     buttons: [
       { label: "Is it right for me?", variant: "primary", href: "#quiz" },
       { label: "Who it suits", variant: "ghost", href: "#who" },
@@ -38,53 +37,129 @@ The quiz below turns that into a recommendation for your trip.`,
           id: "want",
           q: "What do you want most from the trip?",
           opts: [
-            { t: "Quiet beach time and rest", s: 2, why: "You want a relaxed beach break, which is what Diveagar is usually chosen for." },
-            { t: "A mix of beach and sightseeing", s: 1, why: "You want some sightseeing too. Check what Diveagar offers in our guides before you decide." },
-            { t: "Nightlife and entertainment", s: 0, why: "Diveagar usually has little nightlife, so you may be happier elsewhere." },
+            {
+              t: "Quiet beach time and rest",
+              s: 2,
+              why: "You want a relaxed beach break, which is what Diveagar is usually chosen for.",
+            },
+            {
+              t: "A mix of beach and sightseeing",
+              s: 1,
+              why: "You want some sightseeing too. Check what Diveagar offers in our guides before you decide.",
+            },
+            {
+              t: "Nightlife and entertainment",
+              s: 0,
+              why: "Diveagar usually has little nightlife, so you may be happier elsewhere.",
+            },
           ],
         },
         {
           id: "travel",
           q: "How do you feel about travel time?",
           opts: [
-            { t: "A long journey is fine for a quiet place", s: 2, why: "You are comfortable with the journey, which makes Diveagar easier to enjoy." },
-            { t: "A few hours is my limit", s: 1, why: "Check the journey time from your city before you commit." },
-            { t: "I want somewhere very close", s: 0, why: "A very short trip can end up mostly spent travelling." },
+            {
+              t: "A long journey is fine for a quiet place",
+              s: 2,
+              why: "You are comfortable with the journey, which makes Diveagar easier to enjoy.",
+            },
+            {
+              t: "A few hours is my limit",
+              s: 1,
+              why: "Check the journey time from your city before you commit.",
+            },
+            {
+              t: "I want somewhere very close",
+              s: 0,
+              why: "A very short trip can end up mostly spent travelling.",
+            },
           ],
         },
         {
           id: "days",
           q: "How many days do you have?",
           opts: [
-            { t: "Three or more", s: 2, why: "Three or more days gives you time to settle in and explore." },
-            { t: "Two days", s: 1, why: "Two days works if you plan the journey carefully." },
-            { t: "Just one day", s: 0, why: "One day is unlikely to be enough once you add the journey." },
+            {
+              t: "Three or more",
+              s: 2,
+              why: "Three or more days gives you time to settle in and explore.",
+            },
+            {
+              t: "Two days",
+              s: 1,
+              why: "Two days works if you plan the journey carefully.",
+            },
+            {
+              t: "Just one day",
+              s: 0,
+              why: "One day is unlikely to be enough once you add the journey.",
+            },
           ],
         },
         {
           id: "season",
           q: "When are you thinking of going?",
           opts: [
-            { t: "After the monsoon, in the cooler months", s: 2, why: "Cooler months are generally more comfortable on the coast." },
-            { t: "In summer", s: 1, why: "Summer can be hot, so choose a stay with shade, air conditioning or a pool." },
-            { t: "During the monsoon", s: 0, why: "The monsoon can limit beach time and some facilities, so ask your hotel before you book." },
+            {
+              t: "After the monsoon, in the cooler months",
+              s: 2,
+              why: "Cooler months are generally more comfortable on the coast.",
+            },
+            {
+              t: "In summer",
+              s: 1,
+              why: "Summer can be hot, so choose a stay with shade, air conditioning or a pool.",
+            },
+            {
+              t: "During the monsoon",
+              s: 0,
+              why: "The monsoon can limit beach time and some facilities, so ask your hotel before you book.",
+            },
           ],
         },
         {
           id: "do",
           q: "How do you like to spend a holiday?",
           opts: [
-            { t: "Relaxing, walking and eating well", s: 2, why: "A slow pace of beach walks and local meals suits Diveagar." },
-            { t: "A bit of activity and a bit of rest", s: 1, why: "Check the activities available before you decide." },
-            { t: "A packed schedule of attractions", s: 0, why: "You may find Diveagar too quiet for a packed schedule." },
+            {
+              t: "Relaxing, walking and eating well",
+              s: 2,
+              why: "A slow pace of beach walks and local meals suits Diveagar.",
+            },
+            {
+              t: "A bit of activity and a bit of rest",
+              s: 1,
+              why: "Check the activities available before you decide.",
+            },
+            {
+              t: "A packed schedule of attractions",
+              s: 0,
+              why: "You may find Diveagar too quiet for a packed schedule.",
+            },
           ],
         },
       ],
       verdicts: {
         bands: [
-          { min: 8, kind: "good", compare: false, title: "Good fit. Diveagar is likely worth visiting for you." },
-          { min: 5, kind: "mid",  compare: false, title: "Could suit you, with some planning." },
-          { min: 0, kind: "bad",  compare: true,  title: "Probably not the best match. Consider comparing other destinations." },
+          {
+            min: 8,
+            kind: "good",
+            compare: false,
+            title: "Good fit. Diveagar is likely worth visiting for you.",
+          },
+          {
+            min: 5,
+            kind: "mid",
+            compare: false,
+            title: "Could suit you, with some planning.",
+          },
+          {
+            min: 0,
+            kind: "bad",
+            compare: true,
+            title:
+              "Probably not the best match. Consider comparing other destinations.",
+          },
         ],
       },
     },
@@ -182,11 +257,125 @@ Still unsure? Compare it with [Shrivardhan](guide:diveagar-vs-shrivardhan), [Dap
     },
 
     {
+      type: "plan",
+      id: "plan",
+      heading: "Plan your Diveagar trip",
+      sub: "Everything you need around your hotel booking.",
+      columns: [
+        {
+          heading: "More places to stay",
+          links: [
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "Before you go",
+          links: [
+            {
+              label: "Is Diveagar worth visiting?",
+              guide: "is-diveagar-worth-visiting",
+            },
+            {
+              label: "What Diveagar is famous for",
+              guide: "what-is-diveagar-famous-for",
+            },
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Itineraries",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "3-day itinerary",
+              guide: "diveagar-3-day-itinerary",
+            },
+            {
+              label: "Tour packages",
+              guide: "diveagar-tour-packages",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+          ],
+        },
+        {
+          heading: "Compare destinations",
+          links: [
+            {
+              label: "Diveagar vs Shrivardhan",
+              guide: "diveagar-vs-shrivardhan",
+            },
+            {
+              label: "Diveagar vs Alibaug",
+              guide: "diveagar-vs-alibaug",
+            },
+            {
+              label: "Diveagar vs Dapoli",
+              guide: "diveagar-vs-dapoli",
+            },
+            {
+              label: "Diveagar vs Harihareshwar",
+              guide: "diveagar-vs-harihareshwar",
+            },
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer:
+        "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
+    },
+
+    {
       type: "cta",
       heading: "Decided to go?",
       text: "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
-      button: { label: "Browse hotels in Diveagar", guide: "best-hotels-in-diveagar" },
-    }
+      button: {
+        label: "Browse hotels in Diveagar",
+        guide: "best-hotels-in-diveagar",
+      },
+    },
   ],
 };
 

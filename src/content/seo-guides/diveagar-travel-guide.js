@@ -10,7 +10,8 @@ import { SITE_NAME } from "@/lib/siteConfig";
 const guide = {
   slug: "diveagar-travel-guide",
   metaTitle: "Diveagar Travel Guide: Hotels, Best Time, Itineraries & More",
-  metaDescription: "Plan your Diveagar trip: where to stay, the best time to visit, how to get there, itineraries and how Diveagar compares with other Konkan beaches.",
+  metaDescription:
+    "Plan your Diveagar trip: where to stay, the best time to visit, how to get there, itineraries and how Diveagar compares with other Konkan beaches.",
   trail: [
     {
       name: "Diveagar Travel Guide",
@@ -131,7 +132,7 @@ const guide = {
             {
               label: "Hotels near Diveagar Beach",
               guide: "hotels-near-diveagar-beach",
-              desc: "Beachfront and walking-distance stays, and what \"near\" really means.",
+              desc: 'Beachfront and walking-distance stays, and what "near" really means.',
             },
             {
               label: "Luxury hotels and resorts",
@@ -329,8 +330,121 @@ Not sure it is for you? Read [whether Diveagar is worth visiting](guide:is-divea
           ],
         },
       ],
-      footer: "More questions? See the [full Diveagar FAQ](guide:diveagar-faq).",
+      footer:
+        "More questions? See the [full Diveagar FAQ](guide:diveagar-faq).",
     },
+
+    {
+      type: "plan",
+      id: "plan",
+      heading: "Plan your Diveagar trip",
+      sub: "Everything you need around your hotel booking.",
+      columns: [
+        {
+          heading: "More places to stay",
+          links: [
+            {
+              label: "Hotels near Diveagar Beach",
+              guide: "hotels-near-diveagar-beach",
+            },
+            {
+              label: "Luxury hotels and resorts",
+              guide: "luxury-hotels-resorts-diveagar",
+            },
+            {
+              label: "Hotels with a swimming pool",
+              guide: "diveagar-hotels-with-swimming-pool",
+            },
+            {
+              label: "Family-friendly hotels",
+              guide: "family-friendly-hotels-diveagar",
+            },
+            {
+              label: "Turtle-related stays",
+              guide: "diveagar-turtle-resort-stays",
+            },
+          ],
+        },
+        {
+          heading: "Before you go",
+          links: [
+            {
+              label: "Is Diveagar worth visiting?",
+              guide: "is-diveagar-worth-visiting",
+            },
+            {
+              label: "What Diveagar is famous for",
+              guide: "what-is-diveagar-famous-for",
+            },
+            {
+              label: "Best time to visit",
+              guide: "best-time-to-visit-diveagar",
+            },
+            {
+              label: "How to reach Diveagar",
+              guide: "how-to-reach-diveagar",
+            },
+            {
+              label: "Where to eat",
+              guide: "diveagar-food-hotels-restaurants",
+            },
+          ],
+        },
+        {
+          heading: "Itineraries",
+          links: [
+            {
+              label: "2-day itinerary",
+              guide: "diveagar-2-day-itinerary",
+            },
+            {
+              label: "2-day trip from Pune",
+              guide: "diveagar-2-day-trip-from-pune",
+            },
+            {
+              label: "3-day itinerary",
+              guide: "diveagar-3-day-itinerary",
+            },
+            {
+              label: "Tour packages",
+              guide: "diveagar-tour-packages",
+            },
+            {
+              label: "Things to do at the beach",
+              guide: "diveagar-beach-things-to-do",
+            },
+          ],
+        },
+        {
+          heading: "Compare destinations",
+          links: [
+            {
+              label: "Diveagar vs Shrivardhan",
+              guide: "diveagar-vs-shrivardhan",
+            },
+            {
+              label: "Diveagar vs Alibaug",
+              guide: "diveagar-vs-alibaug",
+            },
+            {
+              label: "Diveagar vs Dapoli",
+              guide: "diveagar-vs-dapoli",
+            },
+            {
+              label: "Diveagar vs Harihareshwar",
+              guide: "diveagar-vs-harihareshwar",
+            },
+            {
+              label: "Best Konkan beaches compared",
+              guide: "best-konkan-beaches-compared",
+            },
+          ],
+        },
+      ],
+      footer:
+        "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
+    },
+
     {
       type: "cta",
       heading: "Ready to choose a stay?",
@@ -339,7 +453,7 @@ Not sure it is for you? Read [whether Diveagar is worth visiting](guide:is-divea
         label: "Browse hotels in Diveagar",
         guide: "best-hotels-in-diveagar",
       },
-    }
+    },
   ],
 };
 
