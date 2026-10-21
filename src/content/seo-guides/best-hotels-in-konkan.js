@@ -7,7 +7,7 @@ const guide = {
   metaDescription:
     "Where to stay in Konkan: the best beach, sea-facing, luxury and budget hotels across Raigad, Ratnagiri and Sindhudurg, with best time to visit, distances from Mumbai and trip FAQs.",
   trail: [
-    { name: "Kokan", slug: "diveagar-travel-guide" },
+   
     { name: "Best Hotels in Konkan" },
   ],
   hero: {
@@ -380,7 +380,7 @@ Details and route options are in [distance from Mumbai by road](guide:konkan-gui
       type: "cta",
       heading: "Ready to book?",
       text: "Message the property directly on WhatsApp. Prices are in INR and there are no booking fees.",
-      button: { label: "Browse all Konkan hotels", guide: "konkan-hotels" },
+      button: { label: "Browse all Konkan hotels", guide: "best-hotels-in-konkan" },
     },
   ],
 };

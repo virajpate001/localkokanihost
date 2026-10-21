@@ -34,6 +34,17 @@ import konkanBeachHotels from "./konkan-best-hotels-beach";
 import konkanSeaViewHotels from "./konkan-best-hotels-sea-view";
 import konkanLuxuryHotels from "./konkan-best-hotels-luxury";
 import konkanBudgetHotels from "./konkan-best-hotels-budget";
+import konkanFamilyCouples from "./konkan-best-hotels-family-couples";
+import konkanHomestays from "./konkan-best-hotels-homestays";
+import shrivardhanHotels from "./konkan-hotels-shrivardhan";
+import shrivardhanBeach from "./konkan-guide-shrivardhan-beach";
+import diveagarKonkanHotels from "./konkan-hotels-diveagar";
+import harihareshwarHotels from "./konkan-hotels-harihareshwar";
+import alibaugKashidMurudHotels from "./konkan-hotels-alibaug-kashid-murud";
+import dapoliHarnaiHotels from "./konkan-hotels-dapoli-harnai";
+import ganpatipuleHotels from "./konkan-hotels-ganpatipule";
+import tarkarliMalvanHotels from "./konkan-hotels-tarkarli-malvan";
+import vengurlaSindhudurgHotels from "./konkan-hotels-vengurla-sindhudurg";
 
 const GUIDES = [
   travelGuide,
@@ -68,7 +79,17 @@ const GUIDES = [
   konkanSeaViewHotels,
   konkanLuxuryHotels,
   konkanBudgetHotels, 
-  
+  konkanFamilyCouples,      
+  konkanHomestays, 
+  shrivardhanHotels, 
+  shrivardhanBeach,  
+  diveagarKonkanHotels, 
+  harihareshwarHotels,    
+  alibaugKashidMurudHotels, 
+  dapoliHarnaiHotels,   
+  ganpatipuleHotels,    
+  tarkarliMalvanHotels, 
+  vengurlaSindhudurgHotels,   
 ];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 

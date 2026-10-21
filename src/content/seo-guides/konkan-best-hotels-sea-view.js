@@ -251,7 +251,7 @@ If you care more about walking out onto the sand, see [best beach hotels in Konk
       heading: "Find your sea-view stay",
       text:
         "Message the property directly on WhatsApp. Prices are in INR and there are no booking fees.",
-      button: { label: "Browse all Konkan hotels", guide: "konkan-hotels" },
+      button: { label: "Browse all Konkan hotels", guide: "best-hotels-in-konkan" },
     },
   ],
 };

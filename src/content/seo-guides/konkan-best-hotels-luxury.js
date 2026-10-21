@@ -250,7 +250,7 @@ Drive times vary a lot, so check [distance from Mumbai by road](guide:konkan-gui
       heading: "Find your luxury stay",
       text:
         "Message the property directly on WhatsApp. Prices are in INR and there are no booking fees.",
-      button: { label: "Browse all Konkan hotels", guide: "konkan-hotels" },
+      button: { label: "Browse all Konkan hotels", guide: "best-hotels-in-konkan" },
     },
   ],
 };

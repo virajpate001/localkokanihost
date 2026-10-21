@@ -270,7 +270,7 @@ See [best time to visit Konkan](guide:konkan-guide-best-time-to-visit) and [mons
       heading: "Find an affordable stay",
       text:
         "Message the property directly on WhatsApp. Prices are in INR and there are no booking fees.",
-      button: { label: "Browse all Konkan hotels", guide: "konkan-hotels" },
+      button: { label: "Browse all Konkan hotels", guide: "best-hotels-in-konkan" },
     },
   ],
 };
