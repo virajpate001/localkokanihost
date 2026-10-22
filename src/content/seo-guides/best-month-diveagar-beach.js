@@ -63,17 +63,24 @@ This is a general pattern, and conditions change from year to year. Always check
       id: "calendar",
       heading: "Diveagar Beach, month by month",
       sub: "Select a month. The labels describe the general pattern for beach time, not a forecast.",
-      ariaLabel: "Choose a month",
       hintEmpty: "Choose a month above to see what to expect.",
+      buttonsAriaLabel: "Choose a month",
+      autoSelectCurrent: false,
       bandLabels: {
         best: "Best for the beach",
         good: "Good",
         fair: "Mixed",
         limited: "Limited",
       },
+      rows: [
+        { key: "beach",   label: "Beach" },
+        { key: "weather", label: "Weather" },
+        { key: "crowds",  label: "Crowds" },
+        { key: "tip",     label: "Tip" },
+      ],
       months: [
         {
-          name: "January",
+          label: "Jan",
           rating: "best",
           beach: "Generally one of the most comfortable months for beach time, with a calmer sea.",
           weather: "Cooler and drier.",
@@ -81,7 +88,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "Pack a light layer for evenings.",
         },
         {
-          name: "February",
+          label: "Feb",
           rating: "best",
           beach: "Generally comfortable for the beach, with a calm sea.",
           weather: "Warming up gradually.",
@@ -89,7 +96,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "Book early for long weekends.",
         },
         {
-          name: "March",
+          label: "Mar",
           rating: "good",
           beach: "Still good for the beach, though midday is getting warm.",
           weather: "The heat is building.",
@@ -97,7 +104,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "Plan beach time for morning and late afternoon.",
         },
         {
-          name: "April",
+          label: "Apr",
           rating: "fair",
           beach: "Hot and humid. The beach is best in the early morning and evening.",
           weather: "Hot and humid.",
@@ -105,7 +112,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "A stay with a pool helps.",
         },
         {
-          name: "May",
+          label: "May",
           rating: "fair",
           beach: "Hot and humid, and the weather can turn unsettled late in the month.",
           weather: "Hot and humid, with the monsoon approaching.",
@@ -113,7 +120,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "A stay with a pool helps. Ask about the weather before you go.",
         },
         {
-          name: "June",
+          label: "Jun",
           rating: "limited",
           beach: "The monsoon arrives, bringing rain and a rougher sea. Beach activities may be limited.",
           weather: "Rain, starting early or late depending on the year.",
@@ -121,7 +128,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "Ask your hotel what is open and safe.",
         },
         {
-          name: "July",
+          label: "Jul",
           rating: "limited",
           beach: "Peak monsoon. Heavy rain and a rough sea, and swimming is generally not advisable.",
           weather: "Heavy rain.",
@@ -129,7 +136,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "Choose a stay you would enjoy without beach time.",
         },
         {
-          name: "August",
+          label: "Aug",
           rating: "limited",
           beach: "Peak monsoon. Heavy rain and a rough sea, and swimming is generally not advisable.",
           weather: "Heavy rain.",
@@ -137,7 +144,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "Choose a stay you would enjoy without beach time.",
         },
         {
-          name: "September",
+          label: "Sep",
           rating: "limited",
           beach: "The rain may ease later in the month, but the sea can still be rough.",
           weather: "Rain easing.",
@@ -145,7 +152,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "Check the current sea conditions with your hotel.",
         },
         {
-          name: "October",
+          label: "Oct",
           rating: "fair",
           beach: "The monsoon is retreating. Late rain is possible and the sea may still be settling.",
           weather: "Mixed, with possible late rain.",
@@ -153,7 +160,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "Ask your hotel about recent conditions.",
         },
         {
-          name: "November",
+          label: "Nov",
           rating: "best",
           beach: "Generally comfortable weather and a calmer sea.",
           weather: "Cooler and drier.",
@@ -161,7 +168,7 @@ This is a general pattern, and conditions change from year to year. Always check
           tip: "A good month to plan a beach trip.",
         },
         {
-          name: "December",
+          label: "Dec",
           rating: "best",
           beach: "Generally comfortable for the beach. Often the most popular time, especially around year-end holidays.",
           weather: "Cooler and drier.",
@@ -254,122 +261,13 @@ This is a general pattern, and conditions change from year to year. Always check
       ],
     },
 
-     {
-      type: "plan",
-      id: "plan",
-      heading: "Plan your Diveagar trip",
-      sub: "Everything you need around your hotel booking.",
-      columns: [
-        {
-          heading: "More places to stay",
-          links: [
-            {
-              label: "Hotels near Diveagar Beach",
-              guide: "hotels-near-diveagar-beach",
-            },
-            {
-              label: "Luxury hotels and resorts",
-              guide: "luxury-hotels-resorts-diveagar",
-            },
-            {
-              label: "Hotels with a swimming pool",
-              guide: "diveagar-hotels-with-swimming-pool",
-            },
-            {
-              label: "Family-friendly hotels",
-              guide: "family-friendly-hotels-diveagar",
-            },
-            {
-              label: "Turtle-related stays",
-              guide: "diveagar-turtle-resort-stays",
-            },
-          ],
-        },
-        {
-          heading: "Before you go",
-          links: [
-            {
-              label: "Is Diveagar worth visiting?",
-              guide: "is-diveagar-worth-visiting",
-            },
-            {
-              label: "What Diveagar is famous for",
-              guide: "what-is-diveagar-famous-for",
-            },
-            {
-              label: "Best time to visit",
-              guide: "best-time-to-visit-diveagar",
-            },
-            {
-              label: "How to reach Diveagar",
-              guide: "how-to-reach-diveagar",
-            },
-            {
-              label: "Where to eat",
-              guide: "diveagar-food-hotels-restaurants",
-            },
-          ],
-        },
-        {
-          heading: "Itineraries",
-          links: [
-            {
-              label: "2-day itinerary",
-              guide: "diveagar-2-day-itinerary",
-            },
-            {
-              label: "2-day trip from Pune",
-              guide: "diveagar-2-day-trip-from-pune",
-            },
-            {
-              label: "3-day itinerary",
-              guide: "diveagar-3-day-itinerary",
-            },
-            {
-              label: "Tour packages",
-              guide: "diveagar-tour-packages",
-            },
-            {
-              label: "Things to do at the beach",
-              guide: "diveagar-beach-things-to-do",
-            },
-          ],
-        },
-        {
-          heading: "Compare destinations",
-          links: [
-            {
-              label: "Diveagar vs Shrivardhan",
-              guide: "diveagar-vs-shrivardhan",
-            },
-            {
-              label: "Diveagar vs Alibaug",
-              guide: "diveagar-vs-alibaug",
-            },
-            {
-              label: "Diveagar vs Dapoli",
-              guide: "diveagar-vs-dapoli",
-            },
-            {
-              label: "Diveagar vs Harihareshwar",
-              guide: "diveagar-vs-harihareshwar",
-            },
-            {
-              label: "Best Konkan beaches compared",
-              guide: "best-konkan-beaches-compared",
-            },
-          ],
-        },
-      ],
-      footer: "[Back to the full Diveagar travel guide](guide:diveagar-travel-guide)",
-    },
-
     {
       type: "cta",
       heading: "Picked your month?",
-      text: "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
+      text:
+        "Compare hotels, resorts and villas in Diveagar, then message the property directly on WhatsApp.",
       button: { label: "Browse hotels in Diveagar", guide: "best-hotels-in-diveagar" },
-    }
+    },
   ],
 };
 

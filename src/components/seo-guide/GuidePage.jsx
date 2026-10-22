@@ -41,6 +41,13 @@ import FaqHub from "./FaqHub";
 import RegionStays from "./RegionStays";
 import SeasonBar from "./SeasonBar";
 import PlaceGrid from "./PlaceGrid";
+import ActivityChecker from "./ActivityChecker";
+import DriveTimeFinder from "./DriveTimeFinder";
+import NumberedSteps from "./NumberedSteps";
+import ItineraryTabs from "./ItineraryTabs";
+import PackingChecklist from "./PackingChecklist";
+import QaSwitcher from "./QaSwitcher";
+import WeekendFinder from "./WeekendFinder";
 
 export default async function GuidePage({ guide }) {
   const live = await getLiveSlugs();
@@ -141,6 +148,23 @@ export default async function GuidePage({ guide }) {
         return <SeasonBar key={i} block={block} live={live} />;
       case "placeGrid":
         return <PlaceGrid key={i} block={block} live={live} />;
+      case "activityChecker":
+        return <ActivityChecker key={i} block={block} />;
+      case "driveTimeFinder":
+        return <DriveTimeFinder key={i} block={block} live={live} />;
+      case "numberedSteps":
+        return <NumberedSteps key={i} block={block} live={live} />;
+      case "itineraryTabs":
+        return <ItineraryTabs key={i} block={block} live={live} />;
+      case "packingChecklist":
+        return <PackingChecklist key={i} block={block} />;
+
+
+      case "qaSwitcher":
+        return <QaSwitcher key={i} block={block} />;
+
+      case "weekendFinder":
+        return <WeekendFinder key={i} block={block} live={live} />;
 
       default:
         return null;

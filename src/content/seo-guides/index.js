@@ -48,6 +48,12 @@ import vengurlaSindhudurgHotels from "./konkan-hotels-vengurla-sindhudurg";
 import konkanThingsToSee from "./konkan-guide-things-to-see";
 import konkanBestPlaces from "./konkan-guide-best-places-to-visit";
 import konkanBestTime from "./konkan-guide-best-time-to-visit";
+import konkanOpen from "./konkan-guide-is-konkan-open-for-tourism";
+import konkanDistance from "./konkan-guide-distance-from-mumbai";
+import konkanHowToPlan from "./konkan-guide-how-to-plan-a-trip";
+import konkanMainCity from "./konkan-guide-main-city-in-konkan";
+import konkanWeekends from "./konkan-guide-weekend-getaways";
+
 
 const GUIDES = [
   travelGuide,
@@ -96,6 +102,11 @@ const GUIDES = [
   konkanThingsToSee,
   konkanBestPlaces,
   konkanBestTime,  
+   konkanOpen,
+   konkanDistance,
+   konkanHowToPlan,
+   konkanMainCity, 
+    konkanWeekends,
 ];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 
