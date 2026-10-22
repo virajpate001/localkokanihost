@@ -268,7 +268,7 @@ More ideas: [things to see in Konkan](guide:konkan-guide-things-to-see) and [bes
       heading: "Plan your south Konkan stay",
       text:
         "Message the property directly on WhatsApp. Prices are in INR and there are no booking fees.",
-      button: { label: "Browse all Konkan hotels", guide: "konkan-hotels" },
+      button: { label: "Browse all Konkan hotels", guide: "best-hotels-in-konkan" },
     },
   ],
 };

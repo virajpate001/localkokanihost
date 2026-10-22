@@ -258,7 +258,7 @@ Compared with a hotel, you get less formal service and more local character. Com
       heading: "Find a local stay",
       text:
         "Message the host directly on WhatsApp. Prices are in INR and there are no booking fees.",
-      button: { label: "Browse all Konkan stays", guide: "konkan-hotels" },
+      button: { label: "Browse all Konkan stays", guide: "best-hotels-in-konkan" },
     },
   ],
 };

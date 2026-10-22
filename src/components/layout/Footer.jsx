@@ -223,25 +223,17 @@ export default function Footer({ logoUrl }) {
               </Link>
             </li>
             <li>
-              <Link href="/destinations" className="hover:text-accent">
-                Destinations
+              <Link href="/best-hotels-in-konkan" className="hover:text-accent">
+
+                Best Hotels in Konkan
               </Link>
             </li>
-            <li>
-              <Link href="/hotels" className="hover:text-accent">
-                Hotels
-              </Link>
-            </li>
-            <li>
-              <Link href="/restaurants" className="hover:text-accent">
-                Restaurants
-              </Link>
-            </li>
+
 
           </ul>
         </div>
 
-      
+
 
 
       </div>

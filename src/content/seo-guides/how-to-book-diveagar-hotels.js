@@ -98,7 +98,7 @@ Because of that, get everything confirmed in writing before you pay.`,
 
     {
       type: "checklist",
-      id: "before-pay",
+      id: "before-pay", 
       heading: "Before you pay: your checklist",
       sub: "Tick each item once the property has confirmed it. Do not pay until you have what you need.",
       progressLabel: "Checklist progress",
