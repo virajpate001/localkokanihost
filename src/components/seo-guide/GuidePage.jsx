@@ -48,6 +48,11 @@ import ItineraryTabs from "./ItineraryTabs";
 import PackingChecklist from "./PackingChecklist";
 import QaSwitcher from "./QaSwitcher";
 import WeekendFinder from "./WeekendFinder";
+import RouteChooser from "./RouteChooser";
+import DishGrid from "./DishGrid";
+import StayTypeFinder from "./StayTypeFinder";
+import MessageEditor from "./MessageEditor";
+
 
 export default async function GuidePage({ guide }) {
   const live = await getLiveSlugs();
@@ -165,6 +170,16 @@ export default async function GuidePage({ guide }) {
 
       case "weekendFinder":
         return <WeekendFinder key={i} block={block} live={live} />;
+      case "routeChooser":
+        return <RouteChooser key={i} block={block} />;
+
+      case "dishGrid":
+        return <DishGrid key={i} block={block} />;
+
+      case "stayTypeFinder":
+        return <StayTypeFinder key={i} block={block} live={live} />;
+      case "messageEditor":
+        return <MessageEditor key={i} block={block} />;
 
       default:
         return null;

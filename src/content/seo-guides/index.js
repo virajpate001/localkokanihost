@@ -53,6 +53,9 @@ import konkanDistance from "./konkan-guide-distance-from-mumbai";
 import konkanHowToPlan from "./konkan-guide-how-to-plan-a-trip";
 import konkanMainCity from "./konkan-guide-main-city-in-konkan";
 import konkanWeekends from "./konkan-guide-weekend-getaways";
+import konkanRoadTrips from "./konkan-guide-road-trip-routes";
+import konkanFood from "./konkan-guide-malvani-food";
+import konkanChooseHotel from "./konkan-guide-how-to-choose-a-hotel";
 
 
 const GUIDES = [
@@ -87,26 +90,29 @@ const GUIDES = [
   konkanBeachHotels,
   konkanSeaViewHotels,
   konkanLuxuryHotels,
-  konkanBudgetHotels, 
-  konkanFamilyCouples,      
-  konkanHomestays, 
-  shrivardhanHotels, 
-  shrivardhanBeach,  
-  diveagarKonkanHotels, 
-  harihareshwarHotels,    
-  alibaugKashidMurudHotels, 
-  dapoliHarnaiHotels,   
-  ganpatipuleHotels,    
-  tarkarliMalvanHotels, 
-  vengurlaSindhudurgHotels,    
+  konkanBudgetHotels,
+  konkanFamilyCouples,
+  konkanHomestays,
+  shrivardhanHotels,
+  shrivardhanBeach,
+  diveagarKonkanHotels,
+  harihareshwarHotels,
+  alibaugKashidMurudHotels,
+  dapoliHarnaiHotels,
+  ganpatipuleHotels,
+  tarkarliMalvanHotels,
+  vengurlaSindhudurgHotels,
   konkanThingsToSee,
   konkanBestPlaces,
-  konkanBestTime,  
-   konkanOpen,
-   konkanDistance,
-   konkanHowToPlan,
-   konkanMainCity, 
-    konkanWeekends,
+  konkanBestTime,
+  konkanOpen,
+  konkanDistance,
+  konkanHowToPlan,
+  konkanMainCity,
+  konkanWeekends,
+  konkanRoadTrips,
+  konkanFood, 
+  konkanChooseHotel,  
 ];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 
