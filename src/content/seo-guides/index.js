@@ -45,6 +45,9 @@ import dapoliHarnaiHotels from "./konkan-hotels-dapoli-harnai";
 import ganpatipuleHotels from "./konkan-hotels-ganpatipule";
 import tarkarliMalvanHotels from "./konkan-hotels-tarkarli-malvan";
 import vengurlaSindhudurgHotels from "./konkan-hotels-vengurla-sindhudurg";
+import konkanThingsToSee from "./konkan-guide-things-to-see";
+import konkanBestPlaces from "./konkan-guide-best-places-to-visit";
+import konkanBestTime from "./konkan-guide-best-time-to-visit";
 
 const GUIDES = [
   travelGuide,
@@ -89,7 +92,10 @@ const GUIDES = [
   dapoliHarnaiHotels,   
   ganpatipuleHotels,    
   tarkarliMalvanHotels, 
-  vengurlaSindhudurgHotels,   
+  vengurlaSindhudurgHotels,    
+  konkanThingsToSee,
+  konkanBestPlaces,
+  konkanBestTime,  
 ];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 

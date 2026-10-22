@@ -65,7 +65,7 @@ This is a general pattern, and conditions change from year to year. Always check
       sub: "Select a month. The labels describe the general pattern for beach time, not a forecast.",
       ariaLabel: "Choose a month",
       hintEmpty: "Choose a month above to see what to expect.",
-      ratingLabels: {
+      bandLabels: {
         best: "Best for the beach",
         good: "Good",
         fair: "Mixed",
