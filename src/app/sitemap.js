@@ -65,7 +65,7 @@ export default async function sitemap() {
     {
       url: `${BASE_URL}/partner-with-us`,
       changeFrequency: "monthly",
-      priority: 0.5,
+      priority: 0.8,
       lastModified: new Date(),
     },
   ];
