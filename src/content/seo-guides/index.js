@@ -56,6 +56,8 @@ import konkanWeekends from "./konkan-guide-weekend-getaways";
 import konkanRoadTrips from "./konkan-guide-road-trip-routes";
 import konkanFood from "./konkan-guide-malvani-food";
 import konkanChooseHotel from "./konkan-guide-how-to-choose-a-hotel";
+import konkanMonsoon from "./konkan-guide-monsoon-stays";
+import konkanBeachesCompared from "./konkan-guide-beaches-compared";
 
 
 const GUIDES = [
@@ -113,6 +115,8 @@ const GUIDES = [
   konkanRoadTrips,
   konkanFood, 
   konkanChooseHotel,  
+  konkanMonsoon,
+  konkanBeachesCompared,
 ];
 const BY_SLUG = new Map(GUIDES.map((g) => [g.slug, g]));
 

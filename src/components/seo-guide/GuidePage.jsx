@@ -52,7 +52,8 @@ import RouteChooser from "./RouteChooser";
 import DishGrid from "./DishGrid";
 import StayTypeFinder from "./StayTypeFinder";
 import MessageEditor from "./MessageEditor";
-
+import FitChecker from "./FitChecker";
+import PriorityRanker from "./PriorityRanker";
 
 export default async function GuidePage({ guide }) {
   const live = await getLiveSlugs();
@@ -180,6 +181,11 @@ export default async function GuidePage({ guide }) {
         return <StayTypeFinder key={i} block={block} live={live} />;
       case "messageEditor":
         return <MessageEditor key={i} block={block} />;
+
+      case "fitChecker":
+        return <FitChecker key={i} block={block} />;
+        case "priorityRanker":
+  return <PriorityRanker key={i} block={block} live={live} />;
 
       default:
         return null;
