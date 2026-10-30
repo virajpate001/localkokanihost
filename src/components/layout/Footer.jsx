@@ -41,8 +41,7 @@ export default function Footer({ logoUrl }) {
             </span>
           </div>
           <p className="text-white/70 text-sm leading-relaxed">
-            Handpicked hotels across top destinations. Verified stays, honest
-            prices, and real human help — every step of the way.
+            Local stays and restaurants across Konkan, with real human help on WhatsApp.
           </p>
           <div className="flex gap-3 mt-5">
             <a
@@ -158,11 +157,7 @@ export default function Footer({ logoUrl }) {
                 Partner Login
               </Link>
             </li>
-            <li>
-              <Link href="/plans" className="hover:text-accent">
-                Partner Plans
-              </Link>
-            </li>
+           
             <li>
               <Link href="/partner-agreement" className="hover:text-accent">
                 Partner Agreement

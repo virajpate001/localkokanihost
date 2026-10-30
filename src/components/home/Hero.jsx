@@ -58,7 +58,7 @@ export default function Hero({ heroImageUrl }) {
           <SearchAutosuggest variant="hero" placeholder="Search destination or hotel name..." />
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8 sm:gap-14 mt-14 animate-fade-in">
+        <div className="flex flex-wrap justify-center gap-8 sm:gap-14 mt-14 animate-fade-in hidden">
           {[
             { label: "Destinations", value: "50+" },
             { label: "Hotels Listed", value: "300+" },

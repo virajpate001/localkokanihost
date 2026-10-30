@@ -57,7 +57,7 @@ export default async function sitemap() {
       lastModified: new Date(),
     },
     {
-      url: `${BASE_URL}/terms`,
+      url: `${BASE_URL}/terms-and-conditions`,
       changeFrequency: "yearly",
       priority: 0.3,
       lastModified: new Date(),

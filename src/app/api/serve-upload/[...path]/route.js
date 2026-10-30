@@ -6,6 +6,10 @@
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
+import { getAdminSession, getOwnerSession } from "@/lib/auth";
+
+// Folders whose files must never be public (ID / ownership proof from partners).
+const PRIVATE_FOLDERS = new Set(["partner-verification"]);
 
 const MIME_TYPES = {
   ".jpg": "image/jpeg",
@@ -28,9 +32,20 @@ export async function GET(request, { params }) {
     return NextResponse.json({ error: "Invalid path" }, { status: 400 });
   }
 
+    // Private folders: only a logged-in admin or partner (owner) may read them.
+  const isPrivate = PRIVATE_FOLDERS.has(segments[0]);
+  if (isPrivate) {
+    const allowed = (await getAdminSession()) || (await getOwnerSession());
+    if (!allowed) {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+  }
+
+
   const resolvedRoot = path.resolve(root);
   const filePath = path.join(resolvedRoot, ...segments);
-  if (!filePath.startsWith(resolvedRoot)) {
+  
+   if (filePath !== resolvedRoot && !filePath.startsWith(resolvedRoot + path.sep)) {
     return NextResponse.json({ error: "Invalid path" }, { status: 400 });
   }
 
@@ -40,7 +55,10 @@ export async function GET(request, { params }) {
     return new NextResponse(fileBuffer, {
       headers: {
         "Content-Type": MIME_TYPES[ext] || "application/octet-stream",
-        "Cache-Control": "public, max-age=31536000, immutable",
+        "Cache-Control": isPrivate
+          ? "private, no-store"
+          : "public, max-age=31536000, immutable",
+        "X-Content-Type-Options": "nosniff",
       },
     });
   } catch {

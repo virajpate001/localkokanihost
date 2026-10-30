@@ -6,23 +6,23 @@ import { FaIndianRupeeSign } from "react-icons/fa6";
 const features = [
   {
     icon: FiCheckCircle,
-    title: "Verified Stays",
-    desc: "Every hotel & restaurant is personally vetted for quality and cleanliness.",
+    title: "Reviewed Partners",
+    desc: "Partners submit ID and ownership documents for our team to review before they are listed.",
   },
   {
     icon: FaIndianRupeeSign,
-    title: "Best Price Promise",
-    desc: "Transparent pricing with zero hidden charges, ever.",
+    title: "Clear Pricing",
+    desc: "Rates are set by each owner. Confirm the final price on WhatsApp before you pay.",
   },
   {
     icon: FiPhoneCall,
-    title: "Instant Support",
-    desc: "Message us directly on WhatsApp — real replies, real fast.",
+    title: "Real People on WhatsApp",
+    desc: "Message our team directly and a real person will reply.",
   },
   {
     icon: FiShield,
-    title: "Safe & Secure",
-    desc: "Your data and enquiries are handled with full privacy.",
+    title: "Private Enquiries",
+    desc: "Your details are used only to help with your enquiry. See our Privacy Policy.",
   },
 ];
 

@@ -35,7 +35,11 @@ export default function OwnerLoginPage() {
       router.push("/owner/dashboard");
     } catch (err) {
       console.error("Login error:", err.code);
-      setError("Incorrect email or password");
+       setError(
+        err.code === "auth/too-many-requests"
+          ? "Too many attempts. Please try again in a few minutes."
+          : "Incorrect email or password"
+      );
     } finally {
       setIsSubmitting(false);
     }

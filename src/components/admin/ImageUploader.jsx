@@ -89,7 +89,7 @@ export default function ImageUploader({
 
       {value?.url ? (
         <div className="relative rounded-xl overflow-hidden aspect-[16/9] border border-gray-200">
-          <Image src={value.url} alt="Uploaded" fill className="object-cover" />
+          <Image src={value.url} alt="Uploaded" fill className="object-cover" unoptimized={value.url?.includes("/partner-verification/")} />
           <button
             type="button"
             onClick={() => onChange(null)}

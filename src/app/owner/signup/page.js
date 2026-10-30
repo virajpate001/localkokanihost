@@ -40,7 +40,7 @@ export default function OwnerSignupPage() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) e.email = "Enter a valid email";
     if (!/^\d{10}$/.test(formData.mobile.trim())) e.mobile = "Enter a valid 10-digit number";
     if (!/^\d{10}$/.test(formData.whatsapp.trim())) e.whatsapp = "Enter a valid 10-digit number";
-    if (formData.password.length < 6) e.password = "Minimum 6 characters";
+        if (formData.password.length < 8) e.password = "Minimum 8 characters";
     if (formData.password !== formData.confirmPassword) e.confirmPassword = "Passwords don't match";
     setErrors(e);
     return Object.keys(e).length === 0;
