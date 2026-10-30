@@ -16,6 +16,7 @@ import toast from "react-hot-toast";
 import {
   getAllLeads,
   updateLeadStatus,
+  updateLeadBooking,
   deleteLead,
 } from "@/lib/services/leadService";
 import { exportToCSV } from "@/utils/csvExport";
@@ -28,6 +29,17 @@ const statusFilters = [
   { value: "contacted", label: "Contacted" },
   { value: "closed", label: "Closed" },
 ];
+
+const stageFilters = [
+  { value: "all", label: "All stages" },
+  { value: "enquiry", label: "Enquiry" },
+  { value: "confirmed", label: "Confirmed" },
+  { value: "stayed", label: "Stayed" },
+  { value: "cancelled", label: "Cancelled" },
+  { value: "lost", label: "Lost" },
+];
+
+const inr = (n) => `₹${Number(n || 0).toLocaleString("en-IN")}`;
 
 const statusStyles = {
   new: "bg-secondary/10 text-secondary",
@@ -49,6 +61,7 @@ export default function AdminLeadsPage() {
   const [leads, setLeads] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState("all");
+  const [stageFilter, setStageFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLead, setSelectedLead] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);
@@ -89,6 +102,49 @@ export default function AdminLeadsPage() {
     }
   };
 
+  const handleBookingUpdate = async (leadId, patch) => {
+    try {
+      const updated = await updateLeadBooking(leadId, patch);
+      const fields = {
+        stage: updated.stage,
+        bookingValue: updated.bookingValue ?? null,
+        commissionDue: updated.commissionDue ?? null,
+        commissionStatus: updated.commissionStatus,
+        paidAt: updated.paidAt || null,
+        paymentRef: updated.paymentRef || "",
+        adminNotes: updated.adminNotes || "",
+      };
+      setLeads((prev) => prev.map((l) => (l.id === leadId ? { ...l, ...fields } : l)));
+      setSelectedLead((prev) => (prev?.id === leadId ? { ...prev, ...fields } : prev));
+      toast.success("Booking details saved");
+    } catch (error) {
+      console.error("Booking update error:", error);
+      toast.error("Failed to save booking details");
+    }
+  };
+
+  // Monthly ledger summary (this calendar month, local time)
+  const summary = useMemo(() => {
+    const now = new Date();
+    const inThisMonth = (iso) => {
+      if (!iso) return false;
+      const d = new Date(iso);
+      return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth();
+    };
+    const monthLeads = leads.filter((l) => inThisMonth(l.createdAt));
+    return {
+      enquiries: monthLeads.length,
+      confirmed: monthLeads.filter((l) => l.stage === "confirmed" || l.stage === "stayed").length,
+      stayedAllTime: leads.filter((l) => l.stage === "stayed").length,
+      dueAmount: leads
+        .filter((l) => l.commissionStatus === "due")
+        .reduce((sum, l) => sum + Number(l.commissionDue || 0), 0),
+      collectedThisMonth: leads
+        .filter((l) => l.commissionStatus === "paid" && inThisMonth(l.paidAt))
+        .reduce((sum, l) => sum + Number(l.commissionDue || 0), 0),
+    };
+  }, [leads]);
+
   const handleDeleteConfirm = async () => {
     if (!deleteTarget) return;
     setIsDeleting(true);
@@ -112,6 +168,10 @@ export default function AdminLeadsPage() {
       result = result.filter((lead) => lead.status === statusFilter);
     }
 
+    if (stageFilter !== "all") {
+      result = result.filter((lead) => lead.stage === stageFilter);
+    }
+
     if (searchQuery.trim()) {
       const q = searchQuery.trim().toLowerCase();
       result = result.filter(
@@ -119,12 +179,13 @@ export default function AdminLeadsPage() {
           lead.name?.toLowerCase().includes(q) ||
           lead.phone?.includes(q) ||
           lead.entityName?.toLowerCase().includes(q) ||
+          lead.bookingCode?.toLowerCase().includes(q) ||
           lead.email?.toLowerCase().includes(q),
       );
     }
 
     return result;
-  }, [leads, statusFilter, searchQuery]);
+  }, [leads, statusFilter, stageFilter, searchQuery]);
 
   const handleExport = () => {
     if (filteredLeads.length === 0) {
@@ -133,6 +194,7 @@ export default function AdminLeadsPage() {
     }
 
     const exportData = filteredLeads.map((lead) => ({
+      "Ref code": lead.bookingCode || "",
       Name: lead.name,
       Phone: lead.phone,
       Email: lead.email || "",
@@ -145,6 +207,12 @@ export default function AdminLeadsPage() {
       Guests: lead.guests,
       Message: lead.message || "",
       Status: lead.status,
+      Stage: lead.stage,
+      "Booking value (INR)": lead.bookingValue ?? "",
+      "Commission (INR)": lead.commissionDue ?? "",
+      "Commission status": lead.commissionStatus,
+      "Commission paid on": lead.paidAt ? formatDate(lead.paidAt) : "",
+      Source: [lead.source, lead.utmSource, lead.utmMedium, lead.utmCampaign, lead.referrer].filter(Boolean).join(" / "),
       "Submitted On": formatDate(lead.createdAt),
     }));
 
@@ -157,6 +225,22 @@ export default function AdminLeadsPage() {
 
   return (
     <div>
+      {/* Monthly summary */}
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
+        {[
+          { label: "Enquiries this month", value: summary.enquiries },
+          { label: "Confirmed this month", value: summary.confirmed },
+          { label: "Stays (all time)", value: summary.stayedAllTime },
+          { label: "Commission due", value: inr(summary.dueAmount) },
+          { label: "Collected this month", value: inr(summary.collectedThisMonth) },
+        ].map((c) => (
+          <div key={c.label} className="card p-4">
+            <p className="dark:text-gray-500 text-xs">{c.label}</p>
+            <p className="font-display font-bold text-xl text-primary dark:text-white mt-1">{c.value}</p>
+          </div>
+        ))}
+      </div>
+
       {/* Controls */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div className="flex items-center gap-2 overflow-x-auto">
@@ -181,13 +265,23 @@ export default function AdminLeadsPage() {
         </div>
 
         <div className="flex items-center gap-3">
+          <select
+            value={stageFilter}
+            onChange={(e) => setStageFilter(e.target.value)}
+            className="py-2.5 px-3 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary"
+            aria-label="Filter by stage"
+          >
+            {stageFilters.map((f) => (
+              <option key={f.value} value={f.value}>{f.label}</option>
+            ))}
+          </select>
           <div className="relative">
             <FiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 dark:text-gray-500 text-sm" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search name, phone, hotel..."
+              placeholder="Search name, phone, code..."
               className="pl-9 pr-4 py-2.5 rounded-lg border dark:border-gray-800 focus:border-secondary text-sm outline-none w-56"
             />
           </div>
@@ -223,6 +317,7 @@ export default function AdminLeadsPage() {
                   <th className="px-5 py-3.5 font-medium">Hotel/Restaurant</th>
                   <th className="px-5 py-3.5 font-medium">Dates</th>
                   <th className="px-5 py-3.5 font-medium">Status</th>
+                  <th className="px-5 py-3.5 font-medium">Stage</th>
                   <th className="px-5 py-3.5 font-medium">Received</th>
                   <th className="px-5 py-3.5 font-medium text-right">
                     Actions
@@ -267,6 +362,11 @@ export default function AdminLeadsPage() {
                         {lead.status}
                       </span>
                     </td>
+                    <td className="px-5 py-3.5 dark:text-gray-300 text-xs capitalize">
+                      {lead.stage}
+                      {lead.commissionStatus === "due" && <span className="block text-red-500">₹ due</span>}
+                      {lead.commissionStatus === "paid" && <span className="block text-accent">paid</span>}
+                    </td>
                     <td className="px-5 py-3.5 dark:text-gray-500 text-xs">
                       {formatDate(lead.createdAt)}
                     </td>
@@ -294,9 +394,11 @@ export default function AdminLeadsPage() {
 
       {selectedLead && (
         <LeadDetailModal
+          key={`${selectedLead.id}-${selectedLead.stage}-${selectedLead.commissionStatus}-${selectedLead.commissionDue}`}
           lead={selectedLead}
           onClose={() => setSelectedLead(null)}
           onStatusChange={handleStatusChange}
+          onBookingUpdate={handleBookingUpdate}
         />
       )}
 

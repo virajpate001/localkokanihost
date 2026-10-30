@@ -11,6 +11,9 @@ import { useMathCaptcha } from "@/hooks/useMathCaptcha";
 import MathCaptcha from "@/components/ui/MathCaptcha"; 
 import DateInput from "@/components/ui/DateInput";
 import { SITE_NAME } from "@/lib/siteConfig";
+import Link from "next/link";
+import { generateBookingCode } from "@/utils/bookingCode";
+import { getAttribution } from "@/utils/attribution";
 
 const initialFormState = {
   name: "",
@@ -31,6 +34,7 @@ export default function HotelEnquiryForm({ hotel }) {
   const [submitted, setSubmitted] = useState(false);
   const [fallbackUrl, setFallbackUrl] = useState(null);
   const captcha = useMathCaptcha();
+  const [bookingCode, setBookingCode] = useState("");
 
 const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
 
@@ -90,7 +94,8 @@ const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_
 
   const buildWhatsAppMessage = () => {
     const lines = [
-      `Hi! I'd like to enquire about *${hotel.name}* (${hotel.destinationName}) via ${SITE_NAME}.`,,
+      `Hi! I'd like to enquire about *${hotel.name}* (${hotel.destinationName}) via ${SITE_NAME}.`,
+      `🔖 Ref: ${code}`,
       ``,
       `👤 Name: ${formData.name.trim()}`,
       `📞 Phone: ${formData.phone.trim()}`,
@@ -123,7 +128,9 @@ const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_
   const handleConfirmSend = async () => {
     setIsSending(true);
 
-    const message = buildWhatsAppMessage();
+     const code = generateBookingCode();
+    setBookingCode(code);
+    const message = buildWhatsAppMessage(code);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
     // Open WhatsApp FIRST (synchronously, on the click), before any await —
@@ -131,8 +138,11 @@ const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_
     const newWindow = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
     // Save the lead in the background — don't block the WhatsApp redirect on this
-    try {
-      await createLead({
+   
+        try {
+      const result = await createLead({
+        bookingCode: code,
+        ...getAttribution(),
         entityType: "hotel", // ⬅️ ADD
         entityId: hotel.id,
         entitySlug: hotel.slug, // ⬅️ ADD (wasn't captured before either!)
@@ -148,12 +158,15 @@ const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_
         message: formData.message.trim(),
         source: "hotel_page",
       });
+      if (!result?.ok) {
+        console.error("Lead not saved:", result?.error);
+        toast.error(result?.error || "We couldn't save your enquiry on our side — please send the WhatsApp message.");
+      }
     } catch (error) {
       console.error("Lead submission error:", error);
-      // Don't block the user's WhatsApp flow over a logging failure —
-      // but do let them know their enquiry might not be tracked on our end.
-      toast.error("Message sent, but we couldn't save your enquiry details.");
+      toast.error("We couldn't save your enquiry on our side — please send the WhatsApp message.");
     }
+
 
     if (!newWindow || newWindow.closed) {
       // Popup was blocked — show a fallback manual link instead of failing silently
@@ -184,6 +197,14 @@ const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_
           We've opened WhatsApp for you — send the message and our team will
           respond shortly.
         </p>
+        {bookingCode && (
+          <p className="text-sm mt-3 dark:text-gray-300">
+            Your reference: <span className="font-semibold tracking-wide">{bookingCode}</span>
+            <span className="block text-xs dark:text-gray-500 mt-1">
+              Keep it — you will need it to review your stay later.
+            </span>
+          </p>
+        )}
         <button
           onClick={() => setSubmitted(false)}
           className="text-secondary text-sm font-medium mt-4 hover:underline"
