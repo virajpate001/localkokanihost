@@ -1,10 +1,13 @@
 // src/components/admin/LeadDetailModal.jsx
 "use client";
 
-import { FiX, FiPhone, FiMail, FiCalendar, FiClock, FiUsers, FiMessageSquare, FiHome, FiCoffee, FiTag } from "react-icons/fi";
+import { useState } from "react";
+import {
+  FiX, FiPhone, FiMail, FiCalendar, FiClock, FiUsers,
+  FiMessageSquare, FiHome, FiCoffee, FiTag,
+} from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
-import { useState } from "react";
 
 const statusOptions = [
   { value: "new", label: "New", color: "bg-secondary/10 text-secondary" },
@@ -19,6 +22,7 @@ const stageOptions = [
   { value: "cancelled", label: "Cancelled" },
   { value: "lost", label: "Lost" },
 ];
+
 const commissionOptions = [
   { value: "none", label: "Not applicable" },
   { value: "due", label: "Due" },
@@ -44,14 +48,15 @@ export default function LeadDetailModal({ lead, onClose, onStatusChange, onBooki
   const [paymentRef, setPaymentRef] = useState(lead?.paymentRef || "");
   const [adminNotes, setAdminNotes] = useState(lead?.adminNotes || "");
   const [saving, setSaving] = useState(false);
-  
+
   if (!lead) return null;
 
-   const saveLedger = async () => {
+  const saveLedger = async () => {
     setSaving(true);
     await onBookingUpdate?.(lead.id, { bookingValue, commissionDue, commissionStatus, paymentRef, adminNotes });
     setSaving(false);
   };
+
 
   const isRestaurant = lead.entityType === "restaurant";
   const whatsappNumber = lead.phone?.replace(/\D/g, "");
@@ -200,6 +205,7 @@ export default function LeadDetailModal({ lead, onClose, onStatusChange, onBooki
               : ""}
           </p>
 
+          {/* Booking & commission ledger */}
           <div className="border dark:border-gray-800 rounded-xl p-4 space-y-3">
             <div className="flex items-center justify-between">
               <p className="font-medium text-primary dark:text-white text-sm">Booking &amp; commission</p>
@@ -209,13 +215,16 @@ export default function LeadDetailModal({ lead, onClose, onStatusChange, onBooki
                 </span>
               )}
             </div>
+
             <div className="flex flex-wrap gap-2">
               {stageOptions.map((opt) => (
                 <button
                   key={opt.value}
                   onClick={() => onBookingUpdate?.(lead.id, { stage: opt.value })}
                   className={`text-xs font-medium px-3 py-1.5 rounded-lg transition-all ${
-                    lead.stage === opt.value ? "bg-primary text-white" : "bg-gray-50 dark:bg-gray-950 dark:text-gray-500 hover:dark:bg-gray-800"
+                    lead.stage === opt.value
+                      ? "bg-primary text-white"
+                      : "bg-gray-50 dark:bg-gray-950 dark:text-gray-500 hover:dark:bg-gray-800"
                   }`}
                 >
                   {opt.label}
@@ -225,31 +234,66 @@ export default function LeadDetailModal({ lead, onClose, onStatusChange, onBooki
             <p className="dark:text-gray-500 text-xs">
               Mark <b>Stayed</b> only after the owner or guest confirms the guest checked in. That makes the commission due and lets the guest leave a verified review.
             </p>
+
             <div className="grid grid-cols-2 gap-3">
-              <label className="text-xs dark:text-gray-500">Booking value (₹)
-                <input type="number" min="0" value={bookingValue} onChange={(e) => setBookingValue(e.target.value)}
-                  className="mt-1 w-full px-3 py-2 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary" />
+              <label className="text-xs dark:text-gray-500">
+                Booking value (₹)
+                <input
+                  type="number"
+                  min="0"
+                  value={bookingValue}
+                  onChange={(e) => setBookingValue(e.target.value)}
+                  className="mt-1 w-full px-3 py-2 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary"
+                />
               </label>
-              <label className="text-xs dark:text-gray-500">Commission (₹)
-                <input type="number" min="0" value={commissionDue} onChange={(e) => setCommissionDue(e.target.value)}
-                  className="mt-1 w-full px-3 py-2 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary" />
+              <label className="text-xs dark:text-gray-500">
+                Commission (₹)
+                <input
+                  type="number"
+                  min="0"
+                  value={commissionDue}
+                  onChange={(e) => setCommissionDue(e.target.value)}
+                  className="mt-1 w-full px-3 py-2 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary"
+                />
               </label>
-              <label className="text-xs dark:text-gray-500">Commission status
-                <select value={commissionStatus} onChange={(e) => setCommissionStatus(e.target.value)}
-                  className="mt-1 w-full px-3 py-2 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary">
-                  {commissionOptions.map((o) => (<option key={o.value} value={o.value}>{o.label}</option>))}
+              <label className="text-xs dark:text-gray-500">
+                Commission status
+                <select
+                  value={commissionStatus}
+                  onChange={(e) => setCommissionStatus(e.target.value)}
+                  className="mt-1 w-full px-3 py-2 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary"
+                >
+                  {commissionOptions.map((o) => (
+                    <option key={o.value} value={o.value}>{o.label}</option>
+                  ))}
                 </select>
               </label>
-              <label className="text-xs dark:text-gray-500">UPI / payment ref
-                <input type="text" maxLength={80} value={paymentRef} onChange={(e) => setPaymentRef(e.target.value)}
-                  className="mt-1 w-full px-3 py-2 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary" />
+              <label className="text-xs dark:text-gray-500">
+                UPI / payment ref
+                <input
+                  type="text"
+                  maxLength={80}
+                  value={paymentRef}
+                  onChange={(e) => setPaymentRef(e.target.value)}
+                  className="mt-1 w-full px-3 py-2 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary"
+                />
               </label>
             </div>
-            <label className="text-xs dark:text-gray-500 block">Internal notes
-              <textarea rows={2} maxLength={1000} value={adminNotes} onChange={(e) => setAdminNotes(e.target.value)}
-                className="mt-1 w-full px-3 py-2 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary resize-none" />
+            <label className="text-xs dark:text-gray-500 block">
+              Internal notes
+              <textarea
+                rows={2}
+                maxLength={1000}
+                value={adminNotes}
+                onChange={(e) => setAdminNotes(e.target.value)}
+                className="mt-1 w-full px-3 py-2 rounded-lg border dark:border-gray-800 dark:bg-gray-900 dark:text-white text-sm outline-none focus:border-secondary resize-none"
+              />
             </label>
-            <button onClick={saveLedger} disabled={saving} className="btn-primary w-full text-sm disabled:opacity-60">
+            <button
+              onClick={saveLedger}
+              disabled={saving}
+              className="btn-primary w-full text-sm disabled:opacity-60"
+            >
               {saving ? "Saving..." : "Save booking details"}
             </button>
             {lead.paidAt && (

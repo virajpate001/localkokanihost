@@ -53,10 +53,9 @@ export default function ReservationForm({ restaurant }) {
     }
 
     const bookingCode = generateBookingCode();
-
     const lines = [
       `Hi! I'd like to reserve a table at *${restaurant.name}* (${restaurant.destinationName}) via ${SITE_NAME}.`,
-      `🔖 Ref: ${bookingCode}`
+      `🔖 Ref: ${bookingCode}`,
       ``,
       `👤 Name: ${formData.name.trim()}`,
       `📞 Phone: ${formData.phone.trim()}`,
@@ -85,7 +84,8 @@ export default function ReservationForm({ restaurant }) {
       time: formData.time,
       guests: Number(formData.guests),
       source: "restaurant_page",
-    }).then((result) => {
+    })
+      .then((result) => {
         if (!result?.ok) {
           console.error("Reservation lead not saved:", result?.error);
           toast.error(result?.error || "We couldn't save your reservation on our side — please send the WhatsApp message.");
@@ -93,6 +93,7 @@ export default function ReservationForm({ restaurant }) {
       })
       .catch((error) => {
         console.error("Reservation lead save error:", error);
+        // Non-critical — WhatsApp message already sent regardless
       });
 
     setFormData(initialFormState);

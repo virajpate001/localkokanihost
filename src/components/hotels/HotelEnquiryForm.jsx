@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { FiUser, FiPhone, FiMail, FiCalendar, FiUsers, FiMessageSquare, FiCheckCircle } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import toast from "react-hot-toast";
@@ -11,7 +12,6 @@ import { useMathCaptcha } from "@/hooks/useMathCaptcha";
 import MathCaptcha from "@/components/ui/MathCaptcha"; 
 import DateInput from "@/components/ui/DateInput";
 import { SITE_NAME } from "@/lib/siteConfig";
-import Link from "next/link";
 import { generateBookingCode } from "@/utils/bookingCode";
 import { getAttribution } from "@/utils/attribution";
 
@@ -33,8 +33,8 @@ export default function HotelEnquiryForm({ hotel }) {
   const [isSending, setIsSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [fallbackUrl, setFallbackUrl] = useState(null);
-  const captcha = useMathCaptcha();
   const [bookingCode, setBookingCode] = useState("");
+  const captcha = useMathCaptcha();
 
 const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
 
@@ -92,7 +92,7 @@ const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_
     return Object.keys(newErrors).length === 0;
   };
 
-  const buildWhatsAppMessage = () => {
+  const buildWhatsAppMessage = (code) => {
     const lines = [
       `Hi! I'd like to enquire about *${hotel.name}* (${hotel.destinationName}) via ${SITE_NAME}.`,
       `🔖 Ref: ${code}`,
@@ -128,7 +128,7 @@ const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_
   const handleConfirmSend = async () => {
     setIsSending(true);
 
-     const code = generateBookingCode();
+    const code = generateBookingCode();
     setBookingCode(code);
     const message = buildWhatsAppMessage(code);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
@@ -138,8 +138,7 @@ const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_
     const newWindow = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
     // Save the lead in the background — don't block the WhatsApp redirect on this
-   
-        try {
+    try {
       const result = await createLead({
         bookingCode: code,
         ...getAttribution(),
@@ -164,9 +163,9 @@ const whatsappNumber = hotel.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_
       }
     } catch (error) {
       console.error("Lead submission error:", error);
+      // Don't block the user's WhatsApp flow over a logging failure.
       toast.error("We couldn't save your enquiry on our side — please send the WhatsApp message.");
     }
-
 
     if (!newWindow || newWindow.closed) {
       // Popup was blocked — show a fallback manual link instead of failing silently
