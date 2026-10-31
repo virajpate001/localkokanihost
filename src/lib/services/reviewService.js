@@ -6,6 +6,9 @@ import { rowsToDocs, insertDocRow, updateDocRow, deleteDocRow } from "@/lib/sqlH
 import { requireAdmin } from "@/lib/auth";
 import { updateHotel } from "./hotelService";
 import { updateRestaurant } from "./restaurantService";
+import { rateLimitByIp, cleanText, cleanInt } from "@/lib/security";
+import { getEntityBasics, findLeadByBookingCode, bookingCodeUsedByReview } from "@/lib/leadLookup";
+import { normalizeBookingCode, isValidBookingCode } from "@/utils/bookingCode";
 
 const TABLE = "reviews";
 
@@ -45,12 +48,55 @@ export async function getAllReviewsAdmin() {
 }
 
 // Public — submitted from the review form on hotel/restaurant pages.
-export async function createReview(data) {
-  await insertDocRow(TABLE, { ...data, approved: false }, {
-    entityType: data.entityType,
-    entityId: data.entityId,
-    approved: 0,
-  });
+export async function createReview(data = {}) {
+  try {
+    const rl = await rateLimitByIp("review", 3, 10 * 60 * 1000);
+    if (!rl.allowed) return { ok: false, error: "Too many attempts. Please try again in a few minutes." };
+
+    const entityType = data.entityType === "restaurant" ? "restaurant" : data.entityType === "hotel" ? "hotel" : null;
+    const entity = entityType ? await getEntityBasics(entityType, data.entityId) : null;
+    if (!entity) return { ok: false, error: "This listing no longer exists." };
+
+    const guestName = cleanText(data.guestName, 80);
+    const comment = cleanText(data.comment, 2000);
+    const rating = cleanInt(data.rating, 1, 5, 0);
+    if (guestName.length < 2 || comment.length < 10 || rating < 1) {
+      return { ok: false, error: "Please fill in your name, rating and a short comment." };
+    }
+
+    const code = normalizeBookingCode(data.bookingCode);
+    if (!isValidBookingCode(code)) {
+      return { ok: false, error: "Please enter the booking code from your enquiry (looks like LK-7QH3MX)." };
+    }
+    const lead = await findLeadByBookingCode(code);
+    if (!lead || lead.stage !== "stayed" || lead.entityType !== entityType || lead.entityId !== entity.id) {
+      return { ok: false, error: "We couldn't match this code to a completed stay at this place yet. Reviews open after your stay is confirmed." };
+    }
+    if (await bookingCodeUsedByReview(code)) {
+      return { ok: false, error: "A review has already been submitted for this booking." };
+    }
+
+    await insertDocRow(
+      TABLE,
+      {
+        entityType,
+        entityId: entity.id,
+        entitySlug: entity.slug,
+        entityName: entity.name,
+        guestName,
+        rating,
+        comment,
+        bookingCode: code,
+        verifiedStay: true,
+        approved: false,
+      },
+      { entityType, entityId: entity.id, approved: 0 }
+    );
+    return { ok: true };
+  } catch (error) {
+    console.error("createReview failed:", error);
+    return { ok: false, error: "Failed to submit review. Please try again." };
+  }
 }
 
 export async function approveReview(reviewId, entityType, entityId) {
@@ -67,7 +113,10 @@ export async function rejectReview(reviewId, entityType, entityId) {
 
 export async function deleteReview(reviewId) {
   await requireAdmin();
+  // Look up the owner of this review first so the hotel/restaurant rating is recalculated afterwards.
+  const rows = await query(`SELECT entityType, entityId FROM ${TABLE} WHERE id = ? LIMIT 1`, [reviewId]);
   await deleteDocRow(TABLE, reviewId);
+  if (rows.length) await recalculateEntityRating(rows[0].entityType, rows[0].entityId);
 }
 
 // Recalculates rating/reviewCount for either a hotel or a restaurant.

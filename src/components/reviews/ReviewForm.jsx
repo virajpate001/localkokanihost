@@ -9,6 +9,7 @@ import StarRatingInput from "@/components/ui/StarRatingInput";
 import { createReview } from "@/lib/services/reviewService";
 import { useMathCaptcha } from "@/hooks/useMathCaptcha";
 import MathCaptcha from "@/components/ui/MathCaptcha";
+import { isValidBookingCode, normalizeBookingCode } from "@/utils/bookingCode";
 
 export default function ReviewForm({ entityType, entity }) {
   const [guestName, setGuestName] = useState("");
@@ -18,11 +19,13 @@ export default function ReviewForm({ entityType, entity }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
    const captcha = useMathCaptcha(); 
+   const [bookingCode, setBookingCode] = useState("");
 
   const validate = () => {
     const newErrors = {};
     if (!guestName.trim()) newErrors.guestName = "Please enter your name";
     if (rating === 0) newErrors.rating = "Please select a rating";
+    if (!isValidBookingCode(bookingCode)) newErrors.bookingCode = "Enter the booking code from your enquiry (e.g. LK-7QH3MX)";
     if (!comment.trim()) newErrors.comment = "Please share your experience";
     else if (comment.trim().length < 10) newErrors.comment = "Please write a bit more (min 10 characters)";
     setErrors(newErrors);
@@ -41,8 +44,9 @@ export default function ReviewForm({ entityType, entity }) {
     }
 
     setIsSubmitting(true);
-    try {
-      await createReview({
+     try {
+      const result = await createReview({
+        bookingCode: normalizeBookingCode(bookingCode),
         entityType,               // "hotel" | "restaurant"
         entityId: entity.id,
         entitySlug: entity.slug,
@@ -51,7 +55,13 @@ export default function ReviewForm({ entityType, entity }) {
         rating,
         comment: comment.trim(),
       });
+      if (!result?.ok) {
+        toast.error(result?.error || "Failed to submit review. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
       setSubmitted(true);
+      setBookingCode("");
       setGuestName("");
       setRating(0);
       setComment("");
@@ -110,6 +120,25 @@ export default function ReviewForm({ entityType, entity }) {
           />
         </div>
         {errors.guestName && <p className="text-red-500 text-xs mt-1">{errors.guestName}</p>}
+      </div>
+
+            <div>
+        <label htmlFor="review-booking-code" className="sr-only">Booking code</label>
+        <input
+          id="review-booking-code"
+          type="text"
+          value={bookingCode}
+          onChange={(e) => setBookingCode(e.target.value.toUpperCase())}
+          placeholder="Booking code (e.g. LK-7QH3MX)"
+          maxLength={12}
+          className={`w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:border-secondary text-sm outline-none ${
+            errors.bookingCode ? "border-red-300" : "dark:border-gray-800 focus:border-secondary"
+          }`}
+        />
+        {errors.bookingCode && <p className="text-red-500 text-xs mt-1">{errors.bookingCode}</p>}
+        <p className="dark:text-gray-500 text-xs mt-1">
+          Only guests who stayed through Local Kokani can review. Your code was in your WhatsApp enquiry.
+        </p>
       </div>
 
       <div>

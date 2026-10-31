@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiGrid, FiMapPin, FiHome, FiMessageSquare, FiStar, FiLogOut, FiMenu, FiX, FiFileText, FiCoffee, FiUsers, FiUserCheck, FiZap, FiMail, FiSettings } from "react-icons/fi";
+import { FiGrid, FiMapPin, FiHome, FiMessageSquare, FiStar, FiLogOut, FiMenu, FiX, FiFileText, FiCoffee, FiUsers, FiUserCheck, FiZap, FiMail, FiSettings, FiRepeat } from "react-icons/fi";
 import { useAuth } from "@/context/AuthContext";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -26,6 +26,7 @@ const navItems = [
   { label: "Partner Applications", href: "/admin/partner-applications", icon: FiUsers },
   { label: "Owners", href: "/admin/owners", icon: FiUserCheck },
   { label: "Feature & Sponsor", href: "/admin/promotions", icon: FiZap },
+    { label: "Subscriptions", href: "/admin/subscriptions", icon: FiRepeat },
   { label: "Contact Messages", href: "/admin/contact-messages", icon: FiMail },
   { label: "Settings", href: "/admin/settings", icon: FiSettings },
   { label: "Landing Pages", href: "/admin/landing-pages", icon: FiFileText }
