@@ -15,7 +15,7 @@ import {
   FiExternalLink,
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
-import { getOwnerById } from "@/lib/services/ownerService";
+import { getOwnerById, resetOwnerPassword } from "@/lib/services/ownerService";
 import { getApplicationsByOwner } from "@/lib/services/partnerService";
 import { getHotelsByOwner } from "@/lib/services/hotelService";
 import { getRestaurantsByOwner } from "@/lib/services/restaurantService";
@@ -47,6 +47,9 @@ export default function AdminOwnerDetailPage() {
   const [managedRestaurants, setManagedRestaurants] = useState([]); // ⬅️ ADD
   const [isLoading, setIsLoading] = useState(true);
   const [notFoundState, setNotFoundState] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+  const [isResetting, setIsResetting] = useState(false);
+  const [passwordMessage, setPasswordMessage] = useState("");
 
   useEffect(() => {
     async function load() {
@@ -100,6 +103,27 @@ export default function AdminOwnerDetailPage() {
   const whatsappNumber = owner.whatsapp?.replace(/\D/g, "");
   const totalManagedListings = managedHotels.length + managedRestaurants.length;
 
+  async function handlePasswordReset(e) {
+    e.preventDefault();
+
+    setIsResetting(true);
+    setPasswordMessage("");
+
+    try {
+      const result = await resetOwnerPassword(id, newPassword);
+
+      setPasswordMessage(result.message);
+
+      if (result.success) {
+        setNewPassword("");
+      }
+    } catch (error) {
+      setPasswordMessage("Unable to update password. Please try again.");
+    } finally {
+      setIsResetting(false);
+    }
+  }
+
   return (
     <div className="max-w-4xl space-y-6">
       <Link
@@ -108,8 +132,6 @@ export default function AdminOwnerDetailPage() {
       >
         <FiArrowLeft /> Back to Owners
       </Link>
-
-
 
       {/* Owner Profile Card */}
       <div className="card p-6">
@@ -161,7 +183,49 @@ export default function AdminOwnerDetailPage() {
         </div>
       </div>
 
-       {/* NEW: Managed Listings Section */}
+      {/* Reset Owner Password */}
+      <div className="card p-6">
+        <h2 className="font-display font-semibold text-lg text-primary mb-2">
+          Reset Owner Password
+        </h2>
+
+        <p className="text-gray-400 text-sm mb-5">
+          Set a new password for this owner's account.
+        </p>
+
+        <form onSubmit={handlePasswordReset} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-primary mb-2">
+              New Password
+            </label>
+
+            <input
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="Enter new password"
+              minLength={8}
+              maxLength={72}
+              required
+              className="w-full border border-gray-200 rounded-lg px-4 py-3 outline-none focus:border-secondary"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={isResetting || newPassword.length < 8}
+            className="btn-primary disabled:opacity-50"
+          >
+            {isResetting ? "Updating..." : "Update Password"}
+          </button>
+
+          {passwordMessage && (
+            <p className="text-sm text-secondary">{passwordMessage}</p>
+          )}
+        </form>
+      </div>
+
+      {/* NEW: Managed Listings Section */}
       <div>
         <h2 className="font-display font-semibold text-lg text-primary mb-4">
           Managed Listings ({totalManagedListings})
@@ -169,7 +233,9 @@ export default function AdminOwnerDetailPage() {
 
         {totalManagedListings === 0 ? (
           <div className="card p-10 text-center">
-            <p className="text-gray-400">No live listings are currently assigned to this owner.</p>
+            <p className="text-gray-400">
+              No live listings are currently assigned to this owner.
+            </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -181,15 +247,25 @@ export default function AdminOwnerDetailPage() {
               >
                 <div className="relative w-14 h-14 rounded-lg overflow-hidden shrink-0 bg-gray-100">
                   {hotel.images?.[0]?.url && (
-                    <Image src={hotel.images[0].url} alt={hotel.name} fill sizes="56px" className="object-cover" />
+                    <Image
+                      src={hotel.images[0].url}
+                      alt={hotel.name}
+                      fill
+                      sizes="56px"
+                      className="object-cover"
+                    />
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="flex items-center gap-1.5 text-secondary text-xs font-medium uppercase">
                     <FiHome className="text-[10px]" /> Hotel
                   </p>
-                  <p className="font-medium text-primary text-sm truncate">{hotel.name}</p>
-                  <p className="text-gray-400 text-xs">{hotel.destinationName}</p>
+                  <p className="font-medium text-primary text-sm truncate">
+                    {hotel.name}
+                  </p>
+                  <p className="text-gray-400 text-xs">
+                    {hotel.destinationName}
+                  </p>
                 </div>
               </Link>
             ))}
@@ -201,15 +277,25 @@ export default function AdminOwnerDetailPage() {
               >
                 <div className="relative w-14 h-14 rounded-lg overflow-hidden shrink-0 bg-gray-100">
                   {restaurant.images?.[0]?.url && (
-                    <Image src={restaurant.images[0].url} alt={restaurant.name} fill sizes="56px" className="object-cover" />
+                    <Image
+                      src={restaurant.images[0].url}
+                      alt={restaurant.name}
+                      fill
+                      sizes="56px"
+                      className="object-cover"
+                    />
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="flex items-center gap-1.5 text-secondary text-xs font-medium uppercase">
                     <FiCoffee className="text-[10px]" /> Restaurant
                   </p>
-                  <p className="font-medium text-primary text-sm truncate">{restaurant.name}</p>
-                  <p className="text-gray-400 text-xs">{restaurant.destinationName}</p>
+                  <p className="font-medium text-primary text-sm truncate">
+                    {restaurant.name}
+                  </p>
+                  <p className="text-gray-400 text-xs">
+                    {restaurant.destinationName}
+                  </p>
                 </div>
               </Link>
             ))}
@@ -220,7 +306,7 @@ export default function AdminOwnerDetailPage() {
       {/* Applications List */}
       <div>
         <h2 className="font-display font-semibold text-lg text-primary mb-4">
-         Properties Submitted ({applications.length})
+          Properties Submitted ({applications.length})
         </h2>
 
         {applications.length === 0 ? (
