@@ -15,6 +15,7 @@ import { getSiteSettings } from "@/lib/services/settingsService";
 import { SITE_NAME } from "@/lib/siteConfig";
 import Link from "next/link";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import DisclaimerPopup from "@/components/ui/DisclaimerPopup";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -112,6 +113,8 @@ export default async function RootLayout({ children }) {
             </OwnerAuthProvider>
           </AuthProvider>
         </ThemeProvider>
+
+        <DisclaimerPopup />
 
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />

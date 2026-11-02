@@ -70,7 +70,7 @@ function DashboardContent() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <div className="bg-primary  px-6 py-5 flex items-center justify-between">
         <div>
-          <h1 className="font-display font-bold text-xl text-primary dark:text-white">
+          <h1 className="font-display font-bold text-xl text-white">
             Partner Dashboard
           </h1>
           <p className="text-gray-400 text-sm">
@@ -79,7 +79,7 @@ function DashboardContent() {
         </div>
         <button
           onClick={handleLogout}
-          className="flex items-center gap-2 text-gray-500 text-sm font-medium hover:text-primary"
+          className="flex items-center gap-2 text-gray-500 text-sm font-medium"
         >
           <FiLogOut /> Log Out
         </button>

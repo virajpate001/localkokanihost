@@ -5,13 +5,15 @@ import { buildMetadata } from "@/utils/seo";
 export const metadata = buildMetadata({
   title: "Terms for Travelers | Local Kokani",
   description:
-    "Terms governing the use of Local Kokani by travelers, including accommodation bookings, restaurant enquiries, payments, cancellations, and travel safety.",
+    "Terms governing the use of Local Kokani by travelers, including accommodation bookings, restaurant reservations, food orders, the fixed commission, payments, cancellations, and travel safety.",
   path: "/terms-for-travelers",
   keywords: [
     "terms for travelers",
     "traveler terms",
     "booking terms",
-    "accommodation bookings",
+    "food orders",
+    "restaurant reservations",
+    "fixed commission",
     "local kokani travelers",
   ],
 });
@@ -31,501 +33,781 @@ export default function TermsForTravelersPage() {
             Terms for Travelers
           </h1>
           <p className="text-gray-400 text-sm mb-10">
-            Effective Date: 17 October 2026
+            Effective Date: 2 November 2026
           </p>
 
           <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-primary prose-a:text-secondary">
             <h2>1. Introduction</h2>
-            <p>Welcome to LocalKokani.</p>
             <p>
-              LocalKokani helps travelers discover accommodation, restaurants,
-              Khanavals, dhabas and local experiences across the Konkan region of
-              Maharashtra, India.
+              Welcome to LocalKokani (&quot;LocalKokani&quot;, &quot;we&quot;,
+              &quot;our&quot; or &quot;us&quot;).
             </p>
             <p>
-              These Terms for Travelers explain the conditions for using
-              LocalKokani to discover businesses, submit enquiries, arrange
-              accommodation bookings, contact restaurant owners and explore
-              local services.
+              LocalKokani is a platform that helps travelers discover
+              accommodation, restaurants, Khanavals, dhabas, food services and
+              local experiences across the Konkan region of Maharashtra, India.
             </p>
             <p>
-              By accessing or using LocalKokani, you agree to these Terms, our
-              Terms &amp; Conditions, Privacy Policy, Cancellation &amp; Refund
-              Policy and other applicable policies published on our website.
+              These Terms for Travelers explain the conditions under which you
+              may use our website, browse business listings, submit enquiries,
+              make accommodation bookings, place food orders and request
+              restaurant reservations through LocalKokani.
             </p>
             <p>
-              If you do not agree with these Terms, please discontinue using the
-              platform.
+              By accessing or using our website or services, you agree to these
+              Terms, along with our{" "}
+              <a href="/terms-and-conditions">Terms and Conditions</a>,{" "}
+              <a href="/privacy-policy">Privacy Policy</a> and applicable{" "}
+              <a href="/cancellation-policy">Cancellation and Refund Policy</a>.
+            </p>
+            <p>
+              Please read these Terms carefully before making an enquiry,
+              booking, reservation or order.
             </p>
 
             <h2>2. Our Role</h2>
             <p>
-              LocalKokani operates primarily as a business discovery, listing
-              and enquiry facilitation platform.
+              LocalKokani operates as a discovery and enquiry facilitation
+              platform connecting travelers with independent accommodation
+              providers, restaurants and other local businesses.
             </p>
             <p>
-              We help travelers find and contact independent businesses,
-              including:
+              Depending on the listing type and service arrangement, LocalKokani
+              may:
             </p>
             <ul>
-              <li>Hotels and resorts.</li>
-              <li>Homestays, villas and cottages.</li>
-              <li>Guest houses, lodges and farm stays.</li>
-              <li>Restaurants, Khanavals, dhabas and eateries.</li>
+              <li>Display accommodation and restaurant listings.</li>
               <li>
-                Other eligible local businesses and tourism-related services.
+                Share business information, photos, facilities, menus and
+                contact details.
               </li>
+              <li>Receive and forward customer enquiries.</li>
+              <li>Coordinate booking or reservation requests.</li>
+              <li>Facilitate advance payments where applicable.</li>
+              <li>Share booking or order confirmation details.</li>
+              <li>Help travelers communicate with listed business owners.</li>
             </ul>
             <p>
-              Unless expressly stated otherwise, LocalKokani does not own,
-              operate or manage these businesses. The accommodation, food and
-              other services are provided by the respective business owners.
+              LocalKokani does not own, operate or manage the listed hotels,
+              homestays, villas, restaurants, Khanavals or other independent
+              businesses unless expressly stated.
             </p>
             <p>
-              A listing on LocalKokani does not guarantee the quality,
-              availability, safety or suitability of a business or service.
+              A listing on LocalKokani does not automatically mean that the
+              business has been independently inspected, certified or guaranteed
+              by LocalKokani.
+            </p>
+            <p>
+              The actual accommodation, food, services and facilities are
+              provided by the respective business owners.
             </p>
 
             <h2>3. Business Information and Availability</h2>
             <p>
-              LocalKokani aims to provide useful information about listed
-              businesses, including location, photographs, amenities, prices,
-              menus, operating hours and contact details.
+              We try to display useful and accurate information provided by
+              business owners. However, prices, availability, facilities, menus,
+              operating hours and other business details may change.
             </p>
             <p>
-              However, business information may change or may not always be up to
-              date.
-            </p>
-            <p>
-              Before making a booking, paying an advance or visiting a business,
-              you should confirm:
+              Before confirming any booking, reservation or order, travelers
+              should verify the following directly with the business or through
+              the applicable LocalKokani communication process:
             </p>
             <ul>
-              <li>Availability for your preferred dates or time.</li>
-              <li>Current prices, taxes and additional charges.</li>
-              <li>Accommodation facilities, room capacity and amenities.</li>
-              <li>Restaurant opening hours, menu items and prices.</li>
-              <li>Reservation or booking confirmation requirements.</li>
-              <li>Cancellation, refund and no-show conditions.</li>
-              <li>Any special restrictions or requirements.</li>
+              <li>Availability for the required date and time.</li>
+              <li>Room type, number of rooms and accommodation capacity.</li>
+              <li>Total price, taxes and additional charges.</li>
+              <li>Check-in and check-out timings.</li>
+              <li>Amenities and facilities.</li>
+              <li>Restaurant operating hours and menu availability.</li>
+              <li>Food prices, quantities and special requirements.</li>
+              <li>Advance payment requirements.</li>
+              <li>Cancellation, modification and refund conditions.</li>
             </ul>
             <p>
-              An enquiry does not automatically mean that a booking, table
-              reservation or order has been confirmed.
+              Submitting an enquiry does not constitute a confirmed booking,
+              reservation or order.
+            </p>
+            <p>
+              A booking, reservation or order is considered confirmed only after
+              the applicable confirmation process has been completed and
+              confirmation details have been communicated.
             </p>
 
             <h2>4. Accommodation Bookings</h2>
             <p>
-              This section applies to hotels, resorts, homestays, villas,
-              cottages, guest houses, lodges, farm stays and other accommodation
-              businesses listed on LocalKokani.
+              LocalKokani may facilitate accommodation enquiries and bookings
+              for hotels, resorts, homestays, villas, cottages, guest houses,
+              lodges and other listed accommodation providers.
             </p>
 
-            <h3>4.1 Basic Listing (Free)</h3>
+            <h3>4.1 Basic Listing Accommodation Bookings</h3>
+            <p>For businesses using the Basic Listing plan:</p>
+            <ul>
+              <li>Travelers may submit enquiries through LocalKokani.</li>
+              <li>
+                LocalKokani may coordinate with the accommodation owner
+                regarding availability, pricing and booking conditions.
+              </li>
+              <li>
+                Once the traveler agrees to the applicable terms, the booking
+                may be confirmed through the agreed process.
+              </li>
+              <li>
+                LocalKokani may collect an advance payment from the traveler
+                where applicable.
+              </li>
+              <li>
+                The collected amount may be transferred to the accommodation
+                owner after deducting the agreed LocalKokani commission.
+              </li>
+              <li>
+                The owner&apos;s contact number may be shared with the traveler
+                as part of the booking process.
+              </li>
+            </ul>
             <p>
-              Under the Basic Listing plan, accommodation enquiries are routed
-              through LocalKokani&apos;s WhatsApp.
-            </p>
-            <p>The process generally works as follows:</p>
-            <ol>
-              <li>
-                You contact LocalKokani with your travel dates, number of guests
-                and accommodation requirements.
-              </li>
-              <li>
-                LocalKokani coordinates with the property owner to check
-                availability and booking details.
-              </li>
-              <li>The booking is confirmed according to the agreed process.</li>
-              <li>LocalKokani may collect an advance payment from you.</li>
-              <li>
-                LocalKokani confirms the booking with the owner and transfers
-                the collected advance after deducting the agreed commission.
-              </li>
-              <li>
-                LocalKokani shares the owner&apos;s contact number with you for
-                further communication.
-              </li>
-            </ol>
-            <p>
-              Before paying an advance, you should confirm the total price,
-              booking dates, accommodation details and cancellation conditions.
+              <strong>Commission for Basic Listing Accommodation Bookings</strong>
             </p>
             <p>
-              Please retain your booking confirmation, payment receipt and
-              relevant messages.
+              A fixed commission
+              <strong> per unique confirmed Booking Reference ID</strong>{" "}
+              applies to eligible Basic Listing accommodation bookings.
+            </p>
+            <p>
+              The commission applies once per confirmed Booking Reference ID,
+              regardless of the number of rooms, nights or guests included in
+              that booking.
+            </p>
+            <p>
+              For example, one confirmed Booking Reference ID covering three
+              rooms for two nights attracts fixed commission, not a separate
+              commission for each room or night.
+            </p>
+            <p>
+              If two independent bookings are confirmed under two separate
+              Reference IDs, the applicable commission is fixed for each
+              Reference ID.
+            </p>
+            <p>
+              The commission arrangement will be disclosed and accepted before
+              the booking is confirmed.
             </p>
 
-            <h3>4.2 Premium Plan</h3>
+            <h3>4.2 Premium Plan Accommodation Bookings</h3>
+            <p>For accommodation businesses using the Premium Plan:</p>
+            <ul>
+              <li>
+                Travelers may contact the property owner directly through the
+                contact details provided on the listing.
+              </li>
+              <li>
+                The property owner is responsible for confirming availability,
+                pricing and booking conditions.
+              </li>
+              <li>
+                Payments, booking confirmation, cancellation and refunds are
+                handled directly between the traveler and the property owner.
+              </li>
+            </ul>
             <p>
-              Under the Premium Plan, you can contact the accommodation owner
-              directly through the owner&apos;s WhatsApp number.
-            </p>
-            <p>
-              You and the owner are responsible for confirming availability,
-              prices, advance payments, booking conditions and final
-              confirmation.
-            </p>
-            <p>
-              Unless a separate arrangement is expressly communicated,
-              LocalKokani does not collect or process payments for these direct
-              bookings.
-            </p>
-            <p>
-              You should retain the owner&apos;s booking confirmation and payment
-              receipt for your records.
+              No standard fixed commission applies to direct transactions under
+              the Premium Plan unless a separate commission arrangement has been
+              disclosed and agreed to in writing.
             </p>
 
             <h3>4.3 Booking Confirmation</h3>
             <p>
-              A booking is confirmed only when the applicable booking process has
-              been completed and the relevant business has confirmed the
-              reservation.
+              Travelers should retain their Booking Reference ID, payment
+              receipt, confirmation message and other booking-related
+              communication.
             </p>
             <p>
-              Do not assume that a message, enquiry or availability check alone
-              guarantees a room or property.
+              Please verify all booking details before making payment,
+              including:
+            </p>
+            <ul>
+              <li>Property name and location.</li>
+              <li>Check-in and check-out dates.</li>
+              <li>Number of rooms and guests.</li>
+              <li>Total booking amount.</li>
+              <li>Advance paid and remaining balance.</li>
+              <li>Cancellation and refund conditions.</li>
+            </ul>
+            <p>
+              LocalKokani is not responsible for a booking that has not been
+              confirmed through the applicable process.
             </p>
 
             <h2>5. Cancellation and Refunds for Accommodation</h2>
             <p>
-              Each accommodation provider may have its own cancellation rules.
+              Cancellation and refund conditions may vary between accommodation
+              providers.
             </p>
             <p>
-              Before confirming a booking, read the cancellation conditions
-              displayed in the property&apos;s About section and confirm any
-              unclear terms directly with the owner.
+              The applicable cancellation policy, including deadlines,
+              deductions and refund eligibility, should be communicated before
+              booking confirmation.
             </p>
             <p>
-              These conditions may include free cancellation deadlines, advance
-              payment requirements, cancellation charges, no-show rules and
-              refund timelines.
-            </p>
-
-            <h3>5.1 Basic Listing Bookings</h3>
-            <p>
-              If LocalKokani collects your advance and transfers it to the owner
-              after deducting the agreed commission, the owner is responsible for
-              processing any refund due to you under the applicable booking
-              conditions and law.
-            </p>
-            <p>
-              If a booking is cancelled, LocalKokani will return its commission
-              to the owner as applicable under the agreed commission arrangement.
-              This commission reversal does not automatically mean that you are
-              entitled to a full refund; your refund entitlement depends on the
-              disclosed cancellation terms and applicable law.
-            </p>
-            <p>
-              If LocalKokani has not yet transferred your advance, contact us to
-              discuss your cancellation and any refund due.
+              Travelers should review and understand those conditions before
+              paying any advance or confirming a booking.
             </p>
 
-            <h3>5.2 Premium Plan Bookings</h3>
+            <h3>5.1 Basic Listing Accommodation Bookings</h3>
+            <p>For Basic Listing bookings:</p>
+            <ul>
+              <li>
+                If an advance payment is collected by LocalKokani, the payment
+                may be transferred to the property owner after deducting the
+                agreed commission.
+              </li>
+              <li>
+                If the advance has already been transferred to the property
+                owner, the property owner is responsible for processing any
+                customer refund due under the disclosed cancellation conditions
+                and applicable law.
+              </li>
+              <li>
+                If the advance is still held by LocalKokani, travelers should
+                contact LocalKokani regarding the applicable refund process.
+              </li>
+             
+              <li>
+                If the fixed commission has already been collected or deducted,
+                the fixed commission will be returned to the Partner under the agreed
+                arrangement.
+              </li>
+            </ul>
             <p>
-              For bookings arranged directly with a Premium Plan owner, contact
-              the owner directly regarding cancellations, rescheduling and
-              refunds.
-            </p>
-            <p>
-              LocalKokani does not ordinarily manage the payment or refund for
-              these direct bookings.
+              <strong>Important:</strong> Returning the commission to the
+              Partner is separate from refunding the traveler&apos;s advance
+              payment. The traveler&apos;s refund entitlement depends on the
+              cancellation conditions disclosed before confirmation and
+              applicable law.
             </p>
 
-            <h3>5.3 Cancellation by the Owner</h3>
+            <h3>5.2 Premium Plan Accommodation Bookings</h3>
             <p>
-              If an owner cancels a confirmed booking, the owner should notify
-              you promptly and arrange any refund due under the applicable
-              booking terms and law.
+              For Premium Plan bookings, travelers deal directly with the
+              accommodation owner.
             </p>
             <p>
-              The owner may offer alternative dates or accommodation, but you are
-              not required to accept an alternative you do not agree to.
+              Travelers must contact the property owner directly for cancellation
+              requests, refund status, booking modifications and related
+              concerns.
             </p>
+
+            <h3>5.3 Cancellation by the Property Owner</h3>
+            <p>If a property owner cancels a confirmed booking:</p>
+            <ul>
+              <li>The property owner should inform the traveler promptly.</li>
+              <li>
+                The property owner is responsible for refunding amounts due to
+                the traveler, subject to applicable law and the agreed booking
+                conditions.
+              </li>
+              <li>
+                Any alternative accommodation or revised booking arrangement is
+                subject to the traveler&apos;s acceptance.
+              </li>
+            </ul>
             <p>
-              For more details, read the{" "}
-              <a href="/cancellation-policy">Cancellation &amp; Refund Policy</a>.
+              LocalKokani may assist with communication where the booking was
+              facilitated through the platform, but does not guarantee the
+              availability of alternative accommodation.
             </p>
 
             <h2>6. Restaurants and Food Businesses</h2>
             <p>
-              LocalKokani helps travelers discover restaurants, Khanavals,
-              dhabas, eateries and other food businesses.
+              LocalKokani may display restaurants, Khanavals, dhabas and other
+              food businesses to help travelers discover local food options.
             </p>
             <p>
-              Before visiting a restaurant or confirming a table reservation, you
-              should verify its opening hours, current menu, prices, availability
-              and any reservation conditions.
+              Restaurant menus, food prices, operating hours, seating capacity
+              and availability are provided by the respective businesses and may
+              change without prior notice.
             </p>
+            <p>
+              Travelers should verify the following before placing an order or
+              requesting a reservation:
+            </p>
+            <ul>
+              <li>Restaurant opening and closing hours.</li>
+              <li>Menu items and availability.</li>
+              <li>Food prices and additional charges.</li>
+              <li>Table availability and reservation conditions.</li>
+              <li>Order preparation and collection time.</li>
+              <li>Delivery or takeaway availability.</li>
+              <li>Payment and cancellation conditions.</li>
+            </ul>
 
-            <h3>6.1 Restaurant Reservations</h3>
+            <h3>6.1 Restaurant Reservations and Food Orders</h3>
             <p>
-              For Premium Plan restaurants, you can contact the owner directly to
-              confirm a table reservation.
+              LocalKokani may facilitate restaurant table reservations, food
+              orders and takeaway enquiries.
             </p>
             <p>
-              For Basic Listing businesses, enquiries may be coordinated through
-              LocalKokani. Any advance payment and the applicable cancellation
-              conditions should be communicated before confirmation.
+              <strong>Basic Listing Restaurants and Food Businesses</strong>
             </p>
-            <p>
-              The restaurant is responsible for its seating availability, service,
-              prices and reservation arrangements.
-            </p>
-
-            <h3>6.2 Food Quality and Incorrect Orders</h3>
-            <p>
-              The restaurant or food business is responsible for preparing and
-              supplying the food it advertises.
-            </p>
-            <p>
-              If food is unsatisfactory, incorrect, incomplete, damaged or not
-              delivered as agreed, contact the restaurant or food business
-              directly as soon as possible.
-            </p>
-            <p>
-              LocalKokani does not ordinarily prepare, package, sell or deliver
-              food and cannot guarantee food quality, order accuracy or
-              fulfilment by independent businesses. The relevant business is
-              responsible for reviewing complaints and providing any remedy
-              required by the applicable terms and law.
-            </p>
-            <p>
-              Nothing in these Terms removes any consumer rights or legal
-              responsibilities that cannot lawfully be excluded.
-            </p>
-
-            <h2>7. Payments and Receipts</h2>
-            <p>Payment arrangements depend on the business and partner plan.</p>
             <ul>
               <li>
-                <strong>Basic Listing accommodation booking:</strong> LocalKokani
-                may collect an advance and transfer it to the owner after
-                deducting the agreed commission.
+                Travelers may submit reservation or food order enquiries through
+                LocalKokani.
               </li>
               <li>
-                <strong>Premium Plan booking:</strong> You generally pay the
-                owner directly.
+                LocalKokani may coordinate with the restaurant regarding table
+                availability, menu items, prices and order details.
               </li>
               <li>
-                <strong>Restaurant reservation or food order:</strong> Payment is
-                made according to the arrangement confirmed by the restaurant or
-                relevant service provider.
+                The restaurant or food business must confirm the reservation or
+                order through the applicable process.
+              </li>
+              <li>
+                Payment may be collected by LocalKokani or directly by the
+                restaurant, depending on the agreed arrangement.
+              </li>
+              <li>
+                Travelers should verify the order details, total amount and
+                applicable conditions before confirmation.
               </li>
             </ul>
             <p>
-              Always confirm the payment recipient, amount, booking details and
-              refund conditions before paying.
+              <strong>
+                Commission for Basic Listing Restaurant and Food Transactions
+              </strong>
             </p>
             <p>
-              Retain receipts, transaction references and booking confirmations.
-              Never share your banking passwords, OTPs or payment-card security
-              details with a business or an individual claiming to represent
-              LocalKokani.
+              A fixed commission 
+              <strong> per unique confirmed Booking / Order Reference ID</strong>{" "}
+              applies to eligible Basic Listing restaurant and food
+              transactions.
+            </p>
+            <p>This includes:</p>
+            <ul>
+              <li>Restaurant table reservations.</li>
+              <li>Restaurant bookings.</li>
+              <li>Food orders.</li>
+              <li>Takeaway orders.</li>
+              <li>
+                Orders placed with Khanavals, dhabas and other listed food
+                businesses.
+              </li>
+            </ul>
+            <p>
+              The fixed commission applies once per unique confirmed Reference
+              ID, regardless of the number of food items, quantities or guests
+              included in that transaction.
+            </p>
+            <p>
+              For example, one confirmed Order Reference ID containing five food
+              items attracts fixed commission, not fixed commissions per food item.
+            </p>
+            <p>
+              Two independent confirmed orders under two separate Reference IDs
+              attract fixed commission each.
+            </p>
+            <p>
+              No commission is payable for an enquiry or a transaction that has
+              not been confirmed.
+            </p>
+            <p>
+              The commission arrangement will be disclosed and accepted before
+              the transaction is confirmed.
+            </p>
+          
+            <p>
+              <strong>Premium Plan Restaurants and Food Businesses</strong>
+            </p>
+            <p>
+              Travelers may contact Premium Plan restaurants and food businesses
+              directly.
+            </p>
+            <p>
+              The restaurant is responsible for confirming reservations,
+              accepting orders, collecting payments and handling cancellations.
+            </p>
+            <p>
+              No standard fixed commission applies to direct Premium Plan
+              transactions unless a separate commission arrangement has been
+              disclosed and agreed to in writing.
+            </p>
+
+            <h3>6.2 Food Quality and Incorrect Orders</h3>
+            <p>The restaurant or food business is responsible for:</p>
+            <ul>
+              <li>Food preparation and quality.</li>
+              <li>Food hygiene and safety.</li>
+              <li>
+                Ingredients and allergen information supplied by the business.
+              </li>
+              <li>Correct order preparation.</li>
+              <li>Food packaging and takeaway handling.</li>
+              <li>Pricing and quantity.</li>
+              <li>Timely order fulfilment.</li>
+              <li>Applicable food safety and licensing requirements.</li>
+            </ul>
+            <p>
+              If a traveler receives incorrect, incomplete, damaged or
+              unsatisfactory food, the traveler should contact the restaurant or
+              food business directly as soon as possible.
+            </p>
+            <p>
+              The relevant business is responsible for reviewing the complaint
+              and providing any appropriate correction, replacement or refund
+              under its disclosed policy and applicable law.
+            </p>
+            <p>
+              LocalKokani does not ordinarily prepare, package, sell or deliver
+              food and is not responsible for the restaurant&apos;s food
+              preparation, quality or delivery operations.
+            </p>
+            <p>
+              However, where LocalKokani has directly collected a payment or
+              facilitated a transaction, travelers may contact LocalKokani for
+              assistance with communication and transaction-related information.
+            </p>
+            <p>
+              Nothing in these Terms limits any consumer rights or remedies
+              available to travelers under applicable law.
+            </p>
+
+            <h2>7. Payments and Receipts</h2>
+            <p>
+              Payment arrangements depend on the listing type and the specific
+              transaction.
+            </p>
+
+            <h3>7.1 Basic Listing Accommodation Payments</h3>
+            <p>
+              For Basic Listing accommodation bookings, LocalKokani may collect
+              an advance payment from the traveler and transfer the applicable
+              balance to the property owner after deducting the agreed fixed
+              commission.
+            </p>
+            <p>
+              Where the property owner directly collects payment for a Basic
+              Listing booking, the property owner remains responsible for paying
+              the agreed fixed commission to LocalKokani.
+            </p>
+
+            <h3>7.2 Basic Listing Restaurant and Food Payments</h3>
+            <p>
+              For Basic Listing restaurant reservations and food orders, payment
+              may be collected by LocalKokani or directly by the restaurant,
+              depending on the arrangement communicated before confirmation.
+            </p>
+            <p>
+              Where LocalKokani collects payment, the agreed fixed commission may
+              be deducted before transferring the balance to the restaurant or
+              food business.
+            </p>
+            <p>
+              Where the restaurant directly collects payment, the restaurant is
+              responsible for paying the agreed fixed commission to LocalKokani.
+            </p>
+
+            <h3>7.3 Premium Plan Payments</h3>
+            <p>
+              For Premium Plan accommodation and restaurant transactions,
+              travelers generally make payments directly to the respective
+              business owner.
+            </p>
+            <p>
+              LocalKokani does not ordinarily collect or process payments for
+              these direct transactions.
+            </p>
+
+            <h3>7.4 Commission and Reference IDs</h3>
+            <p>
+              The following commission rules apply to eligible Basic Listing
+              transactions:
+            </p>
+            <ul>
+              <li>fixed commission per unique confirmed Booking / Order Reference ID.</li>
+              <li>
+                One Reference ID attracts only one fixed commission, regardless
+                of rooms, nights, guests, food items or quantities.
+              </li>
+              <li>
+                Each separate confirmed Reference ID attracts a separate fixed
+                commission.
+              </li>
+              <li>
+                Enquiries and unconfirmed transactions do not attract
+                commission.
+              </li>
+              <li>
+                Modifications under the same Reference ID do not attract an
+                additional commission solely because of the modification.
+              </li>
+              <li>
+                If the confirmed transaction is cancelled, LocalKokani will not
+                retain the commission for that cancelled transaction. Any
+                commission already collected or deducted will be returned to the
+                Partner in full under the agreed arrangement.
+              </li>
+            </ul>
+            <p>
+              The commission and payment arrangement must be disclosed and
+              accepted before the transaction is confirmed.
+            </p>
+
+            <h3>7.5 Payment Safety</h3>
+            <p>Before making any payment, travelers should verify:</p>
+            <ul>
+              <li>The recipient&apos;s name and payment details.</li>
+              <li>The total amount payable.</li>
+              <li>The Booking or Order Reference ID.</li>
+              <li>The advance amount and remaining balance.</li>
+              <li>The applicable cancellation and refund conditions.</li>
+            </ul>
+            <p>Travelers should retain payment receipts and transaction records.</p>
+            <p>
+              Never share your OTP, UPI PIN, banking password, card PIN or other
+              confidential financial credentials with anyone.
             </p>
 
             <h2>8. Premium Badge and Custom Badges</h2>
             <p>
-              The LocalKokani Premium badge indicates that a business has an
-              active paid subscription with LocalKokani.
+              A Premium badge on a LocalKokani listing indicates that the
+              business has an active paid Premium subscription with LocalKokani.
             </p>
             <p>
-              It is not a government certification, tourism licence, guarantee of
-              service quality or food safety certification.
+              Custom badges such as &quot;Top Rated&quot; or other listing
+              labels may be displayed according to the applicable listing
+              criteria and platform arrangements.
             </p>
             <p>
-              Custom badges, such as &quot;Top Rated,&quot; may be displayed
-              according to LocalKokani&apos;s applicable criteria. They should
-              not be treated as a guarantee that every customer will have a
-              particular experience.
+              A Premium badge does not mean that the business has been certified,
+              approved or guaranteed by a government authority or that
+              LocalKokani guarantees the quality of its accommodation, food or
+              services.
             </p>
             <p>
-              You should independently confirm important business details before
-              making a booking or purchase.
+              Travelers should independently verify important business
+              information before making a booking, reservation or order.
             </p>
 
             <h2>9. Travel Safety and Accidents</h2>
             <p>
-              Travel involves risks, including road accidents, injuries, illness,
-              severe weather, flooding, landslides, transport disruptions and
-              other unforeseen circumstances.
+              Travelers are responsible for their own safety and personal
+              belongings during travel and while using accommodation,
+              restaurants and other third-party services.
+            </p>
+            <p>Travelers should:</p>
+            <ul>
+              <li>Follow applicable traffic and road safety rules.</li>
+              <li>Use appropriate safety equipment while travelling.</li>
+              <li>Follow local laws and instructions.</li>
+              <li>Take reasonable precautions in unfamiliar locations.</li>
+              <li>Check weather and road conditions before travelling.</li>
+              <li>
+                Follow safety instructions provided by property owners and
+                service providers.
+              </li>
+              <li>
+                Contact the relevant emergency services in case of an accident
+                or emergency.
+              </li>
+            </ul>
+            <p>
+              LocalKokani does not control roads, traffic, weather,
+              transportation providers, property conditions or the conduct of
+              independent businesses.
             </p>
             <p>
-              You are responsible for making informed travel decisions, following
-              official safety advisories, taking reasonable precautions and
-              obtaining appropriate travel or personal insurance where suitable.
+              LocalKokani is not responsible for accidents, injuries, theft,
+              loss, damage or other incidents arising from travel or the use of
+              third-party services, except to the extent that liability cannot
+              legally be excluded under applicable law.
             </p>
             <p>
-              LocalKokani does not control road conditions, weather, independent
-              transport providers, accommodation operations or every aspect of
-              your journey.
-            </p>
-            <p>
-              To the extent permitted by applicable law, LocalKokani is not
-              responsible for accidents, injuries, losses or incidents arising
-              from travel activities or services independently provided by third
-              parties.
-            </p>
-            <p>
-              This provision does not exclude or limit any legal responsibility
-              that cannot lawfully be excluded, including responsibility arising
-              from LocalKokani&apos;s own legally actionable conduct.
-            </p>
-            <p>
-              In an emergency, contact the appropriate local emergency services
-              and follow official safety instructions.
+              Nothing in this section limits any rights or remedies available to
+              travelers under applicable law.
             </p>
 
             <h2>10. User Conduct</h2>
-            <p>When using LocalKokani, you agree to:</p>
+            <p>While using LocalKokani, travelers agree not to:</p>
             <ul>
-              <li>Provide accurate information when submitting enquiries.</li>
-              <li>Treat business owners and other users respectfully.</li>
-              <li>Use contact details only for legitimate purposes.</li>
+              <li>Provide false or misleading information.</li>
+              <li>Make fraudulent enquiries, bookings or orders.</li>
+              <li>Use the platform for unlawful activities.</li>
+              <li>Harass, threaten or abuse business owners or other users.</li>
+              <li>Submit false reviews or misleading complaints.</li>
+              <li>Misuse business contact details.</li>
               <li>
-                Avoid fraudulent bookings, harassment and misleading statements.
+                Attempt unauthorized access to the website or its systems.
               </li>
-              <li>Avoid submitting fake reviews or false complaints.</li>
               <li>
-                Respect the privacy and intellectual property rights of others.
+                Interfere with the website&apos;s operation or security.
               </li>
-              <li>Comply with applicable laws and regulations.</li>
+              <li>
+                Use the platform to distribute spam, malicious content or
+                harmful material.
+              </li>
             </ul>
             <p>
-              LocalKokani may restrict access or take other reasonable action
-              where there is evidence of misuse, fraud, unlawful activity or a
-              breach of these Terms.
+              LocalKokani may restrict or suspend access where misuse, fraud or
+              violation of these Terms is identified.
             </p>
 
             <h2>11. Reviews and Complaints</h2>
             <p>
-              If you experience a problem with a listed business, contact the
-              business directly and retain relevant booking confirmations,
-              receipts and communications.
+              Travelers may share genuine feedback about their experience with
+              listed businesses.
+            </p>
+            <p>Reviews and complaints should be:</p>
+            <ul>
+              <li>Honest and based on actual experience.</li>
+              <li>Relevant to the service received.</li>
+              <li>Respectful and free from abusive or defamatory language.</li>
+              <li>Free from false claims, spam or misleading information.</li>
+            </ul>
+            <p>
+              LocalKokani may review, moderate, remove or restrict content that
+              violates these Terms or applicable law.
             </p>
             <p>
-              You may also contact LocalKokani to report an issue with a listing
-              or request assistance communicating with the business.
+              For complaints relating to accommodation, food quality, incorrect
+              orders, reservations, payments or refunds, travelers should first
+              contact the relevant business.
             </p>
             <p>
-              LocalKokani may review complaints and request relevant information.
-              However, we do not guarantee a particular dispute outcome and are
-              not automatically responsible for resolving disputes relating to
-              services independently provided by a business.
+              Where LocalKokani facilitated the transaction, travelers may also
+              contact LocalKokani with the relevant Reference ID and supporting
+              details.
             </p>
             <p>
-              Reviews and complaints must be honest, relevant and lawful. We may
-              remove content that violates our policies or applicable law.
+              LocalKokani may assist with communication but does not guarantee a
+              particular outcome or resolution.
             </p>
 
             <h2>12. Privacy and Contact Information</h2>
             <p>
-              When you submit an enquiry, some information, such as your name,
-              contact details, travel dates or requirements, may be shared with
-              the relevant business to respond to your request.
+              LocalKokani may collect and use personal information such as
+              names, phone numbers, enquiry details and booking-related
+              information to facilitate enquiries, bookings, reservations and
+              customer support.
             </p>
             <p>
-              We handle personal information in accordance with our Privacy Policy
-              and applicable law.
+              Personal information will be handled in accordance with our{" "}
+              <a href="/privacy-policy">Privacy Policy</a> and applicable data
+              protection laws.
             </p>
             <p>
-              Businesses receiving your information are responsible for using it
-              lawfully and for protecting it against unauthorized access or
-              misuse.
+              Travelers should provide accurate contact details and should not
+              share another person&apos;s personal information without
+              appropriate authorization.
             </p>
             <p>
-              For more information, please review our{" "}
-              <a href="/privacy-policy">Privacy Policy</a> and{" "}
-              <a href="/cookie-policy">Cookie Policy</a>.
+              For more information, please read our{" "}
+              <a href="/privacy-policy">Privacy Policy</a>.
             </p>
 
             <h2>13. Third-Party Services</h2>
             <p>
-              LocalKokani may provide links or features connecting you to
-              third-party services, including WhatsApp, Google Maps, social media
-              platforms and external websites.
+              LocalKokani may contain links, maps, payment options,
+              communication tools or other services provided by third parties.
             </p>
             <p>
-              Those services are governed by their own terms and privacy
+              These third-party services may have their own terms, privacy
+              policies and operating conditions.
+            </p>
+            <p>
+              LocalKokani does not control all third-party services and is not
+              responsible for their independent operations, availability or
               policies.
             </p>
             <p>
-              LocalKokani does not control the operation or availability of
-              external services and is not responsible for their independent
-              practices, subject to applicable law.
+              Travelers should review the applicable terms before using
+              third-party services.
             </p>
 
             <h2>14. Limitation of Responsibility</h2>
             <p>
-              LocalKokani aims to provide a useful platform for discovering local
-              businesses and coordinating enquiries.
+              LocalKokani makes reasonable efforts to maintain useful and
+              accurate platform information. However, we do not guarantee that:
+            </p>
+            <ul>
+              <li>Every listing is available at all times.</li>
+              <li>All business information is always current.</li>
+              <li>Every enquiry will result in a confirmed booking.</li>
+              <li>
+                A listed business will meet every traveler&apos;s expectations.
+              </li>
+              <li>
+                A third-party business will fulfil every service without delay
+                or issue.
+              </li>
+              <li>The website will remain uninterrupted or error-free.</li>
+            </ul>
+            <p>
+              Accommodation, restaurant services, food preparation,
+              transportation and other third-party services are provided by
+              independent businesses or service providers.
             </p>
             <p>
-              To the extent permitted by applicable law, we do not guarantee that
-              every listing is complete or current, that a business will have
-              availability, or that an independently operated business will
-              provide a particular service or outcome.
+              To the extent permitted by applicable law, LocalKokani is not
+              responsible for losses, damages, service failures or disputes
+              arising directly from services provided by independent businesses.
             </p>
             <p>
-              LocalKokani is not ordinarily responsible for disputes arising
-              directly between travelers and independent accommodation providers,
-              restaurants or other service providers, except to the extent
-              responsibility arises under applicable law or from
-              LocalKokani&apos;s own conduct.
-            </p>
-            <p>
-              Nothing in these Terms excludes or limits liability or consumer
-              rights that cannot lawfully be excluded or limited.
+              Nothing in these Terms excludes or limits liability that cannot
+              legally be excluded or limited under applicable Indian law,
+              including applicable consumer protection rights.
             </p>
 
             <h2>15. Changes to These Terms</h2>
             <p>
-              LocalKokani may update these Terms to reflect changes in the
-              website, services or applicable law.
+              LocalKokani may update these Terms from time to time to reflect
+              changes in platform operations, services, business arrangements or
+              applicable laws.
             </p>
             <p>
-              The latest version will be published on this page with an updated
-              effective date.
+              The updated version will be published on this page with a revised
+              Effective Date.
             </p>
             <p>
-              Changes affecting an existing confirmed booking will be handled
-              according to the terms applicable to that booking and any mandatory
-              legal requirements.
+              The revised commission and payment terms effective from{" "}
+              <strong>2 November 2026</strong> apply to eligible transactions
+              confirmed on or after that date, subject to the applicable
+              disclosure and acceptance requirements.
             </p>
+            <p>
+              Transactions confirmed before 2 November 2026 will remain governed
+              by the commission and payment arrangements applicable when they
+              were confirmed, unless the parties expressly agree otherwise.
+            </p>
+            <p>Travelers should review this page periodically for updates.</p>
 
             <h2>16. Governing Law and Dispute Resolution</h2>
             <p>These Terms are governed by the laws of India.</p>
             <p>
-              Disputes should first be addressed through good-faith communication
-              where appropriate. If a dispute cannot be resolved informally, it
-              may be referred to a competent court or forum under applicable law
-              in Maharashtra, India, subject to mandatory jurisdiction and
-              consumer protection requirements.
+              Any dispute relating to the use of LocalKokani or these Terms
+              should first be addressed through good-faith communication.
             </p>
             <p>
-              Nothing in this clause prevents you from exercising a statutory
-              right or approaching a competent authority or forum where permitted
-              by law.
+              If the dispute cannot be resolved through communication, it may be
+              referred to the competent courts or authorities having jurisdiction
+              under applicable Indian law.
+            </p>
+            <p>
+              Nothing in this section affects any statutory rights or remedies
+              available to consumers under applicable law.
             </p>
 
             <h2>17. Contact Us</h2>
             <p>
-              For questions about these Terms, booking enquiries coordinated
-              through LocalKokani, or concerns about a listing, contact:
+              For questions, feedback, booking-related enquiries or assistance
+              concerning these Terms, please contact:
             </p>
             <p>
               <strong>LocalKokani</strong>
             </p>
             <ul>
               <li>
-                <strong>Website:</strong>{" "}
-                <a
-                  href="https://www.localkokani.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://www.localkokani.com
-                </a>
+                <strong>Service Area:</strong> Konkan, Maharashtra, India
               </li>
               <li>
                 <strong>Email:</strong>{" "}
@@ -535,16 +817,19 @@ export default function TermsForTravelersPage() {
               </li>
              
               <li>
-                <strong>Service Area:</strong> Konkan, Maharashtra, India
+                <strong>Website:</strong>{" "}
+                <a
+                  href="https://localkokani.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://localkokani.com/
+                </a>
               </li>
             </ul>
-
-            <hr />
-
             <p>
-              By using LocalKokani, you acknowledge that you have read these Terms
-              for Travelers and agree to the provisions applicable to your use of
-              the platform, subject to applicable law.
+              We will make reasonable efforts to respond to genuine enquiries
+              and complaints.
             </p>
 
             <hr />

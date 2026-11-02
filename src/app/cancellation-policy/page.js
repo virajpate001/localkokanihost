@@ -5,13 +5,13 @@ import { buildMetadata } from "@/utils/seo";
 export const metadata = buildMetadata({
   title: "Cancellation & Refund Policy | Local Kokani",
   description:
-    "Rules for accommodation bookings, restaurant reservations, food-related complaints, and partner subscription cancellations and refunds on Local Kokani.",
+    "Rules for accommodation bookings, restaurant reservations, food orders, food-related complaints, and partner subscription cancellations, including the some fixed commission and its reversal on cancellation.",
   path: "/cancellation-policy",
   keywords: [
     "cancellation policy",
     "refund policy",
-    "booking cancellation",
-    "reservation cancellation",
+    "food order cancellation",
+    "restaurant reservation cancellation",
     "partner subscription refund",
     "local kokani cancellation",
   ],
@@ -23,7 +23,10 @@ export default function CancellationPolicyPage() {
       <div className="bg-secondary dark:bg-gray-900">
         <Breadcrumbs
           items={[
-            { name: "Cancellation & Refund Policy", url: "/cancellation-policy" },
+            {
+              name: "Cancellation & Refund Policy",
+              url: "/cancellation-policy",
+            },
           ]}
         />
       </div>
@@ -34,7 +37,7 @@ export default function CancellationPolicyPage() {
             Cancellation &amp; Refund Policy
           </h1>
           <p className="text-gray-400 text-sm mb-10">
-            Effective Date: 17 October 2026
+            Effective Date: 2 November 2026
           </p>
 
           <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-primary prose-a:text-secondary">
@@ -47,26 +50,34 @@ export default function CancellationPolicyPage() {
             </p>
             <p>
               This Cancellation &amp; Refund Policy explains the rules for
-              accommodation bookings, restaurant reservations, food-related
-              complaints and partner subscription cancellations.
+              accommodation bookings, restaurant reservations, food orders,
+              food-related complaints and Partner subscription cancellations.
             </p>
-            <p>LocalKokani offers two partner plans:</p>
+            <p>LocalKokani offers two Partner Plans:</p>
             <ul>
               <li>
                 <strong>Basic Listing (Free):</strong> Customer enquiries are
-                routed through LocalKokani&apos;s WhatsApp, and commission
-                applies to confirmed bookings under the agreed terms.
+                routed through LocalKokani&apos;s WhatsApp, and a commission
+                applies to eligible confirmed transactions under the agreed
+                terms.
               </li>
               <li>
                 <strong>Premium Plan (Paid):</strong> Customers can contact the
                 business owner directly through the owner&apos;s WhatsApp
-                number, with additional listing and other features.
+                number, with additional listing features.
               </li>
             </ul>
             <p>
               The cancellation and refund process depends on the selected
-              partner plan and the terms communicated by the relevant business
-              before a booking or reservation is confirmed.
+              Partner Plan, the payment arrangement and the conditions
+              communicated by the relevant business before a booking,
+              reservation or order is confirmed.
+            </p>
+            <p>
+              This policy should be read together with our{" "}
+              <a href="/terms-and-conditions">Terms and Conditions</a>,{" "}
+              <a href="/terms-for-travelers">Terms for Travelers</a> and{" "}
+              <a href="/terms-for-partners">Terms for Partners</a>.
             </p>
 
             <h2>2. Cancellation Rules for Accommodation Bookings</h2>
@@ -75,9 +86,7 @@ export default function CancellationPolicyPage() {
               cottages, guest houses, lodges, farm stays and other accommodation
               businesses listed on LocalKokani.
             </p>
-            <p>
-              Each property may have its own cancellation rules, including:
-            </p>
+            <p>Each property may have its own cancellation rules, including:</p>
             <ul>
               <li>Free cancellation deadlines.</li>
               <li>Advance payment and deposit conditions.</li>
@@ -90,12 +99,10 @@ export default function CancellationPolicyPage() {
               </li>
             </ul>
             <p>
-              <strong>
-                Travelers must read the cancellation rules displayed in the
-                property&apos;s description or About section and confirm the
-                applicable terms with the owner before making a booking or
-                paying an advance.
-              </strong>
+              Travelers must read the cancellation rules displayed in the
+              property&apos;s description or About section and confirm the
+              applicable terms with the owner before making a booking or paying
+              an advance.
             </p>
             <p>
               Once a booking is confirmed, the cancellation conditions agreed
@@ -110,7 +117,9 @@ export default function CancellationPolicyPage() {
             </p>
             <p>The process generally works as follows:</p>
             <ol>
-              <li>The traveler contacts LocalKokani with a booking enquiry.</li>
+              <li>
+                The traveler contacts LocalKokani with a booking enquiry.
+              </li>
               <li>
                 LocalKokani coordinates with the property owner to check
                 availability and booking details.
@@ -137,24 +146,23 @@ export default function CancellationPolicyPage() {
               apply.
             </p>
             <p>
-              Once the advance has been transferred to the owner,{" "}
-              <strong>
-                the property owner is responsible for handling any refund due to
-                the traveler
-              </strong>
-              , in accordance with the agreed cancellation conditions and
+              Once the advance has been transferred to the owner, the property
+              owner is responsible for handling any refund due to the traveler,
+              in accordance with the agreed cancellation conditions and
               applicable law.
             </p>
+           
             <p>
-              If the booking is cancelled and a refund is due, LocalKokani will
-              return its deducted commission to the owner, as applicable, to
-              facilitate the refund process.
+              If the commission has already been collected or deducted, the
+              full commission will be returned to the Partner under the agreed
+              arrangement.
             </p>
             <p>
-              The return of LocalKokani&apos;s commission does not itself mean
-              that the traveler is automatically entitled to a full refund. The
-              amount and eligibility of the traveler&apos;s refund depend on the
-              booking&apos;s disclosed cancellation terms and applicable law.
+              <strong>Important:</strong> Returning LocalKokani&apos;s commission
+              to the Partner does not automatically mean that the traveler is
+              entitled to a full refund. The amount and eligibility of the
+              traveler&apos;s refund depend on the booking&apos;s disclosed
+              cancellation terms and applicable law.
             </p>
 
             <h3>3.2 Refund Requests</h3>
@@ -165,9 +173,7 @@ export default function CancellationPolicyPage() {
             </p>
             <p>
               LocalKokani may assist with communication or provide relevant
-              booking information where reasonably possible. However, LocalKokani
-              does not guarantee a particular refund outcome when the booking and
-              refund are being handled by the owner.
+              booking information where reasonably possible.
             </p>
             <p>
               Where LocalKokani has not yet transferred the advance, travelers
@@ -211,16 +217,12 @@ export default function CancellationPolicyPage() {
               </li>
             </ul>
             <p>
-              <strong>
-                LocalKokani does not collect or process the advance for these
-                direct bookings unless a separate arrangement is expressly
-                agreed. LocalKokani is not responsible for managing the
-                cancellation or refund of a direct booking handled by the owner.
-              </strong>
+              LocalKokani does not collect or process the advance for these
+              direct bookings unless a separate arrangement is expressly agreed.
             </p>
             <p>
-              Travelers should contact the owner directly if they need to
-              cancel, change a booking or request a refund.
+              Travelers should contact the owner directly if they need to cancel,
+              change a booking or request a refund.
             </p>
             <p>
               LocalKokani may assist with communication where appropriate, but
@@ -228,31 +230,106 @@ export default function CancellationPolicyPage() {
               refunded.
             </p>
 
-            <h2>5. Restaurant Table Reservations</h2>
+            <h2>5. Restaurant Table Reservations, Food Orders and Takeaway</h2>
             <p>
               This section applies to restaurants, Khanavals, dhabas and other
               food businesses listed on LocalKokani.
             </p>
             <p>
-              Before confirming a table reservation, travelers should check the
-              restaurant&apos;s stated cancellation conditions and confirm any
-              deposit, advance payment, late-arrival or no-show rules directly
-              with the restaurant.
+              Before confirming a table reservation or food order, travelers
+              should check the business&apos;s stated cancellation conditions and
+              confirm any deposit, advance payment, late-arrival, no-show or
+              order cancellation rules.
             </p>
+
+            <h3>5.1 Restaurant Table Reservations</h3>
             <p>
-              For Premium Plan businesses, travelers contact the restaurant owner
-              directly. The restaurant owner is responsible for managing the
-              reservation, any cancellation and any refund due.
+              For Premium Plan businesses, travelers contact the restaurant
+              owner directly. The restaurant owner is responsible for managing
+              the reservation, any cancellation and any refund due.
             </p>
             <p>
               For Basic Listing businesses, enquiries may be coordinated through
-              LocalKokani. If a restaurant reservation involves an advance
-              collected by LocalKokani, the applicable payment and cancellation
-              conditions will be communicated before confirmation.
+              LocalKokani.
+            </p>
+            <p>
+              If a restaurant reservation involves an advance collected by
+              LocalKokani, the applicable payment and cancellation conditions
+              will be communicated before confirmation.
             </p>
             <p>
               Any cancellation fee or deposit restriction must be disclosed
               before the customer commits and must comply with applicable law.
+            </p>
+
+            <h3>5.2 Food Orders and Takeaway Cancellations</h3>
+            <p>
+              For Basic Listing food businesses, LocalKokani may coordinate food
+              orders and takeaway requests through its communication channels.
+            </p>
+            <p>Before confirming an order, the customer should verify:</p>
+            <ul>
+              <li>Items and quantities ordered.</li>
+              <li>Total order amount.</li>
+              <li>
+                Preparation and collection or delivery time, where applicable.
+              </li>
+              <li>Payment arrangements.</li>
+              <li>Cancellation conditions.</li>
+              <li>Any applicable refund restrictions.</li>
+            </ul>
+            <p>
+              Once a food order has been accepted and preparation has started,
+              cancellation or refund eligibility may depend on the disclosed
+              order conditions and applicable law.
+            </p>
+            <p>
+              If an order cannot be fulfilled by the restaurant, the restaurant
+              should inform the customer promptly and provide any refund or
+              appropriate remedy due under the applicable conditions and law.
+            </p>
+            <p>
+              For Premium Plan businesses, customers contact and pay the
+              restaurant directly. The restaurant is responsible for order
+              cancellation, payment and any refund due.
+            </p>
+
+            <h3>5.3 Commission on Restaurant Reservations and Food Orders</h3>
+            <p>
+              A fixed commission 
+              <strong>per unique confirmed Booking / Order Reference ID</strong>{" "}
+              applies to eligible Basic Listing restaurant and food
+              transactions.
+            </p>
+            <p>This includes:</p>
+            <ul>
+              <li>Restaurant table reservations.</li>
+              <li>Restaurant bookings.</li>
+              <li>Khanaval and dhaba reservations.</li>
+              <li>Food orders.</li>
+              <li>Takeaway orders.</li>
+            </ul>
+            <p>
+              One unique confirmed Reference ID attracts only one Fixed
+              commission, regardless of the number of food items, quantities or
+              guests included in that transaction.
+            </p>
+            <p>
+              Two separate confirmed Reference IDs attract Fixed
+               commission each.
+            </p>
+            <p>
+              An enquiry or unconfirmed transaction does not attract commission.
+            </p>
+            <p>
+              If the
+              commission has already been collected or deducted, the full commission
+              will be returned to the Partner under the agreed arrangement.
+            </p>
+            <p>
+              No standard fixed commission applies to direct Premium Plan
+              transactions unless a separate commission arrangement is disclosed
+              and agreed to in writing.
             </p>
 
             <h2>6. Food Quality, Incorrect or Incomplete Orders</h2>
@@ -263,9 +340,18 @@ export default function CancellationPolicyPage() {
             </p>
             <p>
               The food business is responsible for the food it prepares or
-              supplies, including its quality, quantity, hygiene, safety and
-              accuracy.
+              supplies, including:
             </p>
+            <ul>
+              <li>Food quality and quantity.</li>
+              <li>Hygiene and safety.</li>
+              <li>Correct order preparation.</li>
+              <li>
+                Ingredients and allergen information supplied by the business.
+              </li>
+              <li>Packaging and takeaway handling.</li>
+              <li>Order fulfilment and applicable delivery services.</li>
+            </ul>
             <p>
               If food is unsatisfactory, incorrect, incomplete, damaged or not
               delivered as agreed, the customer should contact the restaurant or
@@ -278,11 +364,11 @@ export default function CancellationPolicyPage() {
               required by its stated terms and applicable law.
             </p>
             <p>
-              <strong>
-                LocalKokani is not responsible for food preparation, food
-                quality, incorrect items, missing items or fulfilment of orders
-                handled directly by the food business.
-              </strong>{" "}
+              LocalKokani is not responsible for food preparation, food quality,
+              incorrect items, missing items or fulfilment of orders handled
+              directly by the food business.
+            </p>
+            <p>
               LocalKokani may assist with communication where reasonably
               possible, but cannot guarantee a particular resolution.
             </p>
@@ -293,25 +379,33 @@ export default function CancellationPolicyPage() {
 
             <h2>7. Cancellation by a Property or Restaurant</h2>
             <p>
-              If a property owner or restaurant cancels a confirmed booking or
-              reservation, the business should inform the customer promptly and
-              explain the available options.
+              If a property owner or restaurant cancels a confirmed booking,
+              reservation or order, the business should inform the customer
+              promptly and explain the available options.
             </p>
             <p>
               Any advance payment or deposit must be refunded where required by
-              the applicable booking terms and law.
+              the applicable booking or order terms and law.
             </p>
             <p>
-              The business may offer an alternative date, accommodation option
-              or service, but the customer is not required to accept an
-              alternative they do not agree to.
+              The business may offer an alternative date, accommodation option or
+              service, but the customer is not required to accept an alternative
+              they do not agree to.
             </p>
             <p>
               For Basic Listing accommodation bookings where LocalKokani
-              collected and transferred the advance, the owner is responsible
-              for arranging any refund due after receiving the payment.
-              LocalKokani will return its commission to the owner as applicable
-              to support the refund process.
+              collected and transferred the advance, the owner is responsible for
+              arranging any refund due after receiving the payment.
+            </p>
+            <p>
+              For Basic Listing restaurant reservations and food orders, the
+              restaurant or food business is responsible for any customer refund
+              due where it received the payment.
+            </p>
+            <p>
+              If a confirmed Basic Listing transaction is cancelled, LocalKokani
+              will return the fixed commission to the Partner if it has
+              already been collected or deducted.
             </p>
             <p>
               For Premium Plan bookings and direct restaurant transactions, the
@@ -327,7 +421,7 @@ export default function CancellationPolicyPage() {
                 subscription.
               </li>
               <li>
-                Custom badges, such as &quot;Top Rated,&quot; where awarded under
+                Custom badges, such as &quot;Top Rated&quot;, where awarded under
                 applicable criteria.
               </li>
               <li>Direct WhatsApp enquiries to the owner&apos;s number.</li>
@@ -337,37 +431,40 @@ export default function CancellationPolicyPage() {
 
             <h3>8.1 Cancelling a Premium Subscription</h3>
             <p>
-              A partner who wishes to discontinue the Premium Plan may contact
+              A Partner who wishes to discontinue the Premium Plan may contact
               LocalKokani at{" "}
               <a href="mailto:localkokani001@gmail.com">
                 localkokani001@gmail.com
               </a>
               .
             </p>
-            <p>
-              The request should include the registered business name, contact
-              details and subscription information.
-            </p>
+            <p>The request should include:</p>
+            <ul>
+              <li>Registered business name.</li>
+              <li>Partner contact details.</li>
+              <li>Subscription information.</li>
+              <li>A request to discontinue the Premium Plan.</li>
+            </ul>
 
             <h3>8.2 Non-Refundable Subscription Fee</h3>
             <p>
-              <strong>
-                The Premium Plan subscription fee is non-refundable once the
-                subscription has been activated
-              </strong>
-              , including when a partner chooses to discontinue the plan before
-              its expiry date, except where a refund is required by applicable
-              law or expressly agreed in writing by LocalKokani.
+              The Premium Plan subscription fee is non-refundable once the
+              subscription has been activated, including when a Partner chooses
+              to discontinue the plan before its expiry date, except where a
+              refund is required by applicable law or expressly agreed in writing
+              by LocalKokani.
             </p>
             <p>
               When the subscription expires or is cancelled, Premium features and
-              the Premium badge may be removed or deactivated. A business may
-              remain listed under the Basic Listing plan if it continues to meet
-              the applicable listing requirements.
+              the Premium badge may be removed or deactivated.
             </p>
             <p>
-              A Premium badge indicates an active paid LocalKokani subscription;
-              it is not a government certification, guarantee of service quality
+              A business may remain listed under the Basic Listing plan if it
+              continues to meet the applicable listing requirements.
+            </p>
+            <p>
+              A Premium badge indicates an active paid LocalKokani subscription.
+              It is not a government certification, guarantee of service quality
               or food safety certification.
             </p>
 
@@ -386,17 +483,15 @@ export default function CancellationPolicyPage() {
             <p>
               LocalKokani operates as a business discovery and enquiry
               facilitation platform. It does not organize or supervise every
-              aspect of a traveler&apos;s journey and does not control independent
-              property owners, restaurants, transport providers, roads or
-              weather conditions.
+              aspect of a traveler&apos;s journey and does not control
+              independent property owners, restaurants, transport providers,
+              roads or weather conditions.
             </p>
             <p>
-              <strong>
-                To the extent permitted by applicable law, LocalKokani is not
-                responsible for accidents, injuries, losses or other incidents
-                arising from a traveler&apos;s journey or from services
-                independently provided by a listed business.
-              </strong>
+              To the extent permitted by applicable law, LocalKokani is not
+              responsible for accidents, injuries, losses or other incidents
+              arising from a traveler&apos;s journey or from services
+              independently provided by a listed business.
             </p>
             <p>
               This statement does not exclude or limit any liability or legal
@@ -414,36 +509,53 @@ export default function CancellationPolicyPage() {
             </p>
             <ul>
               <li>
-                <strong>Basic Listing booking:</strong> If LocalKokani collected
-                an advance and transferred it to the owner, the owner is
-                responsible for any refund due after the transfer. LocalKokani
+                <strong>Basic Listing Accommodation:</strong> If LocalKokani
+                collected an advance and transferred it to the owner, the owner
+                is responsible for any refund due after the transfer. LocalKokani
                 will return its commission to the owner as applicable when the
                 booking is cancelled.
               </li>
               <li>
-                <strong>Premium Plan booking:</strong> The traveler contacts the
-                owner directly, and the owner handles any refund due.
+                <strong>Premium Plan Accommodation:</strong> The traveler
+                contacts the owner directly, and the owner handles any refund
+                due.
               </li>
               <li>
-                <strong>Restaurant reservation or food order:</strong> The
-                restaurant or the party that received the payment is responsible
-                for processing any refund due, subject to the applicable terms
-                and law.
+                <strong>
+                  Basic Listing Restaurant Reservations and Food Orders:
+                </strong>{" "}
+                The restaurant or the party that received the payment is
+                responsible for processing any refund due, subject to the
+                applicable conditions and law. LocalKokani will return the fixed
+                commission to the Partner if the confirmed transaction is
+                cancelled and the commission has already been collected or
+                deducted.
               </li>
               <li>
-                <strong>Premium subscription fee:</strong> Non-refundable after
+                <strong>Premium Plan Restaurant Transactions:</strong> The
+                restaurant handles cancellation and any refund due for direct
+                transactions.
+              </li>
+              <li>
+                <strong>Premium Subscription Fee:</strong> Non-refundable after
                 activation, except where required by law or expressly agreed in
                 writing.
               </li>
             </ul>
             <p>
-              Travelers should retain booking confirmations, payment receipts,
-              messages and cancellation records.
+              Travelers should retain booking confirmations, order
+              confirmations, payment receipts, messages and cancellation
+              records.
             </p>
             <p>
               Any refund processing time may depend on the payment method, bank
-              or other payment provider. The responsible party should communicate
-              the expected processing time where reasonably possible.
+              or other payment provider. The responsible party should
+              communicate the expected processing time where reasonably
+              possible.
+            </p>
+            <p>
+              The return of commission to a Partner and the refund payable to a
+              customer are separate obligations.
             </p>
 
             <h2>11. How to Contact LocalKokani</h2>
@@ -458,11 +570,11 @@ export default function CancellationPolicyPage() {
               <li>
                 <strong>Website:</strong>{" "}
                 <a
-                  href="https://www.localkokani.com"
+                  href="https://localkokani.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.localkokani.com
+                  https://localkokani.com/
                 </a>
               </li>
               <li>
@@ -471,27 +583,45 @@ export default function CancellationPolicyPage() {
                   localkokani001@gmail.com
                 </a>
               </li>
-             
+            
               <li>
                 <strong>Service Area:</strong> Konkan, Maharashtra, India
               </li>
             </ul>
             <p>
-              When contacting us, please provide the business name, booking
-              reference if available, transaction date and a brief description
-              of your request. Do not send passwords or full payment-card
+              When contacting us, please provide the business name, booking or
+              order reference if available, transaction date and a brief
+              description of your request.
+            </p>
+            <p>
+              Do not send passwords, OTPs, UPI PINs or full payment-card
               details.
             </p>
 
             <h2>12. Policy Updates</h2>
             <p>
               LocalKokani may update this policy to reflect changes in its
-              services, partner arrangements or applicable law.
+              services, Partner arrangements or applicable law.
             </p>
             <p>
               The latest version will be published on this page with a revised
-              effective date. Changes to an existing booking will be subject to
-              the conditions applicable to that booking and any mandatory legal
+              Effective Date.
+            </p>
+            <p>
+              The revised fixed commission and cancellation rules are effective
+              from <strong>2 November 2026</strong> and apply to eligible
+              transactions confirmed on or after that date, subject to the
+              applicable disclosure and acceptance requirements.
+            </p>
+            <p>
+              Transactions confirmed before 2 November 2026 will remain subject
+              to the cancellation, payment and commission arrangements
+              applicable when they were confirmed, unless the parties expressly
+              agree otherwise.
+            </p>
+            <p>
+              Changes to an existing booking or order will be subject to the
+              conditions applicable to that transaction and any mandatory legal
               requirements.
             </p>
 
@@ -499,19 +629,22 @@ export default function CancellationPolicyPage() {
             <p>This policy is governed by the laws of India.</p>
             <p>
               Any dispute will be handled in accordance with applicable law and
-              the relevant agreement. Nothing in this policy removes any
-              statutory consumer right or remedy that cannot lawfully be
-              excluded.
+              the relevant agreement.
+            </p>
+            <p>
+              Nothing in this policy removes any statutory consumer right or
+              remedy that cannot lawfully be excluded.
             </p>
 
             <hr />
 
             <p>
               <strong>Important for Travelers:</strong> Before paying an advance
-              or confirming a booking, read the cancellation rules in the
-              property&apos;s or restaurant&apos;s About section and confirm any
-              unclear conditions directly with the owner. Keep a copy of the
-              terms and payment confirmation for your records.
+              or confirming a booking, reservation or food order, read the
+              cancellation rules in the property&apos;s or restaurant&apos;s
+              About section and confirm any unclear conditions directly with the
+              owner. Keep a copy of the applicable terms and payment confirmation
+              for your records.
             </p>
 
             <hr />
