@@ -8,51 +8,49 @@ const STORAGE_KEY = "localkokani_disclaimer_accepted_v1";
 
 export default function DisclaimerPopup() {
   const pathname = usePathname();
-  const [isVisible, setIsVisible] = useState(true);
+
+  // Initially hidden to prevent popup flashing during refresh.
+  const [isVisible, setIsVisible] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
-    // Do not show the popup on the disclaimer page or admin pages.
     if (
       pathname === "/disclaimer" ||
       pathname?.startsWith("/admin")
     ) {
       setIsVisible(false);
+      setIsChecked(true);
       return;
     }
 
     try {
-      const accepted = localStorage.getItem(STORAGE_KEY) === "accepted";
+      const accepted =
+        localStorage.getItem(STORAGE_KEY) === "accepted";
+
       setIsVisible(!accepted);
     } catch (error) {
-      // If browser storage is unavailable, require acceptance
-      // for the current page visit.
       setIsVisible(true);
     }
+
+    setIsChecked(true);
   }, [pathname]);
 
   const handleAccept = () => {
     try {
       localStorage.setItem(STORAGE_KEY, "accepted");
     } catch (error) {
-      // The popup will still close for this page visit.
+      // Acceptance lasts for this page visit if storage is unavailable.
     }
 
     setIsVisible(false);
   };
 
-  if (
-    !isVisible ||
-    pathname === "/disclaimer" ||
-    pathname?.startsWith("/admin")
-  ) {
+  if (!isChecked || !isVisible) {
     return null;
   }
 
   return (
-    <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-black/70 p-4 backdrop-blur-sm"
-      role="presentation"
-    >
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-black/70 p-4 backdrop-blur-sm">
       <section
         role="dialog"
         aria-modal="true"
@@ -69,6 +67,7 @@ export default function DisclaimerPopup() {
             <p className="text-sm font-semibold uppercase tracking-wider text-[#3193a6]">
               LocalKokani
             </p>
+
             <h2
               id="disclaimer-title"
               className="text-xl font-bold text-gray-900 dark:text-white"
@@ -88,9 +87,7 @@ export default function DisclaimerPopup() {
             the Konkan region.
           </p>
 
-          <p>
-            Please keep the following points in mind:
-          </p>
+          <p>Please keep the following points in mind:</p>
 
           <ul className="list-disc space-y-2 pl-5">
             <li>
