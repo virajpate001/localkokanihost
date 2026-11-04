@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -9,7 +9,7 @@ import { FiMail, FiLoader } from "react-icons/fi";
 import Image from "next/image";
 import { useOwnerAuth } from "@/context/OwnerAuthContext";
 
-export default function OwnerVerifyEmailPage() {
+function OwnerVerifyEmailContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const email = (searchParams.get("email") || "").trim().toLowerCase();
@@ -175,5 +175,19 @@ export default function OwnerVerifyEmailPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function OwnerVerifyEmailPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <p className="text-gray-500">Loading email verification...</p>
+        </div>
+      }
+    >
+      <OwnerVerifyEmailContent />
+    </Suspense>
   );
 }
