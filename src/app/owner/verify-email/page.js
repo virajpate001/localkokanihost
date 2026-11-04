@@ -1,3 +1,4 @@
+// src/app/owner/verify-email/page.js
 
 "use client";
 
@@ -43,11 +44,19 @@ function OwnerVerifyEmailContent() {
       toast.success("Email verified successfully!");
       router.replace("/owner/dashboard");
     } catch (error) {
+      // Already verified: send them to the normal login (a password is required there).
+      if (error.code === "auth/already-verified") {
+        toast.success("This email is already verified. Please log in.");
+        router.replace("/owner/login");
+        return;
+      }
+
       const messages = {
         "auth/invalid-verification-code": "That code is incorrect. Please try again.",
         "auth/verification-expired": "Your code has expired. Please request a new one.",
         "auth/verification-not-found": "No active code was found. Please request a new one.",
         "auth/verification-too-many-attempts": "Too many incorrect attempts. Request a new code.",
+        "auth/too-many-requests": "Too many attempts. Please wait a few minutes and try again.",
       };
 
       setMessage(messages[error.code] || "Verification failed. Please try again.");
@@ -67,6 +76,8 @@ function OwnerVerifyEmailContent() {
         setMessage(`Please wait ${result.retryAfter} seconds before requesting another code.`);
       } else if (result.error === "auth/verification-hourly-limit") {
         setMessage("You have reached the email limit. Please try again later.");
+      } else if (result.error === "auth/too-many-requests") {
+        setMessage("Too many requests. Please try again later.");
       } else if (result.error) {
         setMessage("We couldn't send the email. Please try again later.");
       } else if (result.alreadyVerified) {

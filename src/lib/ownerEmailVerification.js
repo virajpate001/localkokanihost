@@ -1,4 +1,3 @@
-
 import "server-only";
 
 import { createHmac, randomInt, timingSafeEqual } from "node:crypto";
@@ -136,7 +135,6 @@ export async function verifyOwnerOtp(ownerId, submittedOtp) {
 
   const rows = await query(
     `SELECT otpHash,
-            attempts,
             (expiresAt > UTC_TIMESTAMP()) AS notExpired
      FROM owner_email_verifications
      WHERE ownerId = ?
@@ -156,7 +154,16 @@ export async function verifyOwnerOtp(ownerId, submittedOtp) {
     return { error: "auth/verification-expired" };
   }
 
-  if (Number(verification.attempts) >= 5) {
+  // Reserve one attempt atomically BEFORE comparing, so parallel requests
+  // cannot sneak in extra guesses. Allows at most 5 guesses per code.
+  const reserved = await query(
+    `UPDATE owner_email_verifications
+     SET attempts = attempts + 1, updatedAt = ?
+     WHERE ownerId = ? AND attempts < 5`,
+    [nowSql(), ownerId]
+  );
+
+  if (reserved.affectedRows !== 1) {
     return { error: "auth/verification-too-many-attempts" };
   }
 
@@ -168,12 +175,6 @@ export async function verifyOwnerOtp(ownerId, submittedOtp) {
     timingSafeEqual(submittedHash, storedHash);
 
   if (!matches) {
-    await query(
-      `UPDATE owner_email_verifications
-       SET attempts = attempts + 1, updatedAt = ?
-       WHERE ownerId = ?`,
-      [nowSql(), ownerId]
-    );
     return { error: "auth/invalid-verification-code" };
   }
 

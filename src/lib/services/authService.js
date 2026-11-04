@@ -5,36 +5,32 @@
 import bcrypt from "bcryptjs";
 import { query } from "@/lib/db";
 import { newId, nowSql, rowToDoc } from "@/lib/sqlHelpers";
+import { rateLimitByIp, cleanText } from "@/lib/security";
 import {
-  createAdminSession,
-  destroyAdminSession,
-  getAdminSession,
-  createOwnerSession,
-  destroyOwnerSession,
-  getOwnerSession,
+  createAdminSession, destroyAdminSession, getAdminSession,
+  createOwnerSession, destroyOwnerSession, getOwnerSession,
 } from "@/lib/auth";
-import { rateLimitByIp } from "@/lib/security";
 import {
   sendOwnerVerificationCode,
   verifyOwnerOtp,
 } from "@/lib/ownerEmailVerification";
 
+// Never send the password hash (or other raw columns) to the browser.
+function publicOwnerProfile(row) {
+  const { passwordHash, ...safe } = row;
+  return rowToDoc(safe);
+}
+
 // ───────── Admin ─────────
 
 export async function adminLogin(email, password) {
   // Brute-force protection: 8 attempts per 15 minutes per IP + email
-  const cleanEmail = String(email || "")
-    .trim()
-    .toLowerCase()
-    .slice(0, 120);
+  const cleanEmail = String(email || "").trim().toLowerCase().slice(0, 120);
   const rl = await rateLimitByIp("admin-login", 8, 15 * 60 * 1000, cleanEmail);
   if (!rl.allowed) return { error: "auth/too-many-requests" };
 
-  const rows = await query("SELECT * FROM admins WHERE email = ? LIMIT 1", [
-    cleanEmail,
-  ]);
+  const rows = await query("SELECT * FROM admins WHERE email = ? LIMIT 1", [cleanEmail]);
   const admin = rows[0];
-
   // Same error for "no such user" and "wrong password" so attackers can't tell which emails exist.
   if (!admin) return { error: "auth/invalid-credential" };
 
@@ -57,38 +53,26 @@ export async function getCurrentAdmin() {
   return { uid: session.uid, email: session.email };
 }
 
+// ───────── Owner ─────────
 
- // ───────── Owner ─────────
-
-export async function ownerSignup({
-  fullName,
-  email,
-  mobile,
-  whatsapp,
-  password,
-}) {
+export async function ownerSignup({ fullName, email, mobile, whatsapp, password }) {
+  // 5 signups per hour per IP
   const rl = await rateLimitByIp("owner-signup", 5, 60 * 60 * 1000);
   if (!rl.allowed) return { error: "auth/too-many-requests" };
 
-  if (
-    typeof password !== "string" ||
-    password.length < 8 ||
-    password.length > 128
-  ) {
+  if (typeof password !== "string" || password.length < 8 || password.length > 128) {
     return { error: "auth/weak-password" };
   }
 
   const cleanEmail = String(email || "").trim().toLowerCase().slice(0, 120);
-
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
     return { error: "auth/invalid-email" };
   }
 
-  const existing = await query(
-    "SELECT id FROM owners WHERE email = ? LIMIT 1",
-    [cleanEmail]
-  );
+  const cleanName = cleanText(fullName, 80);
+  if (cleanName.length < 2) return { error: "auth/invalid-name" };
 
+  const existing = await query("SELECT id FROM owners WHERE email = ? LIMIT 1", [cleanEmail]);
   if (existing.length) return { error: "auth/email-already-in-use" };
 
   const id = newId();
@@ -97,18 +81,24 @@ export async function ownerSignup({
 
   const profile = {
     uid: id,
-    fullName,
+    fullName: cleanName,
     email: cleanEmail,
-    mobile,
-    whatsapp,
+    mobile: String(mobile || "").replace(/\D/g, "").slice(-10),
+    whatsapp: String(whatsapp || "").replace(/\D/g, "").slice(-10),
   };
 
-  await query(
-    `INSERT INTO owners
-      (id, email, passwordHash, data, createdAt, updatedAt, emailVerified)
-     VALUES (?, ?, ?, ?, ?, ?, 0)`,
-    [id, cleanEmail, passwordHash, JSON.stringify(profile), now, now]
-  );
+  try {
+    await query(
+      `INSERT INTO owners
+        (id, email, passwordHash, data, createdAt, updatedAt, emailVerified)
+       VALUES (?, ?, ?, ?, ?, ?, 0)`,
+      [id, cleanEmail, passwordHash, JSON.stringify(profile), now, now]
+    );
+  } catch (error) {
+    // Two signups with the same email at the same moment: the unique key catches the second one.
+    if (error?.code === "ER_DUP_ENTRY") return { error: "auth/email-already-in-use" };
+    throw error;
+  }
 
   const emailResult = await sendOwnerVerificationCode(cleanEmail);
 
@@ -122,34 +112,18 @@ export async function ownerSignup({
 export async function ownerLogin(email, password) {
   const cleanEmail = String(email || "").trim().toLowerCase().slice(0, 120);
 
-  const rl = await rateLimitByIp(
-    "owner-login",
-    8,
-    15 * 60 * 1000,
-    cleanEmail
-  );
-
+  const rl = await rateLimitByIp("owner-login", 8, 15 * 60 * 1000, cleanEmail);
   if (!rl.allowed) return { error: "auth/too-many-requests" };
 
-  const rows = await query(
-    "SELECT * FROM owners WHERE email = ? LIMIT 1",
-    [cleanEmail]
-  );
-
+  const rows = await query("SELECT * FROM owners WHERE email = ? LIMIT 1", [cleanEmail]);
   const owner = rows[0];
-
   if (!owner) return { error: "auth/invalid-credential" };
 
-  const ok = await bcrypt.compare(
-    String(password || ""),
-    owner.passwordHash
-  );
-
+  const ok = await bcrypt.compare(String(password || ""), owner.passwordHash);
   if (!ok) return { error: "auth/invalid-credential" };
 
   if (Number(owner.emailVerified) !== 1) {
     const emailResult = await sendOwnerVerificationCode(cleanEmail);
-
     return {
       error: "auth/email-not-verified",
       emailSent: !emailResult.error,
@@ -160,51 +134,49 @@ export async function ownerLogin(email, password) {
 
   return {
     user: { uid: owner.id, email: owner.email },
-    profile: rowToDoc(owner),
+    profile: publicOwnerProfile(owner),
   };
 }
 
 export async function ownerVerifyEmail(email, otp) {
   const cleanEmail = String(email || "").trim().toLowerCase().slice(0, 120);
 
-  const rows = await query(
-    "SELECT * FROM owners WHERE email = ? LIMIT 1",
-    [cleanEmail]
-  );
+  const rl = await rateLimitByIp("owner-verify", 10, 15 * 60 * 1000, cleanEmail);
+  if (!rl.allowed) return { error: "auth/too-many-requests" };
 
+  const rows = await query("SELECT * FROM owners WHERE email = ? LIMIT 1", [cleanEmail]);
   const owner = rows[0];
 
-  if (!owner) return { error: "auth/user-not-found" };
+  // Same answer whether or not the account exists.
+  if (!owner) return { error: "auth/invalid-verification-code" };
 
-  if (Number(owner.emailVerified) === 1) {
-    await createOwnerSession(owner);
-    return {
-      user: { uid: owner.id, email: owner.email },
-      profile: rowToDoc(owner),
-    };
-  }
+  // Already verified: NEVER create a session here. Logging in needs the password.
+  if (Number(owner.emailVerified) === 1) return { error: "auth/already-verified" };
 
   const result = await verifyOwnerOtp(owner.id, otp);
-
   if (result.error) return result;
 
-  const updatedRows = await query(
-    "SELECT * FROM owners WHERE id = ? LIMIT 1",
-    [owner.id]
-  );
-
+  const updatedRows = await query("SELECT * FROM owners WHERE id = ? LIMIT 1", [owner.id]);
   const updatedOwner = updatedRows[0];
 
   await createOwnerSession(updatedOwner);
 
   return {
     user: { uid: updatedOwner.id, email: updatedOwner.email },
-    profile: rowToDoc(updatedOwner),
+    profile: publicOwnerProfile(updatedOwner),
   };
 }
 
 export async function ownerResendVerification(email) {
-  return sendOwnerVerificationCode(email);
+  const rl = await rateLimitByIp("owner-resend", 10, 60 * 60 * 1000);
+  if (!rl.allowed) return { error: "auth/too-many-requests" };
+
+  const result = await sendOwnerVerificationCode(email);
+
+  // Don't reveal whether the email is registered.
+  if (result.error === "auth/user-not-found") return { ok: true };
+
+  return result;
 }
 
 export async function ownerLogout() {
@@ -214,13 +186,9 @@ export async function ownerLogout() {
 
 export async function getCurrentOwner() {
   const session = await getOwnerSession();
-
   if (!session) return null;
 
-  const rows = await query(
-    "SELECT * FROM owners WHERE id = ? LIMIT 1",
-    [session.uid]
-  );
+  const rows = await query("SELECT * FROM owners WHERE id = ? LIMIT 1", [session.uid]);
 
   if (!rows.length || Number(rows[0].emailVerified) !== 1) {
     await destroyOwnerSession();
@@ -229,6 +197,6 @@ export async function getCurrentOwner() {
 
   return {
     user: { uid: session.uid, email: session.email },
-    profile: rowToDoc(rows[0]),
+    profile: publicOwnerProfile(rows[0]),
   };
 }
