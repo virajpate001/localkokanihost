@@ -35,10 +35,23 @@ export default function OwnerLoginPage() {
       router.push("/owner/dashboard");
     } catch (err) {
       console.error("Login error:", err.code);
-       setError(
+      if (err.code === "auth/email-not-verified") {
+        toast.error(
+          err.emailSent
+            ? "Please verify your email. We sent you a new code."
+            : "Please verify your email. Use the resend option to request a code.",
+        );
+
+        router.push(
+          `/owner/verify-email?email=${encodeURIComponent(email.trim())}`,
+        );
+        return;
+      }
+
+      setError(
         err.code === "auth/too-many-requests"
           ? "Too many attempts. Please try again in a few minutes."
-          : "Incorrect email or password"
+          : "Incorrect email or password",
       );
     } finally {
       setIsSubmitting(false);

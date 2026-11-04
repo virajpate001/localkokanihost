@@ -106,6 +106,11 @@ export default function Footer({ logoUrl }) {
                 Blog
               </Link>
             </li>
+             <li>
+              <Link href="/wishlist" className="hover:text-accent">
+                Wishlist
+              </Link>
+            </li>
             <li>
               <Link href="/sitemap.xml" className="hover:text-accent">
                 Sitemap

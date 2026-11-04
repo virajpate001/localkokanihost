@@ -59,9 +59,7 @@ export default function DisclaimerPopup() {
         className="my-auto w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl dark:bg-gray-900 sm:p-8"
       >
         <div className="mb-5 flex items-center gap-3">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-teal-50 text-2xl dark:bg-teal-900/30">
-            🛡️
-          </div>
+        
 
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-[#3193a6]">

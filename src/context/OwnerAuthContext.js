@@ -1,9 +1,14 @@
-// src/context/OwnerAuthContext.js
+
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
 import {
-  ownerLogin, ownerLogout, ownerSignup, getCurrentOwner,
+  ownerLogin,
+  ownerLogout,
+  ownerSignup,
+  getCurrentOwner,
+  ownerVerifyEmail,
+  ownerResendVerification,
 } from "@/lib/services/authService";
 
 const OwnerAuthContext = createContext(null);
@@ -15,9 +20,11 @@ export function OwnerAuthProvider({ children }) {
 
   useEffect(() => {
     let mounted = true;
+
     getCurrentOwner()
       .then((result) => {
         if (!mounted) return;
+
         if (result) {
           setOwner(result.user);
           setOwnerProfile(result.profile);
@@ -26,32 +33,57 @@ export function OwnerAuthProvider({ children }) {
       .finally(() => {
         if (mounted) setLoading(false);
       });
+
     return () => {
       mounted = false;
     };
   }, []);
 
-  const signup = async ({ fullName, email, mobile, whatsapp, password }) => {
-    const result = await ownerSignup({ fullName, email, mobile, whatsapp, password });
+  const signup = async (details) => {
+    const result = await ownerSignup(details);
+
     if (result.error) {
       const err = new Error(result.error);
       err.code = result.error;
       throw err;
     }
-    setOwner(result.user);
-    return result.user;
+
+    return result;
   };
 
   const login = async (email, password) => {
     const result = await ownerLogin(email, password);
+
+    if (result.error) {
+      const err = new Error(result.error);
+      err.code = result.error;
+      err.emailSent = result.emailSent;
+      throw err;
+    }
+
+    setOwner(result.user);
+    setOwnerProfile(result.profile);
+
+    return result.user;
+  };
+
+  const verifyEmail = async (email, otp) => {
+    const result = await ownerVerifyEmail(email, otp);
+
     if (result.error) {
       const err = new Error(result.error);
       err.code = result.error;
       throw err;
     }
+
     setOwner(result.user);
     setOwnerProfile(result.profile);
+
     return result.user;
+  };
+
+  const resendVerification = async (email) => {
+    return ownerResendVerification(email);
   };
 
   const logout = async () => {
@@ -61,7 +93,18 @@ export function OwnerAuthProvider({ children }) {
   };
 
   return (
-    <OwnerAuthContext.Provider value={{ owner, ownerProfile, loading, signup, login, logout }}>
+    <OwnerAuthContext.Provider
+      value={{
+        owner,
+        ownerProfile,
+        loading,
+        signup,
+        login,
+        verifyEmail,
+        resendVerification,
+        logout,
+      }}
+    >
       {children}
     </OwnerAuthContext.Provider>
   );
@@ -69,6 +112,10 @@ export function OwnerAuthProvider({ children }) {
 
 export function useOwnerAuth() {
   const context = useContext(OwnerAuthContext);
-  if (!context) throw new Error("useOwnerAuth must be used within an OwnerAuthProvider");
+
+  if (!context) {
+    throw new Error("useOwnerAuth must be used within an OwnerAuthProvider");
+  }
+
   return context;
 }

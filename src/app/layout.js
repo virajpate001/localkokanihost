@@ -101,7 +101,7 @@ export default async function RootLayout({ children }) {
         <ThemeProvider>
           <AuthProvider>
             <OwnerAuthProvider>
-              <WishlistProvider>
+              <WishlistProvider> 
                 <NextTopLoader color="#3193a6" showSpinner={false} height={3} />
                 <Navbar logoUrl={settings.logo?.url} />
                 <main id="main-content" className="min-h-screen">
