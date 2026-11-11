@@ -24,8 +24,8 @@ export default function Footer({ logoUrl }) {
 
   return (
     <footer className="bg-primary text-white ">
-      <div className="container-custom pt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-        <div>
+      <div className="container-custom pt-16 grid grid-cols-2 md:grid-cols-4 gap-10">
+        <div class=" col-span-2 md:col-span-1">
           <div className="flex items-center gap-2 mb-4">
             <div className="relative w-10 h-10 shrink-0">
               {logoUrl ? (
@@ -106,7 +106,7 @@ export default function Footer({ logoUrl }) {
                 Blog
               </Link>
             </li>
-             <li>
+            <li>
               <Link href="/wishlist" className="hover:text-accent">
                 Wishlist
               </Link>
@@ -119,13 +119,13 @@ export default function Footer({ logoUrl }) {
           </ul>
         </div>
 
-        <div>
+        <div class=" col-span-2 md:col-span-1">
           <h4 className="font-display font-semibold text-lg mb-4">
             Get in Touch
           </h4>
           <ul className="space-y-3 text-white/70 text-sm">
             <li className="flex items-center gap-2">
-              <FiMail /> localkokani001@gmail.com
+              <FiMail /> localkokani@gmail.com
             </li>
             <li className="flex items-center gap-2">
               <FiPhone /> +{whatsappNumber}
@@ -162,7 +162,7 @@ export default function Footer({ logoUrl }) {
                 Partner Login
               </Link>
             </li>
-           
+
             <li>
               <Link href="/partner-agreement" className="hover:text-accent">
                 Partner Agreement

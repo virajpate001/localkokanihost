@@ -96,15 +96,7 @@ export default function DisclaimerPopup() {
               Please confirm prices, availability, booking conditions and
               property details directly with the relevant business.
             </li>
-            <li>
-              Independent businesses are responsible for the services they
-              provide, including accommodation, food, payments and customer
-              transactions.
-            </li>
-            <li>
-              An enquiry does not automatically mean that a booking or
-              reservation is confirmed.
-            </li>
+            
           </ul>
 
           <p>

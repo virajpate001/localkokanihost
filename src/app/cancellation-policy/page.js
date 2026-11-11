@@ -434,7 +434,7 @@ export default function CancellationPolicyPage() {
               A Partner who wishes to discontinue the Premium Plan may contact
               LocalKokani at{" "}
               <a href="mailto:localkokani001@gmail.com">
-                localkokani001@gmail.com
+                localkokani@gmail.com
               </a>
               .
             </p>
@@ -580,7 +580,7 @@ export default function CancellationPolicyPage() {
               <li>
                 <strong>Email:</strong>{" "}
                 <a href="mailto:localkokani001@gmail.com">
-                  localkokani001@gmail.com
+                  localkokani@gmail.com
                 </a>
               </li>
             

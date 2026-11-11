@@ -980,7 +980,7 @@ export default function TermsForPartnersPage() {
               <li>
                 <strong>Email:</strong>{" "}
                 <a href="mailto:localkokani001@gmail.com">
-                  localkokani001@gmail.com
+                  localkokani@gmail.com
                 </a>
               </li>
             
